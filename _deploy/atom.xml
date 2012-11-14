@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Ruby on Rails Blog]]></title>
-  <link href="http://Andrew-Ken.github.com/atom.xml" rel="self"/>
-  <link href="http://Andrew-Ken.github.com/"/>
-  <updated>2012-11-12T20:53:47-05:00</updated>
-  <id>http://Andrew-Ken.github.com/</id>
+  <link href="http://@github.com.github.com/atom.xml" rel="self"/>
+  <link href="http://@github.com.github.com/"/>
+  <updated>2012-11-13T19:55:14-05:00</updated>
+  <id>http://@github.com.github.com/</id>
   <author>
     <name><![CDATA[Ken Lu, Andrew Sheelan]]></name>
     
@@ -14,10 +14,39 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Configuring Mac Vim for Programming]]></title>
+    <link href="http://@github.com.github.com/blog/2012/11/13/configuring-mac-vim-for-programming/"/>
+    <updated>2012-11-13T19:47:00-05:00</updated>
+    <id>http://@github.com.github.com/blog/2012/11/13/configuring-mac-vim-for-programming</id>
+    <content type="html"><![CDATA[<ol>
+<li>Download and install the latest mvim from</li>
+</ol>
+
+
+<p><a href="http://code.google.com/p/macvim/">macvim link</a></p>
+
+<ol>
+<li>Clone the latest dotvim configuration from the Web.</li>
+</ol>
+
+
+<p>Here&#8217;s one good source:</p>
+
+<p><a href="https://github.com/astrails/dotvim">Dotvim</a></p>
+
+<ol>
+<li><p>Follow the steps given in the dotvim config readme to Setup .vim and .vimrc files for enabling the best settings</p></li>
+<li><p>Make sure that the git source for dotvim is updated regularly.</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Mountain Lion and Homebrew]]></title>
-    <link href="http://Andrew-Ken.github.com/blog/2012/11/12/mountain-lion-and-homebrew/"/>
+    <link href="http://@github.com.github.com/blog/2012/11/12/mountain-lion-and-homebrew/"/>
     <updated>2012-11-12T20:42:00-05:00</updated>
-    <id>http://Andrew-Ken.github.com/blog/2012/11/12/mountain-lion-and-homebrew</id>
+    <id>http://@github.com.github.com/blog/2012/11/12/mountain-lion-and-homebrew</id>
     <content type="html"><![CDATA[<p><a href="https://gist.github.com/1860902">SOURCE</a></p>
 
 <p>Get Mountain Lion and Homebrew to Be Happy:</p>
@@ -80,9 +109,9 @@ You might need to install libxml2 and link it manually to make sure you don&#821
   
   <entry>
     <title type="html"><![CDATA[GCC command line tools]]></title>
-    <link href="http://Andrew-Ken.github.com/blog/2012/11/12/gcc-command-line-tools/"/>
+    <link href="http://@github.com.github.com/blog/2012/11/12/gcc-command-line-tools/"/>
     <updated>2012-11-12T20:29:00-05:00</updated>
-    <id>http://Andrew-Ken.github.com/blog/2012/11/12/gcc-command-line-tools</id>
+    <id>http://@github.com.github.com/blog/2012/11/12/gcc-command-line-tools</id>
     <content type="html"><![CDATA[<p>When the bundling gems fail in Mac OS X, Download the latest GCC standalone file from the link below:</p>
 
 <p><a href="https://github.com/kennethreitz/osx-gcc-installer/downloads">gcc standalone tools</a></p>
@@ -91,9 +120,9 @@ You might need to install libxml2 and link it manually to make sure you don&#821
   
   <entry>
     <title type="html"><![CDATA[Learning regular expressions]]></title>
-    <link href="http://Andrew-Ken.github.com/blog/2012/11/12/learning-regular-expressions/"/>
+    <link href="http://@github.com.github.com/blog/2012/11/12/learning-regular-expressions/"/>
     <updated>2012-11-12T15:54:00-05:00</updated>
-    <id>http://Andrew-Ken.github.com/blog/2012/11/12/learning-regular-expressions</id>
+    <id>http://@github.com.github.com/blog/2012/11/12/learning-regular-expressions</id>
     <content type="html"><![CDATA[<p>Learning Regular expressions require regular practice. Here are a few ways to practice:</p>
 
 <ol>
@@ -106,9 +135,9 @@ You might need to install libxml2 and link it manually to make sure you don&#821
   
   <entry>
     <title type="html"><![CDATA[how to use observer and call back]]></title>
-    <link href="http://Andrew-Ken.github.com/blog/2012/11/12/how-to-use-observer-and-call-back/"/>
+    <link href="http://@github.com.github.com/blog/2012/11/12/how-to-use-observer-and-call-back/"/>
     <updated>2012-11-12T15:07:00-05:00</updated>
-    <id>http://Andrew-Ken.github.com/blog/2012/11/12/how-to-use-observer-and-call-back</id>
+    <id>http://@github.com.github.com/blog/2012/11/12/how-to-use-observer-and-call-back</id>
     <content type="html"><![CDATA[<ul>
 <li>Add configuration</li>
 </ul>
@@ -168,9 +197,9 @@ You might need to install libxml2 and link it manually to make sure you don&#821
   
   <entry>
     <title type="html"><![CDATA[How to proxy a domain to localhost]]></title>
-    <link href="http://Andrew-Ken.github.com/blog/2012/11/09/how-to-proxy-a-domain-as-local/"/>
+    <link href="http://@github.com.github.com/blog/2012/11/09/how-to-proxy-a-domain-as-local/"/>
     <updated>2012-11-09T14:29:00-05:00</updated>
-    <id>http://Andrew-Ken.github.com/blog/2012/11/09/how-to-proxy-a-domain-as-local</id>
+    <id>http://@github.com.github.com/blog/2012/11/09/how-to-proxy-a-domain-as-local</id>
     <content type="html"><![CDATA[<ul>
 <li>STEP 1:</li>
 </ul>
