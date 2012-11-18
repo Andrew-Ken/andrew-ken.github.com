@@ -2,9 +2,15 @@
 #      Main Configs       #
 # ----------------------- #
 
+<<<<<<< HEAD
 url: http://www.yankist.com
 title: Yankist
 subtitle: Its a Free world!
+=======
+url: http://@github.com.github.com
+title: Ruby on Rails Blog
+subtitle: Information for Rubyists
+>>>>>>> 9b3a4cc92b8f73c6e1c628e53ce9a13707577bfc
 author: Ken Lu, Andrew Sheelan
 simple_search: http://google.com/search
 description:
