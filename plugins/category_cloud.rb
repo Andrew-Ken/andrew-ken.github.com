@@ -45,10 +45,10 @@ module Jekyll
 
     def initialize(tag_name, markup, tokens)
       @opts = {}
-      @opts['bgcolor'] = '#ffffff'
-      @opts['tcolor1'] = '#333333'
-      @opts['tcolor2'] = '#333333'
-      @opts['hicolor'] = '#000000'
+      @opts['bgcolor'] = '#EEE'
+      @opts['tcolor1'] = '#EEE'
+      @opts['tcolor2'] = '#EEE'
+      @opts['hicolor'] = '#EEE'
     
       opt_names = ['bgcolor', 'tcolor1', 'tcolor2', 'hicolor']
 
