@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "understand ruby object model"
+title: "Understanding Ruby Object Model"
 date: 2012-11-20 22:28
 comments: true
-categories: [Ruby, Object, Metaprogramming]
+categories: [ruby, object, metaprogramming]
 ---
 
-class store methods
+1. classes store methods
 
-object store instance variables
+2. objects store instance variables
 
 ![ruby method lookup flow](http://phrogz.net/RubyLibs/RubyMethodLookupFlow.png)
 
