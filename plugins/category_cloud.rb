@@ -73,7 +73,7 @@ module Jekyll
       config = context.registers[:site].config
       category_dir = config['url'] + config['root'] + config['category_dir'] + '/'
       categories = context.registers[:site].categories
-      categories.keys.sort_by{ |str| str.downcase }.each do |category|
+      categories.keys[0..19].sort_by{ |str| str.downcase }.each do |category|
         count = categories[category].count
         lists[category] = count
         max = count if count > max
