@@ -12,8 +12,6 @@ There are two ways to mixin, either include or extend to mix in a module’s fun
 
 **Difference:**
 
-extend makes these methods available to the class as class methods, implemented
-with a self \<\< class*
 
 include makes the module’s methods available to the instance of a class,
 attached to the instances of the class alone.
@@ -33,6 +31,8 @@ Bar.new.foo # heyyyyoooo!
 Bar.foo # NoMethodError: undefined method ‘foo’ for Bar:Class
 ```
 
+extend makes these methods available to the class as class methods, implemented
+with a self \<\< class*
 
 ```ruby
 class Baz
