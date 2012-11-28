@@ -69,3 +69,6 @@ google_id = APP_CONFIG['google_analytics_id']
 
 
   Simple.. :)
+
+
+  Any questions on this, please feel free to ask. We're here to help...

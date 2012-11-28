@@ -21,3 +21,5 @@ accessed over the network.
 
 
 [Source Link](http://techtips.salon.com/change-apple-mac-computer-name-537.html)
+
+Any questions on this, please feel free to ask. We're here to help...

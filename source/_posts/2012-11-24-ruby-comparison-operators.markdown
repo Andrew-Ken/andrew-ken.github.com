@@ -48,3 +48,5 @@ There has been lots of questions on the comparison operators. So we yanked it fo
 
 
 There's more here at the [Source Link](http://www.tutorialspoint.com/ruby/ruby_operators.htm)
+
+Any questions on this, please feel free to ask. We're here to help...

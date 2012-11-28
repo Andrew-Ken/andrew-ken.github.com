@@ -35,3 +35,4 @@ def hmac_sha1 params={}
 end
 ```
 
+Any questions on this, please feel free to ask. We're here to help...

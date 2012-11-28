@@ -33,3 +33,6 @@ config.action_mailer.smtp_settings = {
 Login to the gmail account and check the sent mails, to preview the sent mail.
 
 There's a lot more that can be done with this, check the [Rails Guids](http://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration-for-gmail) for more information.
+
+
+Any questions on this, please feel free to ask. We're here to help...

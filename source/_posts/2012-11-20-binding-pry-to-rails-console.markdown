@@ -22,3 +22,5 @@ silence_warnings do
   IRB = Pry
 end
 ```
+
+Any questions on this, please feel free to ask. We're here to help...

@@ -55,3 +55,4 @@ You may also need to symlink gcc for certain ruby gems and other stuff like that
 sudo ln -s /usr/bin/gcc /usr/bin/gcc-4.2
 ```
 
+Any questions on this, please feel free to ask. We're here to help...

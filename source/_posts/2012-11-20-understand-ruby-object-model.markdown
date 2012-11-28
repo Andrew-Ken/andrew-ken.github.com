@@ -12,3 +12,5 @@ categories: [ruby, object, metaprogramming]
 
 ![ruby method lookup flow](http://phrogz.net/RubyLibs/RubyMethodLookupFlow.png)
 
+
+Any questions on this, please feel free to ask. We're here to help...

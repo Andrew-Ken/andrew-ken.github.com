@@ -46,3 +46,5 @@ Baz.new.foo # NoMethodError: undefined method ‘foo’ for #\<Baz:0x1e708>
 
 
 More information here at the [source link](http://railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/).
+
+Any questions on this, please feel free to ask. We're here to help...

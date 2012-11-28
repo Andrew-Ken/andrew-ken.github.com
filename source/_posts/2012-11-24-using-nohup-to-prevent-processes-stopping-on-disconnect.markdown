@@ -35,3 +35,5 @@ nohup run_command > run_command.log &
 
 ###If your unix server supports [screen](/blog/2012/11/24/using-screen-to-keep-unix-sessions-active). It is always a better option with more features.###
 
+
+Any questions on this, please feel free to ask. We're here to help...

@@ -73,3 +73,6 @@ A quick description of the steps:
 4. "xargs kill -9" sends the kill signal to all the selected process Ids
 
 Please make sure that you are searching for the right processes before killing them.
+
+
+Any questions on this, please feel free to ask. We're here to help...
