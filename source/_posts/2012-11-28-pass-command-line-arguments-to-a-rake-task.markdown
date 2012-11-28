@@ -9,7 +9,7 @@ Sometime, We got a rake task that We are making that needs to insert a value int
 
 We'd like to be able to pass this value into the rake task from the command line, or from another rake task, how can We do this?
 
-[reference](rake.rubyforge.org/files/doc/rakefile_rdoc.html)
+[reference](http://rake.rubyforge.org/files/doc/rakefile_rdoc.html)
 
 ```ruby
 require 'rake'
@@ -65,3 +65,5 @@ Use it like below:
 
     > rake with_defaults['x','y']
     Args with defaults were: {:arg1=>"x", :arg2=>"y"}
+[.](http://stackoverflow.com/questions/825748/how-do-i-pass-command-line-arguments-to-a-rake-task)
+
