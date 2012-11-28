@@ -75,9 +75,7 @@ rvm pkg install readline
 rvm install 1.9.3 --with-gcc=clang --with-readline-dir=$rvm_path/usr
 ```
 
-- (xcode 4.5) install RVM on Mac OSX 10.8 (Mountain Lion) with Xcode 4.5 without installing Command Line Tools
-
-[refer](https://gist.github.com/3789921)
+- (xcode 4.5) install RVM on Mac OSX 10.8 (Mountain Lion) with Xcode 4.5 [without installing Command Line Tools](https://gist.github.com/3789921)
 
 
 [.](http://stackoverflow.com/questions/8032824/cant-install-ruby-under-lion-with-rvm-gcc-issues)
