@@ -3,9 +3,10 @@ layout: post
 title: "generate random number in ruby"
 date: 2012-11-28 22:27
 comments: true
-categories: [ruby random]
+categories: [ruby, random, numbers]
 ---
-generate x random numbers from n to m
+
+Sometimes we would also need to generate x random numbers from n to m
 
 ```ruby
 x.times.map{n + Random.rand( m - n )}
@@ -16,12 +17,15 @@ Random.new.rand(n...m)
 #in ruby 1.9.3
 Random.rand(n...m)
 ```
+
 if you only want to select a random item form array[.](http://stackoverflow.com/questions/198460/how-to-get-a-random-number-in-ruby)
+
 ```ruby
 %(a b c d e).sample
 (n...m).to_a.sample
 ```
-some other way by SecureRandom
+Some other ways by using SecureRandom
+
 ```ruby
 require 'securerandom'
 
