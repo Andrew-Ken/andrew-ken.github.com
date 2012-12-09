@@ -5,15 +5,15 @@ date: 2011-11-06 07:05
 comments: true
 categories: [rspec, headless, xserver, capybara-webkit, xvfb]
 ---
+
 ## capybara-webkit
 
 problems running capybara-webkit with the Headless gem, Xvfb and our ci server. We use this setup for automatic integration testing and javascript testing of our Ruby on Rails 3.2 app. During the tests it complains that
 
 > webkit_server: cannot connect to X server
-
 need to rspec to config as:
 
-```Ruby
+```ruby
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
