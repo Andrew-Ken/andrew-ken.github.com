@@ -5,53 +5,175 @@ date: 2012-12-06 15:29
 comments: true
 categories: [ruby, selenium, capybara, webkit]
 ---
-**install capybara-webkit**
+
+Sometimes we want to simulate browser behavior. The situation can be test or automation script.
+
+##install capybara-webkit
 ```ruby
 #capybara-webkit need qt
 #ubuntu
 sudo aptitude install libqt4-dev
 ```
-https://github.com/jnicklas/capybara
+##using capybara dsl
+```ruby
+require 'capybara'
+require 'capybara/dsl'
 
+Capybara.default_driver = :webkit
 
-retry
-http://blog.codefront.net/2008/01/14/retrying-code-blocks-in-ruby-on-exceptions-whatever/
-http://stackoverflow.com/questions/1746177/ruby-how-to-know-if-script-is-on-3rd-retry
-http://stackoverflow.com/questions/4774279/how-do-you-limit-retry-rescue-in-this-ruby-example
+module MyModule
+  include Capybara::DSL
 
-timeout
-http://stackoverflow.com/questions/4637282/ruby-timeouttimeout-doesnt-fire-exception-and-doesnt-return-what-documented
-http://woss.name/2011/08/30/ruby-timeout-woes-part-2/
-http://ph7spot.com/musings/system-timer
-http://stackoverflow.com/questions/4973020/rescue-timeouts-with-systemtimer
+  def login!
+    within("//form[@id='session']") do
+      fill_in 'Login', :with => 'user@example.com'
+      fill_in 'Password', :with => 'password'
+      fill_in('First Name', :with => 'John')
+      fill_in('Password', :with => 'Seekrit')
+      fill_in('Description', :with => 'Really Long Text...')
+      choose('A Radio Button')
+      check('A Checkbox')
+      uncheck('A Checkbox')
+      attach_file('Image', '/path/to/image.jpg')
+      select('Option', :from => 'Select Box')
+      end
+      click_link 'Sign in'
+  end
+end
+```
+## Debugging
 
+It can be useful to take a snapshot of the page as it currently is and take a
+look at it:
 
+```ruby
+save_and_open_page
+```
 
-singleton
-http://www.devalot.com/articles/2008/09/ruby-singleton
+You can also retrieve the current state of the DOM as a string using
+<tt>[page.html](http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#html-instance_method)</tt>.
 
+```ruby
+print page.html
+```
 
-capybara
-http://stackoverflow.com/questions/11477554/single-test-failing-after-changing-to-capybara-webkit
+This is mostly useful for debugging. You should avoid testing against the
+contents of `page.html` and use the more expressive finder methods instead.
 
-method_missing & respones_to
-http://blog.enriquez.me/2010/2/21/dont-forget-about-respond-to-when-implementing-method-missing/
+Finally, in drivers that support it, you can save a screenshot:
 
-automation
-http://testingandagile.blogspot.com/2011/08/getting-started-with-automation.html
-https://github.com/watir/watir-webdriver
-https://github.com/jnicklas/capybara
-http://watirwebdriver.com/
-http://stackoverflow.com/questions/4995393/tests-using-webdriver-with-remote-htmlunit-having-trouble-logging-into-gmail
-http://anahorny.blogspot.com/2011/08/selenium-webdriver-ruby-test-automation.htmlhttp://testingbot.com/support/other/selenium2
-http://stackoverflow.com/questions/2795561/how-to-setup-selenium-webdriver-working-with-selenium-webdriver-Gemfile
+```ruby
+page.save_screenshot('screenshot.png')
+```
 
+## Calling remote servers
 
-webkit_server x server
-http://stackoverflow.com/questions/11448806/headless-gem-webkit-server-cannot-connect-to-x-server
+Normally Capybara expects to be testing an in-process Rack application, but you
+can also use it to talk to a web server running anywhere on the internets, by
+setting app_host:
 
+```ruby
+Capybara.current_driver = :selenium
+Capybara.app_host = 'http://www.google.com'
+...
+visit('/')
+```
 
-install xvfb
-http://blog.martin-lyness.com/archives/installing-xvfb-on-ubuntu-9-10-karmic-koala
+**Note**: the default driver (`:rack_test`) does not support running
+against a remote server. With drivers that support it, you can also visit any
+URL directly:
 
-http://code.google.com/p/selenium/wiki/RubyBindings
+```ruby
+visit('http://www.google.com')
+```
+
+By default Capybara will try to boot a rack application automatically. You
+might want to switch off Capybara's rack server if you are running against a
+remote application:
+
+```ruby
+Capybara.run_server = false
+```
+
+## Using the sessions manually
+
+For ultimate control, you can instantiate and use a
+[Session](http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session)
+manually.
+
+```ruby
+require 'capybara'
+
+session = Capybara::Session.new(:webkit, my_rack_app)
+session.within("//form[@id='session']") do
+  session.fill_in 'Login', :with => 'user@example.com'
+  session.fill_in 'Password', :with => 'password'
+end
+session.click_link 'Sign in'
+```
+
+## XPath, CSS and selectors
+
+Capybara does not try to guess what kind of selector you are going to give it,
+and will always use CSS by default.  If you want to use XPath, you'll need to
+do:
+
+```ruby
+within(:xpath, '//ul/li') { ... }
+find(:xpath, '//ul/li').text
+find(:xpath, '//li[contains(.//a[@href = "#"]/text(), "foo")]').value
+```
+
+Alternatively you can set the default selector to XPath:
+
+```ruby
+Capybara.default_selector = :xpath
+find('//ul/li').text
+```
+
+Capybara allows you to add custom selectors, which can be very useful if you
+find yourself using the same kinds of selectors very often:
+
+```ruby
+Capybara.add_selector(:id) do
+  xpath { |id| XPath.descendant[XPath.attr(:id) == id.to_s] }
+end
+
+Capybara.add_selector(:row) do
+  xpath { |num| ".//tbody/tr[#{num}]" }
+end
+
+Capybara.add_selector(:flash_type) do
+  css { |type| "#flash.#{type}" }
+end
+```
+
+The block given to xpath must always return an XPath expression as a String, or
+an XPath expression generated through the XPath gem. You can now use these
+selectors like this:
+
+```ruby
+find(:id, 'post_123')
+find(:row, 3)
+find(:flash_type, :notice)
+```
+
+You can specify an optional match option which will automatically use the
+selector if it matches the argument:
+
+```ruby
+Capybara.add_selector(:id) do
+  xpath { |id| XPath.descendant[XPath.attr(:id) == id.to_s] }
+  match { |value| value.is_a?(Symbol) }
+end
+```
+
+Now use it like this:
+
+```ruby
+find(:post_123)
+```
+
+This :id selector is already built into Capybara by default, so you don't
+need to add it yourself[.](https://github.com/jnicklas/capybara)
+
