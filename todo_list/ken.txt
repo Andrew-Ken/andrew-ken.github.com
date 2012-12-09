@@ -1,0 +1,14 @@
+singleton
+http://www.devalot.com/articles/2008/09/ruby-singleton
+
+method_missing & respones_to
+http://blog.enriquez.me/2010/2/21/dont-forget-about-respond-to-when-implementing-method-missing/
+
+automation
+http://testingandagile.blogspot.com/2011/08/getting-started-with-automation.html
+https://github.com/watir/watir-webdriver
+http://watirwebdriver.com/
+http://stackoverflow.com/questions/4995393/tests-using-webdriver-with-remote-htmlunit-having-trouble-logging-into-gmail
+http://anahorny.blogspot.com/2011/08/selenium-webdriver-ruby-test-automation.htmlhttp://testingbot.com/support/other/selenium2
+http://stackoverflow.com/questions/2795561/how-to-setup-selenium-webdriver-working-with-selenium-webdriver-Gemfile
+
