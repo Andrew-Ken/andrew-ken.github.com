@@ -66,3 +66,87 @@ instance_eval, on the other hand, is a method of the Object class, meaning that 
 It may be difficult to wrap your mind around that if you're not familiar with the Ruby object model, but it's still easy to remember how these methods behave with a simple mnemonic device: when called on a class name constant, these two methods will allow you to create methods of the opposite type from their names. MyClass.class_eval will create instance methods and MyClass.instance_eval will create class methods.
 
 If you're interested in metaprogramming or understanding the Ruby object model, I'd definitely recommend the book. It's helped me out tremendously.
+
+I did some experiment with meta programming keywords "class_eval" and "instance_eval'. Sharing some of the examples with you all -
+
+
+class_eval opens the existing class and adds the methods as defined in an ordinary class, hence they work as instance methods of that class
+
+```ruby
+String.class_eval do
+  def quack
+    p 'quack method'
+  end
+end
+
+"any string".quack
+```
+
+A method defined for class A using class_eval will work as instance method of A
+```ruby
+class A
+end
+
+A.class_eval do
+  def some_method
+    p 'some_method'
+  end
+end
+
+A.new.some_method
+```
+instance_eval on a class will open the class as an instance of class Class. Any method defined will be treated as the method of this instance which is the class. Hence the methods work like class methods
+```ruby
+class A
+end
+
+A.instance_eval do
+  def other_method
+    p 'other_method'
+  end
+end
+
+A.other_method
+```
+instance_eval on an instance of a class will open that instance of the class. Thus it works like a singleton method that is specific to the instance and wont work for other instances of the class
+```ruby
+class A
+end
+
+a = A.new
+a.instance_eval do
+  def a_method
+    p 'a_method'
+  end
+end
+
+a.a_method  # works for 'a' on which the instance_eval is defined
+b = A.new
+b.a_method  # doesn't work for 'b'
+```
+ This is the same as calling instance_eval on the instance 'a' of class A. This again will define a singleton method on the instance
+```ruby
+class << a
+  def show
+    p 'this is a method'
+  end
+end
+a  = A.new
+a.show
+b.show  # doesn't work for 'b'
+```
+  Can not call 'class_eval' on an instance. class_eval can only be called on classes (which are instances of class Class)
+```ruby
+class A
+end
+
+a.class_eval do
+  def show_other
+    p 'this is another method'
+  end
+end
+
+a = A.new 
+a.show
+b.show
+```
