@@ -1,0 +1,61 @@
+%w[B C D].each do |name|
+  mod = Module.new do
+    define_method :call do
+      puts name
+      super()
+    end
+  end
+  Object.const_set(name, mod)
+end
+
+%w[B C D].each do |name|
+  eval <<-END_RUBY
+  module #{name}
+    def call
+      puts "#{name}"
+      super
+    end
+  end
+  END_RUBY
+end
+
+$ cat time_eval.rb
+#!/usr/bin/env ruby -wKU
+
+require "benchmark"
+
+TESTS = 10_000
+Benchmark.bmbm do |results|
+  results.report("eval():") { TESTS.times {
+    %w[B C D].each do |name|
+      eval <<-END_RUBY
+      module #{name}
+        def call
+          puts "#{name}"
+          super
+        end
+      end
+      END_RUBY
+    end
+  } }
+  results.report("closures:") { TESTS.times {
+    %w[B C D].each do |name|
+      mod = Module.new do
+        define_method :call do
+          puts name
+          super()
+        end
+      end
+      Object.const_set(name, mod)
+    end
+  } }
+end
+$ ruby time_eval.rb 2> /dev/null
+Rehearsal ---------------------------------------------
+eval():     0.940000   0.080000   1.020000 (  1.027164)
+closures:   1.070000   0.150000   1.220000 (  1.216268)
+------------------------------------ total: 2.240000sec
+
+                user     system      total        real
+eval():     0.950000   0.080000   1.030000 (  1.034849)
+closures:   1.070000   0.150000   1.220000 (  1.219367)
