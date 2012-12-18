@@ -1,0 +1,6 @@
+Write a program to reverse the numbers (e.g 12345 to 54321), without using vectors
+
+reverse a string, then reverse a sentence   View Answers (2)
+stack segment, I don't remember clearly. but you should know stack segment stack pointer, the size used  
+
+Given a list of valid city names, design a algorithm to auto correct spelling errors. Like, correct "New YYokr" to "New York" and correct "oston" to "Boston"
