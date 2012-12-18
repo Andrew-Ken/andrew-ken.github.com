@@ -53,3 +53,35 @@ B.meta_class.instance_methods.grep /test/
 ```
 So class have singleton_methods, that should live in the meta_class and that method should be a instance method there
 extend just put test method to meta class. then later one will cover the first one
+
+result
+```ruby
+
+1.9.3p327 :048 > A.test
+NoMethodError: private method `test' called for A:Class
+    from (irb):48
+    from /home/rharrington/.rvm/rubies/ruby-1.9.3-p327/bin/irb:16:in `<main>'
+1.9.3p327 :049 > A.new.test
+false
+ => nil 
+1.9.3p327 :050 > A.instance_methods.grep /test/
+ => [:test] 
+1.9.3p327 :051 > A.new.meta_class.singleton_methods.grep /test/
+ => [] 
+1.9.3p327 :052 > B.extend M_A
+ => B 
+1.9.3p327 :053 > B.test
+true
+ => nil 
+1.9.3p327 :054 > B.new.test
+NoMethodError: private method `test' called for #<B:0x0000000088c5e8>
+    from (irb):54
+    from /home/rharrington/.rvm/rubies/ruby-1.9.3-p327/bin/irb:16:in `<main>'
+1.9.3p327 :055 > B.singleton_methods.grep /test/
+ => [:test] 
+1.9.3p327 :056 > B.meta_class.instance_methods.grep /test/
+ => [:test] 
+
+
+```
+
