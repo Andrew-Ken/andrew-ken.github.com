@@ -14,8 +14,11 @@ As you know in ruby you can call a public instance method directly ,ex :
 s= "hi man"
 p s.length #=> 6
 p s.include? "hi" #=> true
+```
+
 One way to invoke a method dynamically in ruby is to send a message to the object :
 
+```ruby
 p s.send(:length) #=> 6
 p s.send(:include?,"hi") #=> true
 A second way is instantiate a method object and then call it:
@@ -24,8 +27,9 @@ method_object = s.method(:length)
 p method_object.call #=> 6
 method_object = s.method(:include?)
 p method_object.call('hi')  #=> true
+```
 And the third way is to use the eval method:
-
+```ruby
 eval "s.length" #=> 6
 eval "s.include? 'hi'" #=>true
 ```
