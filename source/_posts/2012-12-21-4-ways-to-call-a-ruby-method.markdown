@@ -21,8 +21,9 @@ One way to invoke a method dynamically in ruby is to send a message to the objec
 ```ruby
 p s.send(:length) #=> 6
 p s.send(:include?,"hi") #=> true
+```
 A second way is instantiate a method object and then call it:
-
+```ruby
 method_object = s.method(:length) 
 p method_object.call #=> 6
 method_object = s.method(:include?)
@@ -62,7 +63,7 @@ Benchmark.bmbm {|x|
 ```
 Well as you can see, instantiating a method object is the fastest dynamic way in calling a method, also notice how slow using eval is.
 
-Also when sending a message to an object , or when instantiating a method object , u can call private methods of that object :
+Also when sending a message to an object , or when instantiating a method object , u can call private methods of that object [:](http://khelll.com/blog/ruby/ruby-dynamic-method-calling/)
 ```ruby
 class Foo
   private  
