@@ -6,13 +6,16 @@ comments: true
 categories: [algorithm, ruby]
 ---
 
-tarting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+Starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 
-   3
-  7 4
- 2 4 6
-8 5 9 3
+<pre style='font-size: 24px;'>
+   <span style='color: green'>3</span>
+  <span style='color: purple'>7</span> <span style='color: pink'>4</span>
+ <span style='color: cyan'>2</span> <span style='color: orange'>4</span> <span style='color: yellow'>6</span>
+<span style='color: white'>8</span> <span style='color: magenta'>5</span> <span style='color: grey'>9 <span style='color:blue'>3</span>
+<hr>
 That is, 3 + 7 + 4 + 9 = 23.
+</pre>
 
 Find the maximum total from top to bottom of the triangle below: ...--
 
