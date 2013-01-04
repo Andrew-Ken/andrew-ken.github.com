@@ -4,6 +4,8 @@ title: "triangle problem"
 date: 2010-04-10 10:31
 comments: true
 categories: [algorithm, ruby]
+---
+
 tarting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 
    3
