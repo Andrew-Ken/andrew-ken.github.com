@@ -196,11 +196,9 @@ for (var i = 0; i < a.length; i++) {
 
 </td>
 </tr>
-</table>
 
-<br /><br /><br />
+<tr><td colspan=2><br><br></td></tr>
 
-<table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>STRINGS</th></tr>
 <tr><th>Ruby</th><th>Javascript</th></tr>
 
@@ -253,10 +251,8 @@ if (~'hello'.indexOf('lo')) { console.log('found'); }
 </td>
 </tr>
 
-</table>
-<br /><br /><br />
+<tr><td colspan=2><br><br></td></tr>
 
-<table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>HASH</th></tr>
 <tr><th>Ruby</th><th>Javascript</th></tr>
 
@@ -317,9 +313,8 @@ delete h.b
 </td>
 </tr>
 
-</table>
-<br /><br /><br />
-<table width=100% border="1px" valign='top'>
+<tr><td colspan=2><br><br></td></tr>
+
 <tr><th colspan='2'>FUNCTIONS</th></tr>
 <tr><th>Ruby</th><th>Javascript</th></tr>
 
@@ -362,11 +357,9 @@ function f() {
 </td>
 </tr>
 
-</table>
 
-<br /><br /><br />
+<tr><td colspan=2><br><br></td></tr>
 
-<table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>CLASSES</th></tr>
 <tr><th>Ruby</th><th>Javascript</th></tr>
 
@@ -415,10 +408,8 @@ john.fullName(); // "John Malkovic"
 </td>
 </tr>
 
-</table>
-<br /><br /><br />
+<tr><td colspan=2><br><br></td></tr>
 
-<table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>MATH</th></tr>
 <tr><th>Ruby</th><th>Javascript</th></tr>
 
@@ -447,10 +438,8 @@ Math.max.apply(null, [-5, -1, -8]) // -1
 </td>
 </tr>
 
-</table>
+<tr><td colspan=2><br><br></td></tr>
 
-<br /><br /><br />
-<table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>MISC..</th></tr>
 <tr><th>Ruby</th><th>Javascript</th></tr>
 
