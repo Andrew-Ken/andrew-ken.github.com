@@ -36,7 +36,7 @@ nano tmp.html
 ```
 
 At the bottom of the screen you should see a bunch of commands.
-The caret (^) signifies holding down the control key and typing the letter.
+The caret ^ signifies holding down the control key and typing the letter.
 
 All the list of commands are higlighted as we press ctrl key. 
 
