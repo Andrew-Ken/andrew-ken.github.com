@@ -5,7 +5,7 @@ date: 2013-01-04 12:23
 comments: true
 categories: 
 ---
-
+[source](http://agentcooper.github.com/js-ruby-comparison/)
 
 <table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>ARRAYS</th></tr>
