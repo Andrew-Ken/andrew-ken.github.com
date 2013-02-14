@@ -1,3 +1,9 @@
+## Special Notice
+```ruby
+rake setup_github_pages
+#should be exact
+git@github.com:Andrew-Ken/andrew-ken.github.com.git
+```
 ## What is Octopress?
 
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
