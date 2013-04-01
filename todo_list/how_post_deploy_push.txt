@@ -1,0 +1,7 @@
+rake -T
+rake new_post['title, day_ago']
+vim post
+rake gen_deploy
+git add
+git commit -m 'comment'
+git push octopress source
