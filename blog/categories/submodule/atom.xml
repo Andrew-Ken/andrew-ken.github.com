@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: submodule | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/submodule/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[how to use submodule brief instruction]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/01/31/how-to-use-submodule-brief-instruction/"/>
+    <updated>2010-01-31T08:50:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/01/31/how-to-use-submodule-brief-instruction</id>
+    <content type="html"><![CDATA[<p>```ruby</p>
+
+<h1>get the submodule initially</h1>
+
+<p>git submodule add ssh://bla submodule_dir
+git submodule init</p>
+
+<h1>time passes, submodule upstream is updated</h1>
+
+<h1>and you now want to update</h1>
+
+<h1>change to the submodule directory</h1>
+
+<p>cd submodule_dir</p>
+
+<h1>checkout desired branch</h1>
+
+<p>git checkout master</p>
+
+<h1>update</h1>
+
+<p>git pull</p>
+
+<h1>get back to your project root</h1>
+
+<p>cd ..</p>
+
+<h1>now the submodules are in the state you want, so</h1>
+
+<p>git commit -am "Pulled down update to submodule_dir"</p>
+
+<p>git submodules update --init</p>
+
+<p>git submodule foreach git pull origin master</p>
+
+<p>```
+<a href="https://git.wiki.kernel.org/index.php/GitSubmoduleTutorial">refer git wiki</a>
+<a href="http://git-scm.com/book/en/Git-Tools-Submodules">git-scm</a></p>
+]]></content>
+  </entry>
+  
+</feed>

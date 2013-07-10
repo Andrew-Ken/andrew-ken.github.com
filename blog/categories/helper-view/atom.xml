@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: helper view | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/helper-view/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Use view helper at controller]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/03/07/use-view-helper-at-controller/"/>
+    <updated>2013-03-07T08:42:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/03/07/use-view-helper-at-controller</id>
+    <content type="html"><![CDATA[<p><a href="http://guides.rubyonrails.org/form_helpers.html">guide</a></p>
+
+<p><a href="http://api.rubyonrails.org/classes/AbstractController/Helpers/ClassMethods.html#method-i-helper">api</a></p>
+
+<p>```ruby
+helper :foo             # => requires 'foo_helper' and includes FooHelper
+helper 'resources/foo'  # => requires 'resources/foo_helper' and includes Resources::FooHelper</p>
+
+<h1>One line</h1>
+
+<p>helper { def hello() "Hello, world!" end }</p>
+
+<h1>Multi-line</h1>
+
+<p>helper do
+  def foo(bar)</p>
+
+<pre><code>"#{bar} is the very best"
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>class ApplicationController &lt; ActionController::Base
+  helper_method :current_user, :logged_in?</p>
+
+<p>  def current_user</p>
+
+<pre><code>@current_user ||= User.find_by_id(session[:user])
+</code></pre>
+
+<p>  end</p>
+
+<p>   def logged_in?</p>
+
+<pre><code> current_user != nil
+</code></pre>
+
+<p>   end
+end</p>
+
+<p>```
+The answer depends on the Rails version.
+Rails >= 3.1</p>
+
+<p>Change the include_all_helpers config to false in any environment where you want to apply the configuration. If you want the config to apply to all environments, change it in application.rb.</p>
+
+<p><code>ruby
+config.action_controller.include_all_helpers = false
+</code>
+When false, it will skip the inclusion.
+Rails &lt; 3.1</p>
+
+<p>Delete the following line from ApplicationController
+<code>ruby
+helper :all
+</code>
+In this way each controller will load its own helpers.</p>
+]]></content>
+  </entry>
+  
+</feed>

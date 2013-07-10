@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: algorithm | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/algorithm/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[happy number and prime]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/04/11/happy-number-and-prime/"/>
+    <updated>2010-04-11T10:15:00-04:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/04/11/happy-number-and-prime</id>
+    <content type="html"><![CDATA[<p>A happy number is defined by the following process. Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers[1]).</p>
+
+<p>More formally, given a number , define a sequence , , ... where  is the sum of the squares of the digits of . Then n is happy if and only if there exists i such that .
+If a number is happy, then all members of its sequence are happy; if a number is unhappy, all members of the sequence are unhappy.
+For example, 19 is happy, as the associated sequence is:
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1.
+The happy numbers below 500 are:
+1, 7, 10, 13, 19, 23, 28, 31, 32, 44, 49, 68, 70, 79, 82, 86, 91, 94, 97, 100, 103, 109, 129, 130, 133, 139, 167, 176, 188, 190, 192, 193, 203, 208, 219, 226, 230, 236, 239, 262, 263, 280, 291, 293, 301, 302, 310, 313, 319, 320, 326, 329, 331, 338, 356, 362, 365, 367, 368, 376, 379, 383, 386, 391, 392, 397, 404, 409, 440, 446, 464, 469, 478, 487, 490, 496</p>
+
+<p>calculation:</p>
+
+<p>```ruby
+@dead_list = []
+@cache = []
+def happy? num
+  result = num.to_s.split('').inject(0){|sum,x| sum + x.to_i ** 2}
+  return false if @dead_list.include? result
+  if result == 1</p>
+
+<pre><code>@cache = [] 
+return true
+</code></pre>
+
+<p>  end
+  if @cache.include? result</p>
+
+<pre><code>@dead_list &lt;&lt; result
+return false 
+</code></pre>
+
+<p>  end
+  @cache &lt;&lt; result
+  return happy?(result)
+end</p>
+
+<p>def prime? num
+  return false if (num % 2 == 0) or (num % 3 == 0) or (num % 5 == 0)
+  end_num = Math.sqrt(num).ceil.to_i
+  (2..end_num).to_a.each{|x| return false if num % (x+1) == 0}
+end
+```
+and we can also embed to String</p>
+
+<p>```ruby
+class Fixnum
+  class &lt;&lt; self;  attr_accessor :dead_list; end
+  attr_accessor :cache
+  load 'happy_prime.rb'</p>
+
+<p>  def is_happy?</p>
+
+<pre><code>@cache = []
+@dead_list ||= []
+happy? self
+</code></pre>
+
+<p>  end</p>
+
+<p>  def is_prime?</p>
+
+<pre><code>prime? self
+#or
+#require 'mathn'
+#self.prime?
+</code></pre>
+
+<p>  end
+end
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[triangle problem]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/04/10/triangle-problem/"/>
+    <updated>2010-04-10T10:31:00-04:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/04/10/triangle-problem</id>
+    <content type="html"><![CDATA[<p>Starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.</p>
+
+<pre style='font-size: 24px;'>
+   <span style='color: green'>3</span>
+  <span style='color: purple'>7</span> <span style='color: pink'>4</span>
+ <span style='color: cyan'>2</span> <span style='color: orange'>4</span> <span style='color: yellow'>6</span>
+<span style='color: white'>8</span> <span style='color: magenta'>5</span> <span style='color: grey'>9 <span style='color:blue'>3</span>
+<hr>
+That is, 3 + 7 + 4 + 9 = 23.
+</pre>
+
+
+<p>Find the maximum total from top to bottom of the triangle below: ...--</p>
+
+<p>```ruby
+class Triangle</p>
+
+<p>  def initialize (file)</p>
+
+<pre><code>@file = file
+</code></pre>
+
+<p>  end</p>
+
+<p>  def get_array</p>
+
+<pre><code>File.open(@file, 'r') do |f|
+  f.each_line.collect do |line|
+    line.split(' ').collect { |num| num.to_i }
+  end
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  def calculate</p>
+
+<pre><code>result = get_array.reverse.inject do |sum_line, line|
+  line.collect.with_index do |num, i|
+    num + [sum_line[i], sum_line[i + 1]].max
+  end
+end
+result[0]
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>puts Triangle.new('triangle.txt').calculate
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

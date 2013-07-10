@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: revert | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/revert/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[how to revert git commit remote]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/05/22/how-to-revert-git-commit-remote/"/>
+    <updated>2010-05-22T09:45:00-04:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/05/22/how-to-revert-git-commit-remote</id>
+    <content type="html"><![CDATA[<p>First, There are serveral revert situation:
+Local:
+```ruby</p>
+
+<h1>this will detach your HEAD, i.e. leave you with no branch checked out.</h1>
+
+<p>git checkout 0d1d7fc32
+git checkout -b old-state 0d1d7fc32
+```</p>
+
+<p>```ruby</p>
+
+<h1>Don't do it if you have uncommitted work you want to keep</h1>
+
+<p>git reset --hard 0d1d7fc32</p>
+
+<h1>Alternatively, if there's work to keep:</h1>
+
+<p>git stash
+git reset --hard 0d1d7fc32
+git stash pop</p>
+
+<h1>This saves the modifications, then reapplies that patch after resetting.</h1>
+
+<h1>You could get merge conflicts, if you've modified things which were</h1>
+
+<h1>changed since the commit you reset to</h1>
+
+<p>```</p>
+
+<p><code>ruby
+git add . &amp;&amp; git checkout master -f
+git add . &amp;&amp; git reset --hard HEAD
+</code></p>
+
+<p>Remote</p>
+
+<p><code>ruby
+git push mathnet +dd61ab32^:master
+git reset HEAD^ --hard
+git push mathnet -f
+</code></p>
+
+<p><a href="http://christoph.ruegg.name/blog/2010/5/5/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html">.</a></p>
+]]></content>
+  </entry>
+  
+</feed>

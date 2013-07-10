@@ -1,0 +1,324 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4 ways to call a ruby method - Yankist</title>
+	<meta name="author" content="Ken Lu, Andrew Sheelan Paliyan">
+
+	
+	<meta name="description" content="There is 4 ways to excute ruby method. Two of them can excute private method out of self class. I’m pretty sure that you have heard lots about ruby, &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Yankist" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Yankist</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:Andrew-Ken.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/admin@yankist.com?rel=author" title="Google+">Google+</a>
+		
+		
+		
+		<a class="github" href="https://github.com/Andrew-Ken" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:Andrew-Ken.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">4 Ways to Call a Ruby Method</h2>
+	<div class="entry-content"><p>There is 4 ways to excute ruby method. Two of them can excute private method out of self class.</p>
+
+<p>I’m pretty sure that you have heard lots about ruby, specially as being a dynamic language, you can create methods on the fly, add instance variables, define constants and invoke existing methods dynamically , and that’s what this post is all about :</p>
+
+<p>As you know in ruby you can call a public instance method directly ,ex :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">s</span><span class="o">=</span> <span class="s2">&quot;hi man&quot;</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span> <span class="c1">#=&gt; 6</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">s</span><span class="o">.</span><span class="n">include?</span> <span class="s2">&quot;hi&quot;</span> <span class="c1">#=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One way to invoke a method dynamically in ruby is to send a message to the object :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">p</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span> <span class="c1">#=&gt; 6</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:include?</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span> <span class="c1">#=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A second way is instantiate a method object and then call it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">method_object</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">method_object</span><span class="o">.</span><span class="n">call</span> <span class="c1">#=&gt; 6</span>
+</span><span class='line'><span class="n">method_object</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="ss">:include?</span><span class="p">)</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">method_object</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>  <span class="c1">#=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And the third way is to use the eval method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">eval</span> <span class="s2">&quot;s.length&quot;</span> <span class="c1">#=&gt; 6</span>
+</span><span class='line'><span class="nb">eval</span> <span class="s2">&quot;s.include? &#39;hi&#39;&quot;</span> <span class="c1">#=&gt;true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well, when to use what?</p>
+
+<p>look at this script, it will be used to benchmark the 3 ways of calling :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;benchmark&quot;</span>
+</span><span class='line'><span class="nb">test</span> <span class="o">=</span> <span class="s2">&quot;hi man&quot;</span>
+</span><span class='line'><span class="n">m</span> <span class="o">=</span> <span class="nb">test</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span>
+</span><span class='line'><span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+</span><span class='line'><span class="no">Benchmark</span><span class="o">.</span><span class="n">bmbm</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;call&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="n">m</span><span class="o">.</span><span class="n">call</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;send&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">test</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;eval&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">eval</span> <span class="s2">&quot;test.length&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">#######################################</span>
+</span><span class='line'><span class="c1">#####   The results</span>
+</span><span class='line'><span class="c1">#######################################</span>
+</span><span class='line'><span class="c1">#Rehearsal ----------------------------------------</span>
+</span><span class='line'><span class="c1">#call   0.050000   0.020000   0.070000 (  0.077915)</span>
+</span><span class='line'><span class="c1">#send   0.080000   0.000000   0.080000 (  0.086071)</span>
+</span><span class='line'><span class="c1">#eval   0.360000   0.040000   0.400000 (  0.405647)</span>
+</span><span class='line'><span class="c1">#------------------------------- total: 0.550000sec</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#          user     system      total        real</span>
+</span><span class='line'><span class="c1">#call   0.050000   0.020000   0.070000 (  0.072041)</span>
+</span><span class='line'><span class="c1">#send   0.070000   0.000000   0.070000 (  0.077674)</span>
+</span><span class='line'><span class="c1">#eval   0.370000   0.020000   0.390000 (  0.399442)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well as you can see, instantiating a method object is the fastest dynamic way in calling a method, also notice how slow using eval is.</p>
+
+<p>Also when sending a message to an object , or when instantiating a method object , u can call private methods of that object <a href="http://khelll.com/blog/ruby/ruby-dynamic-method-calling/">:</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Foo</span>
+</span><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hi</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;hi man&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Normal method calling</span>
+</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">new</span>  <span class="c1">#=&gt; &lt;Foo:0x10a0d51&gt;</span>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">hi</span>  <span class="c1">#=&gt;NoMethodError: private method `hi&#39; called for #&lt;Foo:0x10a0d51&gt; </span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Sending a message</span>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">send</span> <span class="ss">:hi</span> <span class="c1">#  hi man</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Instantiating a method object</span>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="ss">:hi</span><span class="p">)</span><span class="o">.</span><span class="n">call</span>  <span class="c1"># hi man</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Using eval</span>
+</span><span class='line'><span class="nb">eval</span> <span class="s2">&quot;f.hi&quot;</span>  <span class="c1">#=&gt;NoMethodError: private method `hi&#39; called for #&lt;Foo:0x10a0d51&gt; </span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Using instance_eval</span>
+</span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">instance_eval</span> <span class="p">{</span><span class="n">hi</span><span class="p">}</span>  <span class="c1"># hi man</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-21T11:43:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/dynamic/'>dynamic</a>, <a class='category' href='/blog/categories/metaprogramming/'>metaprogramming</a>, <a class='category' href='/blog/categories/method/'>method</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+
+
+</div>
+	
+		<span class="comments"><a href="/blog/2012/12/21/4-ways-to-call-a-ruby-method/#disqus_thread">Comments</a></span>
+        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Yank it - Just use it - 2013 <a
+  href='http://www.linkedin.com/profile/view?id=122372553'>Ken Lu</a>, <a
+      href="http://www.linkedin.com/profile/view?id=6957991">Andrew Paliyan</a>
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'guest';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Andrew-Ken.github.com/blog/2012/12/21/4-ways-to-call-a-ruby-method/';
+        var disqus_url = 'http://Andrew-Ken.github.com/blog/2012/12/21/4-ways-to-call-a-ruby-method/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36461400-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

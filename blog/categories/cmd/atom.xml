@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: cmd | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/cmd/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[some command line tools]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/02/18/some-command-line-tools/"/>
+    <updated>2010-02-18T08:45:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/02/18/some-command-line-tools</id>
+    <content type="html"><![CDATA[<p>Some frequently use:</p>
+
+<p><code>``ruby
+du -sh</code>ls .`</p>
+
+<p>for i in G M K; do du -ah | grep [0-9]$i | sort -nr -k 1; done | head -n 11
+dir | gvim -
+```</p>
+
+<p>How to find - Size of a directory &amp; Free disk space</p>
+
+<p><code>``ruby
+du -sh</code>ls .<code>
+du -h | tail -n 1
+du -h | grep -v '/' | awk '{print $1}'
+ls | wc -l
+ls -l | grep ^- | wc -l
+ls -l | grep ^d | wc -l
+ls -l | grep ^l | wc -l
+for t in files links directories; do echo</code>find . -type ${t:0:1} | wc -l` $t; done 2> /dev/null</p>
+
+<p>du -a | cut -d/ -f2 | sort | uniq -c | sort -nr
+find . -type f | wc -l
+ind . -type d | wc -l
+find . -maxdepth 1 -type d | wc -l
+```</p>
+
+<p>```ruby</p>
+
+<h1>output to vim</h1>
+
+<h1>the - option tells vim to open stdin</h1>
+
+<p>dir | gvim -</p>
+
+<h1>inside vim</h1>
+
+<p>:r !<cmd>
+:r !dir</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

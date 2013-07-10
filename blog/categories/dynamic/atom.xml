@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: dynamic | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/dynamic/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[4 ways to call a ruby method]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/21/4-ways-to-call-a-ruby-method/"/>
+    <updated>2012-12-21T11:43:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/21/4-ways-to-call-a-ruby-method</id>
+    <content type="html"><![CDATA[<p>There is 4 ways to excute ruby method. Two of them can excute private method out of self class.</p>
+
+<p>I’m pretty sure that you have heard lots about ruby, specially as being a dynamic language, you can create methods on the fly, add instance variables, define constants and invoke existing methods dynamically , and that’s what this post is all about :</p>
+
+<p>As you know in ruby you can call a public instance method directly ,ex :
+<code>ruby
+s= "hi man"
+p s.length #=&gt; 6
+p s.include? "hi" #=&gt; true
+</code></p>
+
+<p>One way to invoke a method dynamically in ruby is to send a message to the object :</p>
+
+<p><code>ruby
+p s.send(:length) #=&gt; 6
+p s.send(:include?,"hi") #=&gt; true
+</code>
+A second way is instantiate a method object and then call it:
+<code>ruby
+method_object = s.method(:length)
+p method_object.call #=&gt; 6
+method_object = s.method(:include?)
+p method_object.call('hi')  #=&gt; true
+</code>
+And the third way is to use the eval method:
+<code>ruby
+eval "s.length" #=&gt; 6
+eval "s.include? 'hi'" #=&gt;true
+</code>
+Well, when to use what?</p>
+
+<p>look at this script, it will be used to benchmark the 3 ways of calling :
+```ruby
+require "benchmark"
+test = "hi man"
+m = test.method(:length)
+n = 100000
+Benchmark.bmbm {|x|
+  x.report("call") { n.times { m.call } }
+  x.report("send") { n.times { test.send(:length) } }
+  x.report("eval") { n.times { eval "test.length" } }
+}</p>
+
+<h6>#</h6>
+
+<h5>The results</h5>
+
+<h6>#</h6>
+
+<h1>Rehearsal ----------------------------------------</h1>
+
+<h1>call   0.050000   0.020000   0.070000 (  0.077915)</h1>
+
+<h1>send   0.080000   0.000000   0.080000 (  0.086071)</h1>
+
+<h1>eval   0.360000   0.040000   0.400000 (  0.405647)</h1>
+
+<h1>------------------------------- total: 0.550000sec</h1>
+
+<h1>user     system      total        real</h1>
+
+<h1>call   0.050000   0.020000   0.070000 (  0.072041)</h1>
+
+<h1>send   0.070000   0.000000   0.070000 (  0.077674)</h1>
+
+<h1>eval   0.370000   0.020000   0.390000 (  0.399442)</h1>
+
+<p>```
+Well as you can see, instantiating a method object is the fastest dynamic way in calling a method, also notice how slow using eval is.</p>
+
+<p>Also when sending a message to an object , or when instantiating a method object , u can call private methods of that object <a href="http://khelll.com/blog/ruby/ruby-dynamic-method-calling/">:</a>
+```ruby
+class Foo
+  private<br/>
+  def hi</p>
+
+<pre><code>puts "hi man" 
+</code></pre>
+
+<p>  end
+end</p>
+
+<h1>Normal method calling</h1>
+
+<p>f = Foo.new  #=> &lt;Foo:0x10a0d51>
+f.hi  #=>NoMethodError: private method `hi' called for #&lt;Foo:0x10a0d51></p>
+
+<h1>Sending a message</h1>
+
+<p>f.send :hi #  hi man</p>
+
+<h1>Instantiating a method object</h1>
+
+<p>f.method(:hi).call  # hi man</p>
+
+<h1>Using eval</h1>
+
+<p>eval "f.hi"  #=>NoMethodError: private method `hi' called for #&lt;Foo:0x10a0d51></p>
+
+<h1>Using instance_eval</h1>
+
+<p>f.instance_eval {hi}  # hi man
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[create ruby dynamic class]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2011/02/02/create-ruby-dynamic-class/"/>
+    <updated>2011-02-02T18:24:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2011/02/02/create-ruby-dynamic-class</id>
+    <content type="html"><![CDATA[<p>```ruby
+dynamic_name = "TestEval2"</p>
+
+<p>Object.const_set(dynamic_name, Class.new)
+dummy2 = eval("#{dynamic_name}")
+puts "dummy2: #{dummy2}"
+```</p>
+
+<p><code>ruby
+dynamic_name = "ClassName"
+Object.const_set(dynamic_name, Class.new { def method1() 42 end })
+ClassName.new.method1 #=&gt; 42
+</code></p>
+
+<p>```ruby
+class_name = 'foo'.capitalize
+klass = Object.const_set(class_name,Class.new)</p>
+
+<p>names = ['instance1', 'instance2'] # Array of instance vars</p>
+
+<p>klass.class_eval do
+  attr_accessor *names</p>
+
+<p>  define_method(:initialize) do |*values|</p>
+
+<pre><code>names.each_with_index do |name,i|
+  instance_variable_set("@"+name, values[i])
+end
+</code></pre>
+
+<p>  end
+  # more...
+end
+```</p>
+
+<p>class_eval and const_set are used.</p>
+
+<p>```ruby
+a_new_class = Class.new(Object) do
+  attr_accessor :x</p>
+
+<p>  def initialize(x)</p>
+
+<pre><code>print #{self.class} initialized with #{x}"
+@x = x
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>SomeModule.const_set("ClassName", a_new_class)</p>
+
+<p>c = ClassName.new(10)
+```</p>
+
+<p>without class_eval and const_set
+You don't really need to use const_set. The return value of Class.new can be assigned to a constant and the block of Class.new is class_eval.
+```ruby
+ass Ancestor; end
+SomeClass = Class.new(Ancestor) do
+  def initialize(var)</p>
+
+<pre><code> print "#{self.class} initialized with #{var}"
+</code></pre>
+
+<p>  end
+end
+=> SomeClass
+SomeClass.new("foo")</p>
+
+<h1>SomeClass initialized with foo=> #&lt;SomeClass:0x668b68></h1>
+
+<p>```</p>
+
+<p>The following code uses a class factory to create a new class along with getter and setters for the fields passed into it:
+```ruby
+class ClassFactory
+  def self.create_class(new_class, *fields)</p>
+
+<pre><code>c = Class.new do
+  fields.each do |field|
+    define_method field.intern do
+      instance_variable_get("@#{field}")
+    end
+    define_method "#{field}=".intern do |arg|
+      instance_variable_set("@#{field}", arg)
+    end
+  end
+end
+
+Kernel.const_set new_class, c
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>ClassFactory.create_class "Car", "make", "model", "year"</p>
+
+<p>new_class = Car.new
+new_class.make = "Nissan"
+puts new_class.make # => "Nissan"
+new_class.model = "Maxima"
+puts new_class.model # => "Maxima"
+new_class.year = "2001"
+puts new_class.year # => "2001"
+```
+In Ruby, classes are simply objects like any other, which are then assigned to a constant.  Hence, to create a new class dynamically we instantiate the class Class with Class.new, and then assign it to a constant via const_set (we invoke it on Kernel so that it is a top-level constant like any other class).  We then add the code that makes up the class in a do-end block.</p>
+
+<p>In that do-end block, for each field we invoke define_method twice, first for the getter method and then the setter method with get_instance_variable and set_instance_variable, respectively.  For each field, we create the instance variables (e.g., for make, we use @make).  Note how we make use of passing the argument in for the setter.</p>
+
+<p>Additionally, if I wanted to make the class a sub-class, I could have used Class.new(parent_class)</p>
+]]></content>
+  </entry>
+  
+</feed>

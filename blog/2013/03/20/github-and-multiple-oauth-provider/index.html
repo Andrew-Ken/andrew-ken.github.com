@@ -1,0 +1,458 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>github and multiple oauth provider - Yankist</title>
+	<meta name="author" content="Ken Lu, Andrew Sheelan Paliyan">
+
+	
+	<meta name="description" content="Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Yankist" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Yankist</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:Andrew-Ken.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/admin@yankist.com?rel=author" title="Google+">Google+</a>
+		
+		
+		
+		<a class="github" href="https://github.com/Andrew-Ken" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:Andrew-Ken.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Github and Multiple Oauth Provider</h2>
+	<div class="entry-content"><p>Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?</p>
+
+<p>Typically authentication systems have a User model which handles most of the authentication logic but having multiple logins forces you to correctly separate the concepts of an Identity and a User. An Identity is a particular authentication method which a user has used to identify themselves with your site whilst a User manages data which is directly related to your site itself.</p>
+
+<p>So to start you will want to create both User and Identity models. We will also add some convenience methods for creating identities and users when the OmniAuth callback is invoked:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/models/user.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:identities</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">create</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># app/models/identity.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Identity</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">find_by_provider_and_uid</span><span class="p">(</span><span class="n">auth</span><span class="o">[</span><span class="s1">&#39;provider&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">auth</span><span class="o">[</span><span class="s1">&#39;uid&#39;</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">create</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="n">auth</span><span class="o">[</span><span class="s1">&#39;uid&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">provider</span><span class="p">:</span> <span class="n">auth</span><span class="o">[</span><span class="s1">&#39;provider&#39;</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So a user can have multiple identities and each identity belongs to a single user.</p>
+
+<p>Next we need to handle logging in and logging out. This is managing session data since a logged in user is simply a person who has some session data confirming that they have been logged in. The OmniAuth callback which a provider will redirect to upon authenticating a user is /auth/:provider/callback so lets setup a route and a controller to handle this. We should also setup some helper methods on our Application Controller for handling the current user:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># config/routes.rb</span>
+</span><span class='line'><span class="no">YourAppName</span><span class="o">::</span><span class="no">Application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">match</span> <span class="s1">&#39;/auth/:provider/callback&#39;</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="s1">&#39;sessions#create&#39;</span>
+</span><span class='line'>  <span class="n">match</span> <span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="s1">&#39;sessions#destroy&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#app/controllers/sessions_controller.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
+</span><span class='line'>    <span class="c1"># Login the User here</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">destroy</span>
+</span><span class='line'>    <span class="c1"># Logout the User here</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#app/controllers/application_controller.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">protect_from_forgery</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">protected</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">current_user</span>
+</span><span class='line'>    <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">signed_in?</span>
+</span><span class='line'>    <span class="o">!!</span><span class="n">current_user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">helper_method</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:signed_in?</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">current_user</span><span class="o">=</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">user</span>
+</span><span class='line'>    <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">nil?</span> <span class="p">?</span> <span class="n">user</span> <span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now to login, all a user needs to do is go to /auth/provider and they will get redirected to Sessions Controller create method after authenticating. So there are a number of possibilities when they hit this action:</p>
+
+<p>A user has never used your site before. They have no User model and no Identities either.
+A user is logged out but they have logged into your site with a provider previously. They are now signing in with the same one again.
+Just as above but they are now signing in with a different provider.
+A user is logged in with a provider but they try to login with the same provider again.
+A user is logged in but they try to login with a different provider.
+The first two cases are just like a normal sign in process. The final 3 cases occur because we are allowing multiple providers and they can be tricky to handle.</p>
+
+<p>Firstly, we need to grab authentication data given to us by the provider which is stored in request.env[omniauth.auth]. Then we need to check whether we have an identity which matches this data or create a new one.</p>
+
+<p>How we proceed for here depends on whether the user is already logged in. If they aren&#8217;t logged in then either they are a brand new user (so we treat their request like a registration) or they already have an account (so we treat this like a login request).</p>
+
+<p>If they are logged in then we treat their request like they are trying to link an identity with their account. Either they are trying to link an identity which they have already linked (in which case we should display an error message telling them that) or it is a brand new identity so we go ahead and link it.</p>
+
+<p>So at this point our skeleton create method looks like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create</span>
+</span><span class='line'>  <span class="n">auth</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="o">[</span><span class="s1">&#39;omniauth.auth&#39;</span><span class="o">]</span>
+</span><span class='line'>  <span class="c1"># Find an identity here</span>
+</span><span class='line'>  <span class="vi">@identity</span> <span class="o">=</span> <span class="no">Identity</span><span class="o">.</span><span class="n">find_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="vi">@identity</span><span class="o">.</span><span class="n">nil?</span>
+</span><span class='line'>    <span class="c1"># If no identity was found, create a brand new one here</span>
+</span><span class='line'>    <span class="vi">@identity</span> <span class="o">=</span> <span class="no">Identity</span><span class="o">.</span><span class="n">create_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="n">signed_in?</span>
+</span><span class='line'>    <span class="k">if</span> <span class="vi">@identity</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="n">current_user</span>
+</span><span class='line'>      <span class="c1"># User is signed in so they are trying to link an identity with their</span>
+</span><span class='line'>      <span class="c1"># account. But we found the identity and the user associated with it </span>
+</span><span class='line'>      <span class="c1"># is the current user. So the identity is already associated with </span>
+</span><span class='line'>      <span class="c1"># this user. So let&#39;s display an error message.</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;Already linked that account!&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="c1"># The identity is not associated with the current_user so lets </span>
+</span><span class='line'>      <span class="c1"># associate the identity</span>
+</span><span class='line'>      <span class="vi">@identity</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>      <span class="vi">@identity</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;Successfully linked that account!&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="k">if</span> <span class="vi">@identity</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">present?</span>
+</span><span class='line'>      <span class="c1"># The identity we found had a user associated with it so let&#39;s </span>
+</span><span class='line'>      <span class="c1"># just log them in here</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">current_user</span> <span class="o">=</span> <span class="vi">@identity</span><span class="o">.</span><span class="n">user</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;Signed in!&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="c1"># No user associated with the identity so we need to create a new one</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">new_user_url</span><span class="p">,</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;Please finish registering&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So at this point, there are a couple of further considerations. Firstly on the signed in/identity not associated with user branch, there are two reasons why an identity might not be associated with a user. It could be that the identity is brand new, having never been used to sign in before. However, it could be that it has been used and so is already associated with a different user, although not necessarily a different person. Given that this user knew the login credentials for that identity, I think it is probably sufficiently prudent to assume that they are, in fact, the same person who also created the previous user. However, by simply reassigning the user to which the identity is associated with to the current one, you not only leave a user model potentially dangling with no identities to sign in with but also prevent the user from merging their data from their previous account in with this one. Resolving this will be dependent entirely on how much data, and the nature of that data, you have stored for each user but for sufficiently simple applications, you could at this point check to see if the old user has any identities left and, if not, delete that user. If the person using your site is likely to lose any data from this process then you would either need to make this sufficiently clear to them before proceeding or provide them with a way to migrate that data over (or handle it automatically, if possible).</p>
+
+<p>Secondly, on the not signed in/no user model branch, you may need more registration data from your user than can be provided by your authentication providers. At this point, as I have assumed above, you can redirect them to a new user form and redirect them to this point if they try to access any other part of the app without completing it. Then create the user and log them in again when they have. Otherwise, if no further data is necessary or mandatory, you can go ahead and create a blank user model in the create method and log them straight in.</p>
+
+<p>Finally, a few lose ends. Here is the destroy method for logging users out:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">destroy</span>
+</span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;Signed out!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&#8217;ll also find that the OmniAuth callback url does not correctly verify the rails authenticity token and so will destroy any session data upon returning, thereby logging your current user out. This will prevent them from associating a new identity with their current account. You can get around this by adding skip_before_filter :verify_authenticity_token, only: :create to your sessions controller but I am unsure of the security implications of this.</p>
+
+<p>You&#8217;ll also need some migrations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateUsers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:users</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CreateIdentities</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:identities</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:uid</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:provider</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:user</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">add_index</span> <span class="ss">:identities</span><span class="p">,</span> <span class="ss">:user_id</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-20T08:01:00-04:00" pubdate data-updated="true">Mar 20<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/omniauth/'>omniauth</a>, <a class='category' href='/blog/categories/provider/'>provider</a>
+
+
+</div>
+	
+		<span class="comments"><a href="/blog/2013/03/20/github-and-multiple-oauth-provider/#disqus_thread">Comments</a></span>
+        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Yank it - Just use it - 2013 <a
+  href='http://www.linkedin.com/profile/view?id=122372553'>Ken Lu</a>, <a
+      href="http://www.linkedin.com/profile/view?id=6957991">Andrew Paliyan</a>
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'guest';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Andrew-Ken.github.com/blog/2013/03/20/github-and-multiple-oauth-provider/';
+        var disqus_url = 'http://Andrew-Ken.github.com/blog/2013/03/20/github-and-multiple-oauth-provider/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36461400-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

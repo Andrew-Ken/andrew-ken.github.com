@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[heroku deploy procedure]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/02/heroku-deploy-procedure/"/>
+    <updated>2012-12-02T09:09:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/02/heroku-deploy-procedure</id>
+    <content type="html"><![CDATA[<p>Just keep record of the procedure to deploy heroku
+<strong>install heroku</strong>
+heroku gem(deprecated) or <a href="https://toolbelt.heroku.com/">toolbelt</a>
+```ruby
+sudo aptitude install heroku-toolbelt</p>
+
+<h1>or for ubuntu</h1>
+
+<p>wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+<code>
+**login with credentials**
+</code>ruby
+heroku login</p>
+
+<h1>Enter your Heroku credentials.</h1>
+
+<h1>Email: adam@example.com</h1>
+
+<h1>Password:</h1>
+
+<h1>Could not find an existing public key.</h1>
+
+<h1>Would you like to generate one? [Yn]</h1>
+
+<h1>Generating new SSH public key.</h1>
+
+<h1>Uploading ssh public key /Users/adam/.ssh/id_rsa.pub</h1>
+
+<p><code>
+**create app**
+</code>ruby
+heroku create
+heroku rename
+heroku help
+```
+add to git and make a commit</p>
+
+<p><strong>push and deploy</strong>
+```ruby</p>
+
+<h1>change Gemfile put sqlite3 to development</h1>
+
+<h1>add pg to production</h1>
+
+<h1>if you change Gemfile you need to git commit again otherwise heroku will not know</h1>
+
+<p>git push heroku master
+```
+if you got error</p>
+
+<blockquote><p>Permission denied (publickey).
+fatal: The remote end hung up unexpectedly</p></blockquote>
+
+<p>try
+and reference <a href="https://devcenter.heroku.com/articles/keys#adding_keys_to_heroku">add keys to heroku</a>
+<code>ruby
+heroku keys:add ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -f id_rsa
+git clone git@heroku.com:stark-dawn-1234.git -o heroku
+heroku keys:clear
+heroku keys:add
+</code></p>
+
+<p><strong>migration and open</strong></p>
+
+<p><code>ruby
+heroku run rake db:migrate
+heroku run console
+heroku logs
+heroku open
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git alias]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/13/git-alias/"/>
+    <updated>2012-11-13T09:32:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/13/git-alias</id>
+    <content type="html"><![CDATA[<p>Following are some of the common git aliases, people use. Add them to ~/.bash_profile</p>
+
+<p><code>
+alias g='git'
+alias gst='git status'
+alias gs='git push'
+alias gc='git commit'
+alias gca='git commit -a'
+alias ga='git add'
+alias gco='git checkout'
+alias gb='git branch'
+alias gm='git merge'
+alias gd="git diff"
+</code></p>
+
+<p>An additional syntax highlighting can be provided as well with the following:</p>
+
+<p><code>
+export CLICOLOR=1
+export LSCOLORS=gxfxaxdxcxegedabagacad
+</code></p>
+
+<p>Any questions on this, please feel free to ask. We're here to help...</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[how to revert git commit remote]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/05/22/how-to-revert-git-commit-remote/"/>
+    <updated>2010-05-22T09:45:00-04:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/05/22/how-to-revert-git-commit-remote</id>
+    <content type="html"><![CDATA[<p>First, There are serveral revert situation:
+Local:
+```ruby</p>
+
+<h1>this will detach your HEAD, i.e. leave you with no branch checked out.</h1>
+
+<p>git checkout 0d1d7fc32
+git checkout -b old-state 0d1d7fc32
+```</p>
+
+<p>```ruby</p>
+
+<h1>Don't do it if you have uncommitted work you want to keep</h1>
+
+<p>git reset --hard 0d1d7fc32</p>
+
+<h1>Alternatively, if there's work to keep:</h1>
+
+<p>git stash
+git reset --hard 0d1d7fc32
+git stash pop</p>
+
+<h1>This saves the modifications, then reapplies that patch after resetting.</h1>
+
+<h1>You could get merge conflicts, if you've modified things which were</h1>
+
+<h1>changed since the commit you reset to</h1>
+
+<p>```</p>
+
+<p><code>ruby
+git add . &amp;&amp; git checkout master -f
+git add . &amp;&amp; git reset --hard HEAD
+</code></p>
+
+<p>Remote</p>
+
+<p><code>ruby
+git push mathnet +dd61ab32^:master
+git reset HEAD^ --hard
+git push mathnet -f
+</code></p>
+
+<p><a href="http://christoph.ruegg.name/blog/2010/5/5/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html">.</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[how to use submodule brief instruction]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2010/01/31/how-to-use-submodule-brief-instruction/"/>
+    <updated>2010-01-31T08:50:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2010/01/31/how-to-use-submodule-brief-instruction</id>
+    <content type="html"><![CDATA[<p>```ruby</p>
+
+<h1>get the submodule initially</h1>
+
+<p>git submodule add ssh://bla submodule_dir
+git submodule init</p>
+
+<h1>time passes, submodule upstream is updated</h1>
+
+<h1>and you now want to update</h1>
+
+<h1>change to the submodule directory</h1>
+
+<p>cd submodule_dir</p>
+
+<h1>checkout desired branch</h1>
+
+<p>git checkout master</p>
+
+<h1>update</h1>
+
+<p>git pull</p>
+
+<h1>get back to your project root</h1>
+
+<p>cd ..</p>
+
+<h1>now the submodules are in the state you want, so</h1>
+
+<p>git commit -am "Pulled down update to submodule_dir"</p>
+
+<p>git submodules update --init</p>
+
+<p>git submodule foreach git pull origin master</p>
+
+<p>```
+<a href="https://git.wiki.kernel.org/index.php/GitSubmoduleTutorial">refer git wiki</a>
+<a href="http://git-scm.com/book/en/Git-Tools-Submodules">git-scm</a></p>
+]]></content>
+  </entry>
+  
+</feed>

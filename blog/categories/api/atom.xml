@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: api | Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/blog/categories/api/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails integrate with Google analytics Api]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/02/10/rails-integrate-with-google-analytics-api/"/>
+    <updated>2013-02-10T08:54:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/02/10/rails-integrate-with-google-analytics-api</id>
+    <content type="html"><![CDATA[<p>Here is serveral usefull source:</p>
+
+<p><a href="https://github.com/chrisle/gattica">gattica</a></p>
+
+<p><a href="https://github.com/robmckinnon/rugalytics">rugalytics</a></p>
+
+<p><a href="https://www.ruby-toolbox.com/categories/Web_Analytics">ruby toolbox</a></p>
+
+<p><a href="https://developers.google.com/analytics/devguides/reporting/core/v3/">Google api Doc</a></p>
+
+<p>```ruby</p>
+
+<h1>Include the gem</h1>
+
+<p>require 'gattica'</p>
+
+<h1>Login</h1>
+
+<p>ga = Gattica.new({</p>
+
+<pre><code>:email =&gt; 'email@gmail.com', 
+:password =&gt; 'password'
+</code></pre>
+
+<p>})</p>
+
+<h1>Get a list of accounts</h1>
+
+<p>accounts = ga.accounts</p>
+
+<h1>Choose the first account</h1>
+
+<p>ga.profile_id = accounts.first.profile_id</p>
+
+<h1>Get the data</h1>
+
+<p>data = ga.get({</p>
+
+<pre><code>:start_date   =&gt; '2011-01-01',
+:end_date     =&gt; '2011-04-01',
+:dimensions   =&gt; ['month', 'year'],
+:metrics      =&gt; ['visits', 'bounces'],
+</code></pre>
+
+<p>})</p>
+
+<h1>Show the data</h1>
+
+<p>puts data.inspect</p>
+
+<h1>Sorting by number of visits in descending order (most visits at the top)</h1>
+
+<p>data = ga.get({</p>
+
+<pre><code>:start_date   =&gt; '2011-01-01',
+:end_date     =&gt; '2011-04-01',
+:dimensions   =&gt; ['month', 'year'],
+:metrics      =&gt; ['visits'],
+:sort         =&gt; ['-visits']
+</code></pre>
+
+<p>})</p>
+
+<h1>Return visits and bounces for mobile traffic</h1>
+
+<h1>(Google's default user segment gaid::-11)</h1>
+
+<p>mobile_traffic = ga.get({
+  :start_date   => '2011-01-01',
+  :end_date     => '2011-02-01',
+  :dimensions   => ['month', 'year'],
+  :metrics      => ['visits', 'bounces'],
+  :segment      => 'gaid::-11'
+})</p>
+
+<h1>Filter by Firefox users</h1>
+
+<p>firefox_users = ga.get({
+  :start_date   => '2010-01-01',
+  :end_date     => '2011-01-01',
+  :dimensions   => ['month', 'year'],
+  :metrics      => ['visits', 'bounces'],
+  :filters      => ['browser == Firefox']
+})</p>
+
+<h1>Filter where visits is >= 10000</h1>
+
+<p>lots_of_visits = ga.get({
+  :start_date   => '2010-01-01',
+  :end_date     => '2011-02-01',
+  :dimensions   => ['month', 'year'],
+  :metrics      => ['visits', 'bounces'],
+  :filters      => ['visits >= 10000']
+})</p>
+
+<h1>Get the top 25 keywords that drove traffic</h1>
+
+<p>data = ga.get({
+  :start_date => '2011-01-01',
+  :end_date => '2011-04-01',
+  :dimensions => ['keyword'],
+  :metrics => ['visits'],
+  :sort => ['-visits'],
+  :max_results => 25
+})</p>
+
+<h1>Output our results</h1>
+
+<p>data.points.each do |data_point|
+  kw = data_point.dimensions.detect { |dim| dim.key == :keyword }.value
+  visits = data_point.metrics.detect { |metric| metric.key == :visits }.value
+  puts "#{visits} visits => '#{kw}'"
+end</p>
+
+<h1>=></h1>
+
+<h1>19667 visits => '(not set)'</h1>
+
+<h1>1677 visits => 'keyword 1'</h1>
+
+<h1>178 visits => 'keyword 2'</h1>
+
+<h1>165 visits => 'keyword 3'</h1>
+
+<h1>161 visits => 'keyword 4'</h1>
+
+<h1>112 visits => 'keyword 5'</h1>
+
+<h1>105 visits => 'seo company reviews'</h1>
+
+<h1>...</h1>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Applying Common Filtering for Rails Api Based Applications]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/26/applying-common-filtering-for-rails-api-based-applications/"/>
+    <updated>2012-11-26T22:50:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/26/applying-common-filtering-for-rails-api-based-applications</id>
+    <content type="html"><![CDATA[<p>Sometimes there are common sets of fields and id's that we would like the api
+to filter before sending the details to the client. It would be great if we can
+place them in a common place so that they can be changed anytime.</p>
+
+<p>File: lib/api_config.rb</p>
+
+<p>```ruby</p>
+
+<h1>Filters out the specified list of fields from the API calls</h1>
+
+<p>APIFILTERS = ['id','password','secret__internal_id','updated_at','created_at']
+```</p>
+
+<p>File: config/initializers/json_config.rb</p>
+
+<p>```ruby</p>
+
+<h1>Requiring the api configuration file</h1>
+
+<p>require 'api_config'</p>
+
+<p>class ActiveRecord::Base
+  def as_json_with_filter(options=Hash.new)</p>
+
+<pre><code>options[:except] = APIFILTERS
+as_json_without_filter(options)
+</code></pre>
+
+<p>  end
+  alias_method_chain :as_json, :filter
+end</p>
+
+<p>```
+the alias_method_chain does two things here:</p>
+
+<ul>
+<li><p>firstly it creates an alias method called as_json_without_filter to as_json</p></li>
+<li><p>secondly it looks for as_json_with_filter and makes that as the new as_json
+method</p></li>
+</ul>
+
+
+<p>The as_json method is one that gets called when the to_json method is called on a
+model object or a collection of model objects in rails</p>
+
+<p>example: users controller file</p>
+
+<p>```ruby</p>
+
+<p>class UsersController &lt; ApplicationController</p>
+
+<p>  respond_to :json</p>
+
+<p>  def show</p>
+
+<pre><code>@user = User.find(params[:id])
+respond_with @user
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>```</p>
+
+<p>the above would call the as_json method of the user model, we have just
+overridden the super class to filter out a few fields</p>
+
+<p>```ruby
+class User &lt; ActiveRecord::Base</p>
+
+<p>def as_json(options={})
+  super(:include => :parents)
+end</p>
+
+<p>```</p>
+
+<p>for xml, this is slightly Different</p>
+
+<p>File: config/initializers/xml_config.rb</p>
+
+<p>```ruby</p>
+
+<h1>Requiring the api configuration file</h1>
+
+<p>require 'api_config'</p>
+
+<p>class ActiveRecord::Base
+  alias_method :to_xml, :old_to_xml
+  def to_xml(options=Hash.new)</p>
+
+<pre><code>options[:except] = APIFILTERS
+old_to_xml(options)
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>```</p>
+
+<p>Any questions, please feel free to ask. We're here to help...</p>
+]]></content>
+  </entry>
+  
+</feed>

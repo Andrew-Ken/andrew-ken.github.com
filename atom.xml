@@ -1,96 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Yankist</title>
-	<meta name="author" content="Ken Lu, Andrew Sheelan Paliyan">
+  <title><![CDATA[Yankist]]></title>
+  <link href="http://Andrew-Ken.github.com/atom.xml" rel="self"/>
+  <link href="http://Andrew-Ken.github.com/"/>
+  <updated>2013-07-10T12:45:06-04:00</updated>
+  <id>http://Andrew-Ken.github.com/</id>
+  <author>
+    <name><![CDATA[Ken Lu, Andrew Sheelan Paliyan]]></name>
+    <email><![CDATA[contact_us@yankist.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-	
-	<meta name="description" content="Installing Rails using RVM: 1
-2
-3
-4
-5
-rvm get stable && rvm install ruby-2.0.0 rvm --default use 2.0.0 gem install rails --version 4.0.0.rc1 Jul &hellip;">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<link href="/atom.xml" rel="alternate" title="Yankist" type="application/atom+xml">
-	<link rel="canonical" href="">
-	<link href="/favicon.png" rel="shortcut icon">
-	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	
-</head>
-
-<body>
-	<header id="header" class="inner"><h1><a href="/">Yankist</a></h1>
-<nav id="main-nav"><ul class="main">
-	<li><a href="/">Blog</a></li>
-	<li><a href="/blog/archives">Archives</a></li>
-</ul>
-</nav>
-<nav id="mobile-nav">
-	<div class="alignleft menu">
-		<a class="button">Menu</a>
-		<div class="container"><ul class="main">
-	<li><a href="/">Blog</a></li>
-	<li><a href="/blog/archives">Archives</a></li>
-</ul>
-</div>
-	</div>
-	<div class="alignright search">
-		<a class="button"></a>
-		<div class="container">
-			<form action="http://google.com/search" method="get">
-				<input type="text" name="q" results="0">
-				<input type="hidden" name="q" value="site:Andrew-Ken.github.com">
-			</form>
-		</div>
-	</div>
-</nav>
-<nav id="sub-nav" class="alignright">
-	<div class="social">
-		
-		
-		<a class="google" href="https://plus.google.com/admin@yankist.com?rel=author" title="Google+">Google+</a>
-		
-		
-		
-		<a class="github" href="https://github.com/Andrew-Ken" title="GitHub">GitHub</a>
-		
-		
-		
-		
-		
-		
-		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
-		
-	</div>
-	<form class="search" action="http://google.com/search" method="get">
-		<input class="alignright" type="text" name="q" results="0">
-		<input type="hidden" name="q" value="site:Andrew-Ken.github.com">
-	</form>
-</nav>
-
-</header>
-	
-		
-	
-	<div id="content" class="inner">
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/10/entering-rails-4/">
-		
-			Entering Rails 4</a>
-	</h2>
-	<div class="entry-content">
-		<h2>Installing Rails using RVM:</h2>
+  
+  <entry>
+    <title type="html"><![CDATA[Entering Rails 4]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/07/10/entering-rails-4/"/>
+    <updated>2013-07-10T12:03:00-04:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/07/10/entering-rails-4</id>
+    <content type="html"><![CDATA[<h2>Installing Rails using RVM:</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -106,49 +34,15 @@ rvm get stable && rvm install ruby-2.0.0 rvm --default use 2.0.0 gem install rai
 
 
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-07-10T12:03:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/rails/'>rails</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/07/10/entering-rails-4//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/03/20/github-and-multiple-oauth-provider/">
-		
-			Github and Multiple Oauth Provider</a>
-	</h2>
-	<div class="entry-content">
-		<p>Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?</p>
+  <entry>
+    <title type="html"><![CDATA[github and multiple oauth provider]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/03/20/github-and-multiple-oauth-provider/"/>
+    <updated>2013-03-20T08:01:00-04:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/03/20/github-and-multiple-oauth-provider</id>
+    <content type="html"><![CDATA[<p>Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?</p>
 
 <p>Typically authentication systems have a User model which handles most of the authentication logic but having multiple logins forces you to correctly separate the concepts of an Identity and a User. An Identity is a particular authentication method which a user has used to identify themselves with your site whilst a User manages data which is directly related to your site itself.</p>
 
@@ -429,49 +323,15 @@ The first two cases are just like a normal sign in process. The final 3 cases oc
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-03-20T08:01:00-04:00" pubdate data-updated="true">Mar 20<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/omniauth/'>omniauth</a>, <a class='category' href='/blog/categories/provider/'>provider</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/03/20/github-and-multiple-oauth-provider//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/03/07/use-view-helper-at-controller/">
-		
-			Use View Helper at Controller</a>
-	</h2>
-	<div class="entry-content">
-		<p><a href="http://guides.rubyonrails.org/form_helpers.html">guide</a></p>
+  <entry>
+    <title type="html"><![CDATA[Use view helper at controller]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/03/07/use-view-helper-at-controller/"/>
+    <updated>2013-03-07T08:42:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/03/07/use-view-helper-at-controller</id>
+    <content type="html"><![CDATA[<p><a href="http://guides.rubyonrails.org/form_helpers.html">guide</a></p>
 
 <p><a href="http://api.rubyonrails.org/classes/AbstractController/Helpers/ClassMethods.html#method-i-helper">api</a></p>
 
@@ -547,49 +407,15 @@ Rails &lt; 3.1</p>
 
 
 <p>In this way each controller will load its own helpers.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-03-07T08:42:00-05:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/helper-view/'>helper view</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/03/07/use-view-helper-at-controller//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/10/rails-integrate-with-google-analytics-api/">
-		
-			Rails Integrate With Google Analytics Api</a>
-	</h2>
-	<div class="entry-content">
-		<p>Here is serveral usefull source:</p>
+  <entry>
+    <title type="html"><![CDATA[Rails integrate with Google analytics Api]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/02/10/rails-integrate-with-google-analytics-api/"/>
+    <updated>2013-02-10T08:54:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/02/10/rails-integrate-with-google-analytics-api</id>
+    <content type="html"><![CDATA[<p>Here is serveral usefull source:</p>
 
 <p><a href="https://github.com/chrisle/gattica">gattica</a></p>
 
@@ -789,49 +615,15 @@ Rails &lt; 3.1</p>
 </span><span class='line'><span class="c1">#   ...</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-02-10T08:54:00-05:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/analytics/'>analytics</a>, <a class='category' href='/blog/categories/api/'>api</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/rails/'>rails</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/02/10/rails-integrate-with-google-analytics-api//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/01/14/using-nano-as-a-editor/">
-		
-			Using Nano as a Editor</a>
-	</h2>
-	<div class="entry-content">
-		<p><strong>Installing(if not available) nano for mac/ubuntu</strong></p>
+  <entry>
+    <title type="html"><![CDATA[Using nano as a editor]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/01/14/using-nano-as-a-editor/"/>
+    <updated>2013-01-14T10:57:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/01/14/using-nano-as-a-editor</id>
+    <content type="html"><![CDATA[<p><strong>Installing(if not available) nano for mac/ubuntu</strong></p>
 
 <h2>For Mac:</h2>
 
@@ -871,45 +663,15 @@ The caret ^ signifies holding down the control key and typing the letter.</p>
 It prompts to save if you changed the file. press y or n and we&#8217;re done.</p>
 
 <p>Here&#8217;s more from the <a href="http://www.nano-editor.org/docs.php">nano editor org</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-01-14T10:57:00-05:00" pubdate data-updated="true">Jan 14<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/01/14/using-nano-as-a-editor//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/01/04/javascript-vs-ruby-methods/">
-		
-			Javascript vs Ruby Methods</a>
-	</h2>
-	<div class="entry-content">
-		<p><a href="http://agentcooper.github.com/js-ruby-comparison/">source</a></p>
+  <entry>
+    <title type="html"><![CDATA[Javascript Vs Ruby methods]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2013/01/04/javascript-vs-ruby-methods/"/>
+    <updated>2013-01-04T12:23:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2013/01/04/javascript-vs-ruby-methods</id>
+    <content type="html"><![CDATA[<p><a href="http://agentcooper.github.com/js-ruby-comparison/">source</a></p>
 
 <table width=100% border="1px" valign='top'>
 <tr><th colspan='2'>ARRAYS</th></tr>
@@ -1478,45 +1240,15 @@ It prompts to save if you changed the file. press y or n and we&#8217;re done.</
 
 </table>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-01-04T12:23:00-05:00" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/01/04/javascript-vs-ruby-methods//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/21/4-ways-to-call-a-ruby-method/">
-		
-			4 Ways to Call a Ruby Method</a>
-	</h2>
-	<div class="entry-content">
-		<p>There is 4 ways to excute ruby method. Two of them can excute private method out of self class.</p>
+  <entry>
+    <title type="html"><![CDATA[4 ways to call a ruby method]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/21/4-ways-to-call-a-ruby-method/"/>
+    <updated>2012-12-21T11:43:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/21/4-ways-to-call-a-ruby-method</id>
+    <content type="html"><![CDATA[<p>There is 4 ways to excute ruby method. Two of them can excute private method out of self class.</p>
 
 <p>I’m pretty sure that you have heard lots about ruby, specially as being a dynamic language, you can create methods on the fly, add instance variables, define constants and invoke existing methods dynamically , and that’s what this post is all about :</p>
 
@@ -1663,49 +1395,15 @@ It prompts to save if you changed the file. press y or n and we&#8217;re done.</
 </span><span class='line'><span class="n">f</span><span class="o">.</span><span class="n">instance_eval</span> <span class="p">{</span><span class="n">hi</span><span class="p">}</span>  <span class="c1"># hi man</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2012-12-21T11:43:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/dynamic/'>dynamic</a>, <a class='category' href='/blog/categories/metaprogramming/'>metaprogramming</a>, <a class='category' href='/blog/categories/method/'>method</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2012/12/21/4-ways-to-call-a-ruby-method//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/09/ruby-timeout/">
-		
-			Ruby Timeout</a>
-	</h2>
-	<div class="entry-content">
-		<h2>standard timeout</h2>
+  <entry>
+    <title type="html"><![CDATA[ruby timeout]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/09/ruby-timeout/"/>
+    <updated>2012-12-09T06:56:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/09/ruby-timeout</id>
+    <content type="html"><![CDATA[<h2>standard timeout</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1825,49 +1523,15 @@ such as:</p>
 
 
 <p>system timer only for 1.8<a href="http://ph7spot.com/musings/system-timer">.</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2012-12-09T06:56:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/exception/'>exception</a>, <a class='category' href='/blog/categories/rescue/'>rescue</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/timeout/'>timeout</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2012/12/09/ruby-timeout//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit/">
-		
-			Rspec Test Failed After Changing to Capybara-webkit</a>
-	</h2>
-	<div class="entry-content">
-		<h2>problem as</h2>
+  <entry>
+    <title type="html"><![CDATA[rspec test failed after changing to capybara-webkit]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit/"/>
+    <updated>2012-12-09T06:03:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit</id>
+    <content type="html"><![CDATA[<h2>problem as</h2>
 
 <p>written some RSpec test for my rails 3.2 application and because I was annyoed by the Browser popping up ich tried to change from firefox to capybara-webkit. After this all tests still run, except one. The line that is failing is:</p>
 
@@ -1884,49 +1548,15 @@ such as:</p>
 
 
 <p>There is a race condition here between Capybara sending the click action to the server and your test checking the database.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2012-12-09T06:03:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/capybara-webkit/'>capybara-webkit</a>, <a class='category' href='/blog/categories/rspec/'>rspec</a>
-
-
-</div>
-	
-		<span class="comments"><a href="/blog/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior/">
-		
-			Capybara Webkit or Selenium or Watir to Simulate Browser Behavior</a>
-	</h2>
-	<div class="entry-content">
-		<p>Sometimes we want to simulate browser behavior. The situation can be test or automation script.</p>
+  <entry>
+    <title type="html"><![CDATA[capybara webkit or selenium or watir to simulate browser behavior]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior/"/>
+    <updated>2012-12-06T15:29:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior</id>
+    <content type="html"><![CDATA[<p>Sometimes we want to simulate browser behavior. The situation can be test or automation script.</p>
 
 <h2>install capybara-webkit</h2>
 
@@ -2168,87 +1798,1124 @@ selector if it matches the argument:</p>
 
 <p>This :id selector is already built into Capybara by default, so you don&#8217;t
 need to add it yourself<a href="https://github.com/jnicklas/capybara">.</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[heroku deploy procedure]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/02/heroku-deploy-procedure/"/>
+    <updated>2012-12-02T09:09:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/02/heroku-deploy-procedure</id>
+    <content type="html"><![CDATA[<p>Just keep record of the procedure to deploy heroku
+<strong>install heroku</strong>
+heroku gem(deprecated) or <a href="https://toolbelt.heroku.com/">toolbelt</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">sudo</span> <span class="n">aptitude</span> <span class="n">install</span> <span class="n">heroku</span><span class="o">-</span><span class="n">toolbelt</span>
+</span><span class='line'><span class="c1">#or for ubuntu</span>
+</span><span class='line'><span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">toolbelt</span><span class="o">.</span><span class="n">heroku</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sh</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<time datetime="2012-12-06T15:29:00-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 2012</time></div>
-	<div class="tags">
+<p><strong>login with credentials</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">heroku</span> <span class="n">login</span>
+</span><span class='line'><span class="c1">#Enter your Heroku credentials.</span>
+</span><span class='line'><span class="c1">#Email: adam@example.com</span>
+</span><span class='line'><span class="c1">#Password:</span>
+</span><span class='line'><span class="c1">#Could not find an existing public key.</span>
+</span><span class='line'><span class="c1">#Would you like to generate one? [Yn]</span>
+</span><span class='line'><span class="c1">#Generating new SSH public key.</span>
+</span><span class='line'><span class="c1">#Uploading ssh public key /Users/adam/.ssh/id_rsa.pub</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-	<a class='category' href='/blog/categories/capybara/'>capybara</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/selenium/'>selenium</a>, <a class='category' href='/blog/categories/webkit/'>webkit</a>
+<p><strong>create app</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">heroku</span> <span class="n">create</span>
+</span><span class='line'><span class="n">heroku</span> <span class="n">rename</span>
+</span><span class='line'><span class="n">heroku</span> <span class="n">help</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-</div>
-	
-		<span class="comments"><a href="/blog/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior//index.html#disqus_thread">Comments</a></span>
-        <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#EEEEEE' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0xEEEEEE&amp;tcolor2=0x666666&amp;hicolor=0x268BD2&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Falgorithm%27+style%3D%27font-size%3A+14.0%25%27%3Ealgorithm%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass%27+style%3D%27font-size%3A+12.0%25%27%3Eclass%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fclass-eval%27+style%3D%27font-size%3A+12.0%25%27%3Eclass_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fcmd%27+style%3D%27font-size%3A+12.0%25%27%3Ecmd%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fdynamic%27+style%3D%27font-size%3A+14.0%25%27%3Edynamic%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fextend%27+style%3D%27font-size%3A+14.0%25%27%3Eextend%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+18.0%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fheadless%27+style%3D%27font-size%3A+12.0%25%27%3Eheadless%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finclude%27+style%3D%27font-size%3A+14.0%25%27%3Einclude%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Finstance-eval%27+style%3D%27font-size%3A+12.0%25%27%3Einstance_eval%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Flinux%27+style%3D%27font-size%3A+12.0%25%27%3Elinux%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogram%27+style%3D%27font-size%3A+12.0%25%27%3Emetaprogram%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fmetaprogramming%27+style%3D%27font-size%3A+18.0%25%27%3Emetaprogramming%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frevert%27+style%3D%27font-size%3A+12.0%25%27%3Erevert%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Frspec%27+style%3D%27font-size%3A+18.0%25%27%3Erspec%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+50.0%25%27%3Eruby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fselenium-webdriver%27+style%3D%27font-size%3A+12.0%25%27%3Eselenium-webdriver%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fshell%27+style%3D%27font-size%3A+12.0%25%27%3Eshell%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fsubmodule%27+style%3D%27font-size%3A+12.0%25%27%3Esubmodule%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2FAndrew-Ken.github.com%2Fblog%2Fcategories%2Fxserver%27+style%3D%27font-size%3A+12.0%25%27%3Exserver%3C%2Fa%3E+%3C%2Ftags%3E">
-	
-</div></article>
+<p>add to git and make a commit</p>
 
-<nav id="pagenavi">
-    
-    
-        <a href="/blog/page/2/" class="next">Next</a>
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav></div>
-	<footer id="footer" class="inner">Yank it - Just use it - 2013 <a
-  href='http://www.linkedin.com/profile/view?id=122372553'>Ken Lu</a>, <a
-      href="http://www.linkedin.com/profile/view?id=6957991">Andrew Paliyan</a>
-</footer>
-	<script src="/javascripts/slash.js"></script>
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
+<p><strong>push and deploy</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#change Gemfile put sqlite3 to development </span>
+</span><span class='line'><span class="c1">#add pg to production</span>
+</span><span class='line'><span class="c1">#if you change Gemfile you need to git commit again otherwise heroku will not know</span>
+</span><span class='line'><span class="n">git</span> <span class="n">push</span> <span class="n">heroku</span> <span class="n">master</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<script type="text/javascript">
-      var disqus_shortname = 'guest';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
+<p>if you got error</p>
+
+<blockquote><p>Permission denied (publickey).
+fatal: The remote end hung up unexpectedly</p></blockquote>
+
+<p>try
+and reference <a href="https://devcenter.heroku.com/articles/keys#adding_keys_to_heroku">add keys to heroku</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">heroku</span> <span class="n">keys</span><span class="ss">:add</span> <span class="o">~</span><span class="sr">/.ssh/i</span><span class="n">d_rsa</span><span class="o">.</span><span class="n">pub</span>
+</span><span class='line'><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">f</span> <span class="n">id_rsa</span>
+</span><span class='line'><span class="n">git</span> <span class="nb">clone</span> <span class="n">git</span><span class="vi">@heroku</span><span class="o">.</span><span class="n">com</span><span class="ss">:stark</span><span class="o">-</span><span class="n">dawn</span><span class="o">-</span><span class="mi">1234</span><span class="o">.</span><span class="n">git</span> <span class="o">-</span><span class="n">o</span> <span class="n">heroku</span>
+</span><span class='line'><span class="n">heroku</span> <span class="n">keys</span><span class="ss">:clear</span>
+</span><span class='line'><span class="n">heroku</span> <span class="n">keys</span><span class="ss">:add</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
+<p><strong>migration and open</strong></p>
 
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-36461400-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">heroku</span> <span class="n">run</span> <span class="n">rake</span> <span class="n">db</span><span class="ss">:migrate</span>
+</span><span class='line'><span class="n">heroku</span> <span class="n">run</span> <span class="n">console</span>
+</span><span class='line'><span class="n">heroku</span> <span class="n">logs</span>
+</span><span class='line'><span class="n">heroku</span> <span class="nb">open</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
-</body>
-</html>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sudo vs RVMSudo]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/12/02/sudo-vs-rvmsudo/"/>
+    <updated>2012-12-02T08:42:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/12/02/sudo-vs-rvmsudo</id>
+    <content type="html"><![CDATA[<p><a href="https://rvm.io">RVM</a> is a great command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.
+This is exactly what makes it special, its easy to <a href="https://rvm.io/rvm/install">install RVM</a> with just a few commands..</p>
+
+<p>Installing RVM:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>curl -L https://get.rvm.io | bash -s stable
+</span><span class='line'><span class="nb">source</span> ~/.bashrc
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Source is to load bashrc in the same window.
+Now just use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm install 1.9.3
+</span><span class='line'>rvm use 1.9.3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and it now you can start using ruby version 1.9.3 and switch or add more
+versions and install gems in its own version.</p>
+
+<p>In spite of having such features to help the user, everything from there runs only for the logged in user, there may be times where you must run Ruby scripts with RVM as root (or another user) via sudo.</p>
+
+<p>But if you do this after installing rvm:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo ruby script.rb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It would problably not work at all or would be using the system installed
+version of ruby(which might be old). Do not forget to check the version of the ruby when you do a
+sudo, if it runs!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo ruby -v
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>sudo always starts a new subshell and runs as root from the current user. That new subshell&#8217;s environment will be completely different, and which means that it does not contain RVM or the other paths.
+There is a workaround, where you can manually add the path by finding them.
+Not a great idea, but works.</p>
+
+<p>RVM has a solution for running sudo with the environments, the &#8216;rvmsudo&#8217; command. It will pass on any environment variables that RVM set up to get you to the correct Ruby.
+This includes the following variables</p>
+
+<ul>
+<li>$PATH</li>
+<li>$GEM_HOME</li>
+<li>$GEM_PATH</li>
+<li>$BUNDLE_PATH</li>
+</ul>
+
+
+<p>So to run the same ruby script script.rb, simply use the Ruby you want and run it with rvmsudo.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm use 1.9.3
+</span><span class='line'>rvmsudo ruby script.rb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As always, running commands as the root user with elevated privileges, needs to be carefully done since they can alter settings and install unwanted features to all users of the system.
+[Follow our friendly trusted neighborhood spidey.. With Great power comes Great Responsibility]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[generate random string in ruby]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/generate-random-string-in-ruby/"/>
+    <updated>2012-11-28T22:39:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/generate-random-string-in-ruby</id>
+    <content type="html"><![CDATA[<p>Sometimes we need to generate a &#8216;n&#8217; character random string.</p>
+
+<p>Here are a few:</p>
+
+<ul>
+<li><strong>Only upper case alphabets [A-Z]</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="mi">8</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="n">value</span>  <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="o">.</span><span class="n">chr</span><span class="p">}</span> <span class="o">&gt;&gt;</span><span class="p">}</span>
+</span><span class='line'><span class="c1">#or</span>
+</span><span class='line'><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="mi">65</span><span class="o">.</span><span class="n">+</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span><span class="o">.</span><span class="n">chr</span><span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span><span class="o">[</span><span class="nb">rand</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span><span class="o">]</span>  <span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>Lower case and upper case [a-zA-Z]</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="mi">8</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="o">?</span><span class="mi">65</span><span class="p">:</span><span class="mi">97</span><span class="p">)</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="o">.</span><span class="n">chr</span><span class="p">}</span> <span class="o">&gt;&gt;</span><span class="p">}</span>
+</span><span class='line'><span class="c1">#or</span>
+</span><span class='line'><span class="n">o</span> <span class="o">=</span>  <span class="o">[</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="o">].</span><span class="n">map</span><span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span><span class="o">.</span><span class="n">to_a</span><span class="p">}</span><span class="o">.</span><span class="n">flatten</span>
+</span><span class='line'><span class="n">string</span>  <span class="o">=</span>  <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="n">o</span><span class="o">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">length</span><span class="p">)</span><span class="o">]</span>  <span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>Using SecureRandom provided by ActiveSupport</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;active_support/secure_random&#39;</span>
+</span><span class='line'><span class="n">random_string</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">SecureRandom</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># outputs: 5b5cd0da3121fc53b4bc84d0c8af2e81</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>SecureRandom also has methods for:</li>
+</ul>
+
+
+<p>base64</p>
+
+<ol>
+<li>hex</li>
+<li>random_bytes</li>
+<li>random_number</li>
+</ol>
+
+
+<p><a href="http://api.rubyonrails.org/v3.0.9/classes/ActiveSupport/SecureRandom.html">see:</a></p>
+
+<ul>
+<li><strong>It is also important to avoid Ambiguity</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Generates a random string from a set of easily readable characters</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">generate_activation_code</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">charset</span> <span class="o">=</span> <span class="sx">%w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}</span>
+</span><span class='line'>  <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="n">charset</span><span class="o">.</span><span class="n">to_a</span><span class="o">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">charset</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>Random URL Friendly Strings</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">rand</span><span class="p">(</span><span class="mi">36</span><span class="o">**</span><span class="n">length</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>One more example with SecureRandom</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;securerandom&#39;</span>
+</span><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>Creating a Random string with arguments</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">chars</span> <span class="o">=</span> <span class="s1">&#39;abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789&#39;</span>
+</span><span class='line'>  <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>  <span class="n">length</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="n">password</span> <span class="o">&lt;&lt;</span> <span class="n">chars</span><span class="o">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">chars</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">]</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">password</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>This example works Only in ruby 1.9</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="o">].</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="c1">#Generate a random 8 letter string (e.g. NVAYXHGR)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="o">[*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">)</span><span class="o">]-</span><span class="sx">%w(0 1 I O)</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="c1">#Generate a random 8 character string (e.g. 3PH4SWF2), excludes 0/1/I/O. Ruby 1.9</span>
+</span><span class='line'><span class="no">ALPHABET</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'><span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="no">ALPHABET</span><span class="o">.</span><span class="n">sample</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">){</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="no">ALPHABET</span><span class="o">.</span><span class="n">sample</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>Here&#8217;s one using digest sha1</strong></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sha1&#39;</span>
+</span><span class='line'><span class="nb">srand</span>
+</span><span class='line'><span class="n">seed</span> <span class="o">=</span> <span class="s2">&quot;--</span><span class="si">#{</span><span class="nb">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="si">}</span><span class="s2">--</span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">--&quot;</span>
+</span><span class='line'><span class="no">Digest</span><span class="o">::</span><span class="no">SHA1</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p><strong>Here are more examples to help</strong></p></li>
+<li><p>Example 1</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">7</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#Add ljust if you are really paranoid about the correct string length:</span>
+</span><span class='line'><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">7</span><span class="o">]</span>
+</span><span class='line'><span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'><span class="c1"># Prior to 1.9, use .choice, not .sample</span>
+</span><span class='line'><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="n">characters</span><span class="o">.</span><span class="n">sample</span><span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">value</span>  <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="o">.</span><span class="n">chr</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 2</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">generate_random_string</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span class='line'>  <span class="n">chars</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>  <span class="n">length</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">chars</span><span class="o">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">chars</span><span class="o">.</span><span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">string</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 3</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">chars</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">)</span><span class="o">].</span><span class="n">flatten</span>
+</span><span class='line'><span class="c1">#Single expression, can be passed as an argument, allows duplicate characters:</span>
+</span><span class='line'><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">len</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">chars</span><span class="o">.</span><span class="n">sample</span><span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 4</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">token</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">chars</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">9</span><span class="p">)</span><span class="o">]</span>
+</span><span class='line'>  <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.length</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="n">chars</span><span class="o">.</span><span class="n">sample</span><span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 5</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">tap</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="mi">4</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span><span class="o">.</span><span class="n">sample</span><span class="p">}</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 6</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">String</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_by</span> <span class="p">{</span><span class="nb">rand</span><span class="p">}</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="n">length</span><span class="o">].</span><span class="n">join</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 7</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="o">[</span><span class="p">(</span><span class="mi">48</span><span class="o">.</span><span class="n">.</span><span class="mi">57</span><span class="p">),(</span><span class="mi">65</span><span class="o">.</span><span class="n">.</span><span class="mi">90</span><span class="p">),(</span><span class="mi">97</span><span class="o">.</span><span class="n">.</span><span class="mi">122</span><span class="p">)</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="n">x</span><span class="o">.</span><span class="n">chr</span><span class="p">}</span><span class="s2">&quot;&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 8</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">secure_random_string</span><span class="p">(</span><span class="n">length</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">non_ambiguous</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="sx">%w{I O l 0 1}</span><span class="o">.</span><span class="n">each</span><span class="p">{</span> <span class="o">|</span><span class="n">ambiguous_character</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">characters</span><span class="o">.</span><span class="n">delete</span> <span class="n">ambiguous_character</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">if</span> <span class="n">non_ambiguous</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">length</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span>
+</span><span class='line'>    <span class="n">characters</span><span class="o">[</span><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="n">characters</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">]</span>
+</span><span class='line'>  <span class="p">}</span><span class="o">.</span><span class="n">join</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Example 9</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">SecureRandom</span><span class="o">.</span><span class="n">base64</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;+/=lIO0&#39;</span><span class="p">,</span> <span class="s1">&#39;pqrsxyz&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># ruby 1.8 and unix</span>
+</span><span class='line'><span class="n">random_string</span> <span class="o">=</span> <span class="sb">`openssl rand -base64 24`</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://stackoverflow.com/questions/88311/how-best-to-generate-a-random-string-in-ruby">.</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[generate random number in ruby]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/generate-random-number-in-ruby/"/>
+    <updated>2012-11-28T22:27:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/generate-random-number-in-ruby</id>
+    <content type="html"><![CDATA[<p>Sometimes we would also need to generate x random numbers from n to m</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="n">n</span> <span class="o">+</span> <span class="no">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">m</span> <span class="o">-</span> <span class="n">n</span> <span class="p">)}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Random</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#in ruby 1.9.3</span>
+</span><span class='line'><span class="no">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>if you only want to select a random item form array<a href="http://stackoverflow.com/questions/198460/how-to-get-a-random-number-in-ruby">.</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sx">%(a b c d e)</span><span class="o">.</span><span class="n">sample</span>
+</span><span class='line'><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span><span class="o">.</span><span class="n">sample</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Some other ways by using SecureRandom</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;securerandom&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#=&gt; 15</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#=&gt; 88</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span> <span class="c1">#=&gt; 0.596506046187744</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span> <span class="c1">#=&gt; 0.350621695741409</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">hex</span> <span class="c1">#=&gt; &quot;eb693ec8252cd630102fd0d0fb7c3485&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing rvm on a Mac - Issues With gcc]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/install-rvm-at-mac-with-gcc-problem/"/>
+    <updated>2012-11-28T08:45:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/install-rvm-at-mac-with-gcc-problem</id>
+    <content type="html"><![CDATA[<p>While installing RVM on a mac, one of the major problems we face are due to missing Xcode. We usually get the error below:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm install 1.9.3
+</span><span class='line'>Installing Ruby from <span class="nb">source </span>to: /Users/jamie/.rvm/rubies/ruby-1.9.3-p0, this may take a <span class="k">while </span>depending on your cpu<span class="o">(</span>s<span class="o">)</span>...
+</span><span class='line'>
+</span><span class='line'>ruby-1.9.3-p0 - <span class="c">#fetching </span>
+</span><span class='line'>ruby-1.9.3-p0 - <span class="c">#extracted to /Users/jamie/.rvm/src/ruby-1.9.3-p0 (already extracted)</span>
+</span><span class='line'>Fetching yaml-0.1.4.tar.gz to /Users/jamie/.rvm/archives
+</span><span class='line'>Extracting yaml-0.1.4.tar.gz to /Users/jamie/.rvm/src
+</span><span class='line'>Configuring yaml in /Users/jamie/.rvm/src/yaml-0.1.4.
+</span><span class='line'>Compiling yaml in /Users/jamie/.rvm/src/yaml-0.1.4.
+</span><span class='line'>Installing yaml to /Users/jamie/.rvm/usr
+</span><span class='line'>ruby-1.9.3-p0 - <span class="c">#configuring </span>
+</span><span class='line'>ERROR: Error running <span class="s1">&#39; ./configure --prefix=/Users/jamie/.rvm/rubies/ruby-1.9.3-p0 --enable-shared --disable-install-doc --with-libyaml-dir=/Users/jamie/.rvm/usr &#39;</span>, please <span class="nb">read</span> /Users/jamie/.rvm/log/ruby-1.9.3-p0/configure.log
+</span><span class='line'>ERROR: There has been an error <span class="k">while </span>running configure. Halting the installation.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The Error message also looks like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm install 1.9.3
+</span><span class='line'>ERROR: The autodetected CC<span class="o">(</span>/usr/bin/gcc-4.2<span class="o">)</span> is LLVM based, it is not yet fully supported by ruby and gems, please <span class="nb">read</span> <span class="sb">`</span>rvm requirements<span class="sb">`</span>, and <span class="nb">set </span><span class="nv">CC</span><span class="o">=</span>/path/to/gcc .
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Find the GCC installed in Mac:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gcc -v
+</span><span class='line'>Using built-in specs.
+</span><span class='line'>Target: i686-apple-darwin11
+</span><span class='line'>Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.1~1/src/configure --disable-checking --enable-werror --prefix<span class="o">=</span>/Developer/usr/llvm-gcc-4.2 --mandir<span class="o">=</span>/share/man --enable-languages<span class="o">=</span>c,objc,c++,obj-c++ --program-prefix<span class="o">=</span>llvm- --program-transform-name<span class="o">=</span>/^<span class="o">[</span>cg<span class="o">][</span>^.-<span class="o">]</span>*<span class="nv">$/</span>s/<span class="nv">$/</span>-4.2/ --with-slibdir<span class="o">=</span>/usr/lib --build<span class="o">=</span>i686-apple-darwin11 --enable-llvm<span class="o">=</span>/private/var/tmp/llvmgcc42/llvmgcc42-2336.1~1/dst-llvmCore/Developer/usr/local --program-prefix<span class="o">=</span>i686-apple-darwin11- --host<span class="o">=</span>x86_64-apple-darwin11 --target<span class="o">=</span>i686-apple-darwin11 --with-gxx-include-dir<span class="o">=</span>/usr/include/c++/4.2.1
+</span><span class='line'>Thread model: posix
+</span><span class='line'>gcc version 4.2.1 <span class="o">(</span>Based on Apple Inc. build 5658<span class="o">)</span> <span class="o">(</span>LLVM build 2336.1.00<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>also look for the files in user/bin</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>ls /usr/bin | grep gcc
+</span><span class='line'>gcc
+</span><span class='line'>i686-apple-darwin11-llvm-gcc-4.2
+</span><span class='line'>llvm-gcc
+</span><span class='line'>llvm-gcc-4.2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here are a few ways to resolve this - read them all to get a better understanding of ways to fix issues like these:</p>
+
+<ul>
+<li>Install with clang</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm install 1.9.3 --with-gcc<span class="o">=</span>clang
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Install a lighter version of gcc osx-gcc</li>
+</ul>
+
+
+<p><a href="https://github.com/kennethreitz/osx-gcc-installer/downloads">LLVM GCC</a></p>
+
+<p>Be carefull about this, sometimes there are conflicts with Brew</p>
+
+<ul>
+<li><p>The best of them all could still be to use the <a href="https://developer.apple.com/downloads/index.action">command line tools for xcode</a></p></li>
+<li><p>If you face issues with readline, its best to pkg install readline</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm pkg install readline
+</span><span class='line'>rvm install 1.9.3 --with-gcc<span class="o">=</span>clang --with-readline-dir<span class="o">=</span><span class="nv">$rvm_path</span>/usr
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>(xcode 4.5) install RVM on Mac OSX 10.8 (Mountain Lion) with Xcode 4.5 <a href="https://gist.github.com/3789921">without installing Command Line Tools</a></li>
+</ul>
+
+
+<p><a href="http://stackoverflow.com/questions/8032824/cant-install-ruby-under-lion-with-rvm-gcc-issues">.</a></p>
+
+<p>Any questions on this, please feel free to ask. We’re here to help…</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Passing Command Line Arguments to Rake Tasks]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/pass-command-line-arguments-to-a-rake-task/"/>
+    <updated>2012-11-28T08:02:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/pass-command-line-arguments-to-a-rake-task</id>
+    <content type="html"><![CDATA[<p>Sometimes, we need to rake tasks that inserts a paticular user entered value into multiple databases.</p>
+
+<p>We&#8217;d like to be able to pass this value into the rake task from the command line, or from another rake task, how can We do this?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rake&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">task</span> <span class="ss">:my_task</span><span class="p">,</span> <span class="ss">:arg1</span><span class="p">,</span> <span class="ss">:arg2</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Args were: </span><span class="si">#{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can invoke it by using the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">task</span> <span class="ss">:invoke_my_task</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">Rake</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">invoke_task</span><span class="p">(</span><span class="s2">&quot;my_task[1, 2]&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or if you prefer this syntax&#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">task</span> <span class="ss">:invoke_my_task_2</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="o">[</span><span class="ss">:my_task</span><span class="o">].</span><span class="n">invoke</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A task with prerequisites passes its arguments to it prerequisites(tasks)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">task</span> <span class="ss">:with_prerequisite</span><span class="p">,</span> <span class="ss">:arg1</span><span class="p">,</span> <span class="ss">:arg2</span><span class="p">,</span> <span class="ss">:needs</span> <span class="o">=&gt;</span> <span class="ss">:my_task</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or just a&#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">task</span> <span class="ss">:with_prerequisite</span><span class="p">,</span> <span class="o">[</span><span class="ss">:arg1</span><span class="p">,</span> <span class="ss">:arg2</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="ss">:my_task</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To specify default values, we take advantage of args being a Rake::TaskArguments object</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">task</span> <span class="ss">:with_defaults</span><span class="p">,</span> <span class="ss">:arg1</span><span class="p">,</span> <span class="ss">:arg2</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">args</span><span class="o">.</span><span class="n">with_defaults</span><span class="p">(</span><span class="ss">:arg1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:arg2</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Args with defaults were: </span><span class="si">#{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here are a few usages:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>&gt; rake my_task<span class="o">[</span>1,2<span class="o">]</span>
+</span><span class='line'>Args were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;<span class="s2">&quot;1&quot;</span>, :arg2<span class="o">=</span>&gt;<span class="s2">&quot;2&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake <span class="s2">&quot;my_task[1, 2]&quot;</span>
+</span><span class='line'>Args were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;<span class="s2">&quot;1&quot;</span>, :arg2<span class="o">=</span>&gt;<span class="s2">&quot;2&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake invoke_my_task
+</span><span class='line'>Args were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;<span class="s2">&quot;1&quot;</span>, :arg2<span class="o">=</span>&gt;<span class="s2">&quot;2&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake invoke_my_task_2
+</span><span class='line'>Args were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;3, :arg2<span class="o">=</span>&gt;4<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake with_prerequisite<span class="o">[</span>5,6<span class="o">]</span>
+</span><span class='line'>Args were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;<span class="s2">&quot;5&quot;</span>, :arg2<span class="o">=</span>&gt;<span class="s2">&quot;6&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake with_prerequisite_2<span class="o">[</span>7,8<span class="o">]</span>
+</span><span class='line'>Args were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;<span class="s2">&quot;7&quot;</span>, :arg2<span class="o">=</span>&gt;<span class="s2">&quot;8&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake with_defaults
+</span><span class='line'>Args with defaults were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;:default_1, :arg2<span class="o">=</span>&gt;:default_2<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>&gt; rake with_defaults<span class="o">[</span><span class="s1">&#39;x&#39;</span>,<span class="s1">&#39;y&#39;</span><span class="o">]</span>
+</span><span class='line'>Args with defaults were: <span class="o">{</span>:arg1<span class="o">=</span>&gt;<span class="s2">&quot;x&quot;</span>, :arg2<span class="o">=</span>&gt;<span class="s2">&quot;y&quot;</span><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://rake.rubyforge.org/files/doc/rakefile_rdoc.html">For more information&#8230;</a></p>
+
+<p><a href="http://stackoverflow.com/questions/825748/how-do-i-pass-command-line-arguments-to-a-rake-task">.</a></p>
+
+<p>Any questions on this, please feel free to ask. We’re here to help…</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using NET to Post API Calls With or Without Secure Connections]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/using-net-to-post/"/>
+    <updated>2012-11-28T06:45:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/using-net-to-post</id>
+    <content type="html"><![CDATA[<p>Using Net module is the best and the eaiest ways to post data or make api calls
+to urls. Here&#8217;s an example</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">post_using_net</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{})</span>
+</span><span class='line'>  <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">uri</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">http</span><span class="o">.</span><span class="n">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">http</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
+</span><span class='line'>  <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="o">.</span><span class="n">request_uri</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">to_query</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">response</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>for connections that does not use ssl i.e (https) the following can be removed</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">http</span><span class="o">.</span><span class="n">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">http</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Net also handles get, put and delete, to make it work for muliple requests,
+just use a send to make calls to the methods</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">send_using_net</span><span class="p">(</span><span class="nb">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{})</span>
+</span><span class='line'>  <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">uri</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">http</span><span class="o">.</span><span class="n">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">http</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
+</span><span class='line'>  <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">send</span> <span class="nb">method</span><span class="p">,</span> <span class="o">[</span><span class="n">uri</span><span class="o">.</span><span class="n">request_uri</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">to_query</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">response</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Any questions on this, please feel free to ask. We&#8217;re here to help&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timestamps strftime vs strptime]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/timestamps-strftime-vs-strptime/"/>
+    <updated>2012-11-28T06:20:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/timestamps-strftime-vs-strptime</id>
+    <content type="html"><![CDATA[<h3>strftime</h3>
+
+<p>Formats date according to the directives in the given format string. The directives begins with a percent (%) character. Any text not listed as a directive will be passed through to the output string.</p>
+
+<p><a href="http://apidock.com/ruby/DateTime/strftime">source link</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%FT%T%:z&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#  %F - The ISO 8601 date format (%Y-%m-%d)</span>
+</span><span class='line'><span class="c1">#  %T - 24-hour time (%H:%M:%S)</span>
+</span><span class='line'><span class="c1">#  %:z - hour and minute offset from UTC with a colon (e.g. +09:00)</span>
+</span><span class='line'><span class="c1">#  output: 2012-11-28T06:29:36-05:00</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>strptime</h3>
+
+<p>Parses the given representation of date and time with the given template, and creates a date object.</p>
+
+<p><a href="http://apidock.com/ruby/DateTime/strptime/class">source link</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%m/%d/%Y %H:%M:%S&quot;</span>
+</span><span class='line'><span class="n">date_time</span> <span class="o">=</span> <span class="s2">&quot;11/28/2012 16:39:11.642&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">date_obj</span> <span class="o">=</span> <span class="no">DateTime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Any questions on this, please feel free to ask. We&#8217;re here to help&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Working with Digests and Signatures]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/28/working-on-digests-and-signatures/"/>
+    <updated>2012-11-28T05:53:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/28/working-on-digests-and-signatures</id>
+    <content type="html"><![CDATA[<h3>MD5 digests</h3>
+
+<p>MD5 is a one-way hashing algorithm for creating digest &#8220;signatures&#8221; or checksums of strings. MD5 digests are 128 bit (16 byte) signatures. MD5 is the most common method of providing checksums for files downloaded over the internet.
+To create a checksum of an entire file or text convert the whole string.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">digest</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">MD5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="n">string_to_digest</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://www.siaris.net/index.cgi/Programming/LanguageBits/Ruby/MD5.rdoc">source link</a></p>
+
+<h3>hmac-sha1</h3>
+
+<p>In cryptography, a hash-based message authentication code (HMAC) is a specific construction for calculating a message authentication code (MAC) involving a cryptographic hash function in combination with a secret cryptographic key. As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">source link</a></p>
+
+<p>In ruby its simple to generate one:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">ruby</span><span class="o">-</span><span class="n">hmac</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">hmac_sha1</span> <span class="n">params</span><span class="o">=</span><span class="p">{}</span>
+</span><span class='line'>  <span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
+</span><span class='line'>  <span class="n">secret_key</span> <span class="o">=</span> <span class="s1">&#39;No telling a secret&#39;</span>
+</span><span class='line'>  <span class="no">OpenSSL</span><span class="o">::</span><span class="no">HMAC</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="s1">&#39;sha1&#39;</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Any questions on this, please feel free to ask. We&#8217;re here to help&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Applying Common Filtering for Rails Api Based Applications]]></title>
+    <link href="http://Andrew-Ken.github.com/blog/2012/11/26/applying-common-filtering-for-rails-api-based-applications/"/>
+    <updated>2012-11-26T22:50:00-05:00</updated>
+    <id>http://Andrew-Ken.github.com/blog/2012/11/26/applying-common-filtering-for-rails-api-based-applications</id>
+    <content type="html"><![CDATA[<p>Sometimes there are common sets of fields and id&#8217;s that we would like the api
+to filter before sending the details to the client. It would be great if we can
+place them in a common place so that they can be changed anytime.</p>
+
+<p>File: lib/api_config.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Filters out the specified list of fields from the API calls</span>
+</span><span class='line'><span class="no">APIFILTERS</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">,</span><span class="s1">&#39;secret__internal_id&#39;</span><span class="p">,</span><span class="s1">&#39;updated_at&#39;</span><span class="p">,</span><span class="s1">&#39;created_at&#39;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>File: config/initializers/json_config.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Requiring the api configuration file</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;api_config&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">as_json_with_filter</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="o">=</span> <span class="no">APIFILTERS</span>
+</span><span class='line'>    <span class="n">as_json_without_filter</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">alias_method_chain</span> <span class="ss">:as_json</span><span class="p">,</span> <span class="ss">:filter</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the alias_method_chain does two things here:</p>
+
+<ul>
+<li><p>firstly it creates an alias method called as_json_without_filter to as_json</p></li>
+<li><p>secondly it looks for as_json_with_filter and makes that as the new as_json
+method</p></li>
+</ul>
+
+
+<p>The as_json method is one that gets called when the to_json method is called on a
+model object or a collection of model objects in rails</p>
+
+<p>example: users controller file</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">respond_to</span> <span class="ss">:json</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">show</span>
+</span><span class='line'>    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">respond_with</span> <span class="vi">@user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the above would call the as_json method of the user model, we have just
+overridden the super class to filter out a few fields</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">as_json</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+</span><span class='line'>  <span class="k">super</span><span class="p">(</span><span class="ss">:include</span> <span class="o">=&gt;</span> <span class="ss">:parents</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>for xml, this is slightly Different</p>
+
+<p>File: config/initializers/xml_config.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Requiring the api configuration file</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;api_config&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">alias_method</span> <span class="ss">:to_xml</span><span class="p">,</span> <span class="ss">:old_to_xml</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">to_xml</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="o">=</span> <span class="no">APIFILTERS</span>
+</span><span class='line'>    <span class="n">old_to_xml</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Any questions, please feel free to ask. We&#8217;re here to help&#8230;</p>
+]]></content>
+  </entry>
+  
+</feed>
