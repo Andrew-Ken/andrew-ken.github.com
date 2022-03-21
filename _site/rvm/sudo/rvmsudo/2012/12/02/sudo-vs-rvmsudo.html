@@ -1,0 +1,300 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Sudo vs RVMSudo - Yankist</title>
+<meta name="description" content="RVM is a great command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.  This is exactly what makes it special, its easy to install RVM with just a few commands..">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="Sudo vs RVMSudo">
+<meta property="og:url" content="http://0.0.0.0:4000/rvm/sudo/rvmsudo/2012/12/02/sudo-vs-rvmsudo.html">
+
+
+  <meta property="og:description" content="RVM is a great command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.  This is exactly what makes it special, its easy to install RVM with just a few commands..">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2012-12-02T08:42:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/rvm/sudo/rvmsudo/2012/12/02/sudo-vs-rvmsudo.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Sudo vs RVMSudo">
+    <meta itemprop="description" content="RVM is a great command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. This is exactly what makes it special, its easy to install RVM with just a few commands..">
+    <meta itemprop="datePublished" content="2012-12-02T08:42:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Sudo vs RVMSudo
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><a href="https://rvm.io">RVM</a> is a great command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. 
+This is exactly what makes it special, its easy to <a href="https://rvm.io/rvm/install">install RVM</a> with just a few commands..</p>
+
+<p>Installing RVM:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-L</span> https://get.rvm.io | bash <span class="nt">-s</span> stable
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<p>Source is to load bashrc in the same window. 
+Now just use</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm <span class="nb">install </span>1.9.3
+rvm use 1.9.3
+</code></pre></div></div>
+
+<p>and it now you can start using ruby version 1.9.3 and switch or add more
+versions and install gems in its own version.</p>
+
+<p>In spite of having such features to help the user, everything from there runs only for the logged in user, there may be times where you must run Ruby scripts with RVM as root (or another user) via sudo.</p>
+
+<p>But if you do this after installing rvm:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ruby script.rb
+</code></pre></div></div>
+
+<p>It would problably not work at all or would be using the system installed
+version of ruby(which might be old). Do not forget to check the version of the ruby when you do a
+sudo, if it runs!</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ruby <span class="nt">-v</span>
+</code></pre></div></div>
+
+<p>sudo always starts a new subshell and runs as root from the current user. That new subshell’s environment will be completely different, and which means that it does not contain RVM or the other paths. 
+There is a workaround, where you can manually add the path by finding them.
+Not a great idea, but works.</p>
+
+<p>RVM has a solution for running sudo with the environments, the ‘rvmsudo’ command. It will pass on any environment variables that RVM set up to get you to the correct Ruby. 
+This includes the following variables</p>
+
+<ul>
+  <li>$PATH</li>
+  <li>$GEM_HOME</li>
+  <li>$GEM_PATH</li>
+  <li>$BUNDLE_PATH</li>
+</ul>
+
+<p>So to run the same ruby script script.rb, simply use the Ruby you want and run it with rvmsudo.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm use 1.9.3
+rvmsudo ruby script.rb
+</code></pre></div></div>
+<p>As always, running commands as the root user with elevated privileges, needs to be carefully done since they can alter settings and install unwanted features to all users of the system. 
+[Follow our friendly trusted neighborhood spidey.. With Great power comes Great Responsibility]</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-12-02T08:42:00+00:00">December 2, 2012</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ruby/random/string/2012/11/28/generate-random-string-in-ruby.html" class="pagination--pager" title="generate random string in ruby
+">Previous</a>
+    
+    
+      <a href="/rails3/heroku/deploy/pg/ssh/git/2012/12/02/heroku-deploy-procedure.html" class="pagination--pager" title="heroku deploy procedure
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

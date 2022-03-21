@@ -1,0 +1,381 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>basic metaprogramming ruby class_eval and instance_eval - Yankist</title>
+<meta name="description" content="```ruby class A">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="basic metaprogramming ruby class_eval and instance_eval">
+<meta property="og:url" content="http://0.0.0.0:4000/ruby/metaprogramming/class_eval/instance_eval/2010/07/20/basic-metaprogramming-ruby-class-eval-and-instance-eval.html">
+
+
+  <meta property="og:description" content="```ruby class A">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2010-07-20T19:21:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/ruby/metaprogramming/class_eval/instance_eval/2010/07/20/basic-metaprogramming-ruby-class-eval-and-instance-eval.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="basic metaprogramming ruby class_eval and instance_eval">
+    <meta itemprop="description" content="```rubyclass A">
+    <meta itemprop="datePublished" content="2010-07-20T19:21:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">basic metaprogramming ruby class_eval and instance_eval
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+
+  <span class="k">def</span> <span class="nf">create_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">instance_eval</span> <span class="k">do</span>
+      <span class="n">define_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Nice!  I'm </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+      <span class="k">def</span> <span class="nf">human?</span>
+        <span class="kp">true</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create_class_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">instance_eval</span> <span class="k">do</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span> <span class="ss">:define_method</span><span class="p">,</span> <span class="nb">name</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Nice!  I'm </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create_instance_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span><span class="p">;</span> <span class="nb">self</span><span class="p">;</span> <span class="k">end</span><span class="p">).</span><span class="nf">class_eval</span> <span class="k">do</span>
+      <span class="c1">#self.class.send( :define_method, name) { puts "Nice!  I'm #{name}" }</span>
+      <span class="n">define_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Nice!  I'm </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre></div></div>
+
+<p>Sometimes when the book explains a concept or Ruby feature, it sheds light on things I’ve seen in other people’s code – things I’ve always wondered about. One such example is class_eval and instance_eval. These methods allow you to evaluate arbitrary code in the context of a particular class or object. They’re slightly similar to call, apply and bind in JavaScript, in that you are altering the value of self (this in JavaScript) when you use them. Let’s take a look at some examples to demonstrate their usage.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span>
+<span class="k">end</span>
+
+<span class="no">Person</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">say_hello</span>
+   <span class="s2">"Hello!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">jimmy</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">jimmy</span><span class="p">.</span><span class="nf">say_hello</span> <span class="c1"># "Hello!"</span>
+</code></pre></div></div>
+<p>In this example, class_eval allows us to define a method within the Person class outside of its original definition and without reopening the class with the standard syntax. This could be useful when the class you want to add this method to is not known until runtime.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span>
+<span class="k">end</span>
+
+<span class="no">Person</span><span class="p">.</span><span class="nf">instance_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">human?</span>
+    <span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>Person.human? # true
+This example of instance_eval is similar, but evaluates the code in the context of an instance instead of a class. This is confusing at first, because in these examples class_eval creates instance methods and instance_eval creates class methods. There is reason behind the madness, however.</p>
+
+<p>class_eval is a method of the Module class, meaning that the receiver will be a module or a class. The block you pass to class_eval is evaluated in the context of that class. Defining a method with the standard def keyword within a class defines an instance method, and that’s exactly what happens here.</p>
+
+<p>instance_eval, on the other hand, is a method of the Object class, meaning that the receiver will be an object. The block you pass to instance_eval is evaluated in the context of that object. That means that Person.instance_eval is evaluated in the context of the Person object. Remember that a class name is simply a constant which points to an instance of the class Class. Because of this fact, defining a method in the context of Class instance referenced by Person creates a class method for Person class.</p>
+
+<p>It may be difficult to wrap your mind around that if you’re not familiar with the Ruby object model, but it’s still easy to remember how these methods behave with a simple mnemonic device: when called on a class name constant, these two methods will allow you to create methods of the opposite type from their names. MyClass.class_eval will create instance methods and MyClass.instance_eval will create class methods.</p>
+
+<p>If you’re interested in metaprogramming or understanding the Ruby object model, I’d definitely recommend the book. It’s helped me out tremendously.</p>
+
+<p>I did some experiment with meta programming keywords “class_eval” and “instance_eval’. Sharing some of the examples with you all -</p>
+
+<p>class_eval opens the existing class and adds the methods as defined in an ordinary class, hence they work as instance methods of that class</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">String</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">quack</span>
+    <span class="nb">p</span> <span class="s1">'quack method'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="s2">"any string"</span><span class="p">.</span><span class="nf">quack</span>
+</code></pre></div></div>
+
+<p>A method defined for class A using class_eval will work as instance method of A</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+<span class="k">end</span>
+
+<span class="no">A</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">some_method</span>
+    <span class="nb">p</span> <span class="s1">'some_method'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">A</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">some_method</span>
+</code></pre></div></div>
+<p>instance_eval on a class will open the class as an instance of class Class. Any method defined will be treated as the method of this instance which is the class. Hence the methods work like class methods</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+<span class="k">end</span>
+
+<span class="no">A</span><span class="p">.</span><span class="nf">instance_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">other_method</span>
+    <span class="nb">p</span> <span class="s1">'other_method'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">A</span><span class="p">.</span><span class="nf">other_method</span>
+</code></pre></div></div>
+<p>instance_eval on an instance of a class will open that instance of the class. Thus it works like a singleton method that is specific to the instance and wont work for other instances of the class</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">instance_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">a_method</span>
+    <span class="nb">p</span> <span class="s1">'a_method'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">a_method</span>  <span class="c1"># works for 'a' on which the instance_eval is defined</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">a_method</span>  <span class="c1"># doesn't work for 'b'</span>
+</code></pre></div></div>
+<p>This is the same as calling instance_eval on the instance ‘a’ of class A. This again will define a singleton method on the instance</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="n">a</span>
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="nb">p</span> <span class="s1">'this is a method'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">a</span>  <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">show</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">show</span>  <span class="c1"># doesn't work for 'b'</span>
+</code></pre></div></div>
+<p>Can not call ‘class_eval’ on an instance. class_eval can only be called on classes (which are instances of class Class)</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+<span class="k">end</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">show_other</span>
+    <span class="nb">p</span> <span class="s1">'this is another method'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span> 
+<span class="n">a</span><span class="p">.</span><span class="nf">show</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">show</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2010-07-20T19:21:00+00:00">July 20, 2010</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/git/revert/2010/05/22/how-to-revert-git-commit-remote.html" class="pagination--pager" title="how to revert git commit remote
+">Previous</a>
+    
+    
+      <a href="/ruby/class/dynamic/metaprogramming/2011/02/02/create-ruby-dynamic-class.html" class="pagination--pager" title="create ruby dynamic class
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

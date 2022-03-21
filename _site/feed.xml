@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-21T22:28:26+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://0.0.0.0:4000/jekyll%20update/2022/03/21/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-03-21T14:27:36+00:00</published><updated>2022-03-21T14:27:36+00:00</updated><id>http://0.0.0.0:4000/jekyll%20update/2022/03/21/welcome-to-jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/jekyll%20update/2022/03/21/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Andrew Paliyan</name></author><category term="jekyll update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Entering Rails 4</title><link href="http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4.html" rel="alternate" type="text/html" title="Entering Rails 4" /><published>2013-07-10T12:03:00+00:00</published><updated>2013-07-10T12:03:00+00:00</updated><id>http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4.html"><![CDATA[<h2 id="installing-rails-using-rvm">Installing Rails using RVM:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm get stable &amp;&amp; rvm install ruby-2.0.0
+
+rvm --default use 2.0.0
+
+gem install rails --version 4.0.0.rc1
+
+</code></pre></div></div>]]></content><author><name>Ken Lu</name></author><category term="rails" /><summary type="html"><![CDATA[Installing Rails using RVM:]]></summary></entry><entry><title type="html">github and multiple oauth provider</title><link href="http://0.0.0.0:4000/github/omniauth/provider/2013/03/20/github-and-multiple-oauth-provider.html" rel="alternate" type="text/html" title="github and multiple oauth provider" /><published>2013-03-20T08:01:00+00:00</published><updated>2013-03-20T08:01:00+00:00</updated><id>http://0.0.0.0:4000/github/omniauth/provider/2013/03/20/github-and-multiple-oauth-provider</id><content type="html" xml:base="http://0.0.0.0:4000/github/omniauth/provider/2013/03/20/github-and-multiple-oauth-provider.html"><![CDATA[<p>Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?</p>
+
+<p>Typically authentication systems have a User model which handles most of the authentication logic but having multiple logins forces you to correctly separate the concepts of an Identity and a User. An Identity is a particular authentication method which a user has used to identify themselves with your site whilst a User manages data which is directly related to your site itself.</p>
+
+<p>So to start you will want to create both User and Identity models. We will also add some convenience methods for creating identities and users when the OmniAuth callback is invoked:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/models/user.rb</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:identities</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="n">create</span><span class="p">(</span><span class="ss">name: </span><span class="n">info</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+   
+<span class="c1"># app/models/identity.rb</span>
+<span class="k">class</span> <span class="nc">Identity</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:user</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="n">find_by_provider_and_uid</span><span class="p">(</span><span class="n">auth</span><span class="p">[</span><span class="s1">'provider'</span><span class="p">],</span> <span class="n">auth</span><span class="p">[</span><span class="s1">'uid'</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="n">create</span><span class="p">(</span><span class="ss">uid: </span><span class="n">auth</span><span class="p">[</span><span class="s1">'uid'</span><span class="p">],</span> <span class="ss">provider: </span><span class="n">auth</span><span class="p">[</span><span class="s1">'provider'</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>So a user can have multiple identities and each identity belongs to a single user.</p>
+
+<p>Next we need to handle logging in and logging out. This is managing session data since a logged in user is simply a person who has some session data confirming that they have been logged in. The OmniAuth callback which a provider will redirect to upon authenticating a user is /auth/:provider/callback so lets setup a route and a controller to handle this. We should also setup some helper methods on our Application Controller for handling the current user:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/routes.rb</span>
+<span class="no">YourAppName</span><span class="o">::</span><span class="no">Application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">match</span> <span class="s1">'/auth/:provider/callback'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'sessions#create'</span>
+  <span class="n">match</span> <span class="s1">'/logout'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'sessions#destroy'</span>
+<span class="k">end</span>
+
+<span class="c1">#app/controllers/sessions_controller.rb</span>
+<span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="c1"># Login the User here</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="c1"># Logout the User here</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1">#app/controllers/application_controller.rb</span>
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">protect_from_forgery</span>
+
+  <span class="kp">protected</span>
+
+  <span class="k">def</span> <span class="nf">current_user</span>
+    <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">signed_in?</span>
+    <span class="o">!!</span><span class="n">current_user</span>
+  <span class="k">end</span>
+  <span class="n">helper_method</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:signed_in?</span>
+
+  <span class="k">def</span> <span class="nf">current_user</span><span class="o">=</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">user</span>
+    <span class="n">session</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="nf">nil?</span> <span class="p">?</span> <span class="n">user</span> <span class="p">:</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>Now to login, all a user needs to do is go to /auth/provider and they will get redirected to Sessions Controller create method after authenticating. So there are a number of possibilities when they hit this action:</p>
+
+<p>A user has never used your site before. They have no User model and no Identities either.
+A user is logged out but they have logged into your site with a provider previously. They are now signing in with the same one again.
+Just as above but they are now signing in with a different provider.
+A user is logged in with a provider but they try to login with the same provider again.
+A user is logged in but they try to login with a different provider.
+The first two cases are just like a normal sign in process. The final 3 cases occur because we are allowing multiple providers and they can be tricky to handle.</p>
+
+<p>Firstly, we need to grab authentication data given to us by the provider which is stored in request.env[omniauth.auth]. Then we need to check whether we have an identity which matches this data or create a new one.</p>
+
+<p>How we proceed for here depends on whether the user is already logged in. If they aren’t logged in then either they are a brand new user (so we treat their request like a registration) or they already have an account (so we treat this like a login request).</p>
+
+<p>If they are logged in then we treat their request like they are trying to link an identity with their account. Either they are trying to link an identity which they have already linked (in which case we should display an error message telling them that) or it is a brand new identity so we go ahead and link it.</p>
+
+<p>So at this point our skeleton create method looks like this:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create</span>
+  <span class="n">auth</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'omniauth.auth'</span><span class="p">]</span>
+  <span class="c1"># Find an identity here</span>
+  <span class="vi">@identity</span> <span class="o">=</span> <span class="no">Identity</span><span class="p">.</span><span class="nf">find_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">nil?</span>
+    <span class="c1"># If no identity was found, create a brand new one here</span>
+    <span class="vi">@identity</span> <span class="o">=</span> <span class="no">Identity</span><span class="p">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">if</span> <span class="n">signed_in?</span>
+    <span class="k">if</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span> <span class="o">==</span> <span class="n">current_user</span>
+      <span class="c1"># User is signed in so they are trying to link an identity with their</span>
+      <span class="c1"># account. But we found the identity and the user associated with it </span>
+      <span class="c1"># is the current user. So the identity is already associated with </span>
+      <span class="c1"># this user. So let's display an error message.</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Already linked that account!"</span>
+    <span class="k">else</span>
+      <span class="c1"># The identity is not associated with the current_user so lets </span>
+      <span class="c1"># associate the identity</span>
+      <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span> <span class="o">=</span> <span class="n">current_user</span>
+      <span class="vi">@identity</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Successfully linked that account!"</span>
+    <span class="k">end</span>
+  <span class="k">else</span>
+    <span class="k">if</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">present?</span>
+      <span class="c1"># The identity we found had a user associated with it so let's </span>
+      <span class="c1"># just log them in here</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">current_user</span> <span class="o">=</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Signed in!"</span>
+    <span class="k">else</span>
+      <span class="c1"># No user associated with the identity so we need to create a new one</span>
+      <span class="n">redirect_to</span> <span class="n">new_user_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Please finish registering"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>So at this point, there are a couple of further considerations. Firstly on the signed in/identity not associated with user branch, there are two reasons why an identity might not be associated with a user. It could be that the identity is brand new, having never been used to sign in before. However, it could be that it has been used and so is already associated with a different user, although not necessarily a different person. Given that this user knew the login credentials for that identity, I think it is probably sufficiently prudent to assume that they are, in fact, the same person who also created the previous user. However, by simply reassigning the user to which the identity is associated with to the current one, you not only leave a user model potentially dangling with no identities to sign in with but also prevent the user from merging their data from their previous account in with this one. Resolving this will be dependent entirely on how much data, and the nature of that data, you have stored for each user but for sufficiently simple applications, you could at this point check to see if the old user has any identities left and, if not, delete that user. If the person using your site is likely to lose any data from this process then you would either need to make this sufficiently clear to them before proceeding or provide them with a way to migrate that data over (or handle it automatically, if possible).</p>
+
+<p>Secondly, on the not signed in/no user model branch, you may need more registration data from your user than can be provided by your authentication providers. At this point, as I have assumed above, you can redirect them to a new user form and redirect them to this point if they try to access any other part of the app without completing it. Then create the user and log them in again when they have. Otherwise, if no further data is necessary or mandatory, you can go ahead and create a blank user model in the create method and log them straight in.</p>
+
+<p>Finally, a few lose ends. Here is the destroy method for logging users out:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">destroy</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Signed out!"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>You’ll also find that the OmniAuth callback url does not correctly verify the rails authenticity token and so will destroy any session data upon returning, thereby logging your current user out. This will prevent them from associating a new identity with their current account. You can get around this by adding skip_before_filter :verify_authenticity_token, only: :create to your sessions controller but I am unsure of the security implications of this.</p>
+
+<p>You’ll also need some migrations:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CreateUsers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:users</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">CreateIdentities</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:identities</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:uid</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:provider</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:user</span>
+    <span class="k">end</span>
+
+    <span class="n">add_index</span> <span class="ss">:identities</span><span class="p">,</span> <span class="ss">:user_id</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="github" /><category term="omniauth" /><category term="provider" /><summary type="html"><![CDATA[Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?]]></summary></entry><entry><title type="html">Use view helper at controller</title><link href="http://0.0.0.0:4000/helper%20view/2013/03/07/use-view-helper-at-controller.html" rel="alternate" type="text/html" title="Use view helper at controller" /><published>2013-03-07T08:42:00+00:00</published><updated>2013-03-07T08:42:00+00:00</updated><id>http://0.0.0.0:4000/helper%20view/2013/03/07/use-view-helper-at-controller</id><content type="html" xml:base="http://0.0.0.0:4000/helper%20view/2013/03/07/use-view-helper-at-controller.html"><![CDATA[<p><a href="http://guides.rubyonrails.org/form_helpers.html">guide</a></p>
+
+<p><a href="http://api.rubyonrails.org/classes/AbstractController/Helpers/ClassMethods.html#method-i-helper">api</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">helper</span> <span class="ss">:foo</span>             <span class="c1"># =&gt; requires 'foo_helper' and includes FooHelper</span>
+<span class="n">helper</span> <span class="s1">'resources/foo'</span>  <span class="c1"># =&gt; requires 'resources/foo_helper' and includes Resources::FooHelper</span>
+
+<span class="c1"># One line</span>
+<span class="n">helper</span> <span class="p">{</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">()</span> <span class="s2">"Hello, world!"</span> <span class="k">end</span> <span class="p">}</span>
+
+<span class="c1"># Multi-line</span>
+<span class="n">helper</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+    <span class="s2">"</span><span class="si">#{</span><span class="n">bar</span><span class="si">}</span><span class="s2"> is the very best"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">helper_method</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:logged_in?</span>
+
+  <span class="k">def</span> <span class="nf">current_user</span>
+    <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="ss">:user</span><span class="p">])</span>
+  <span class="k">end</span>
+
+   <span class="k">def</span> <span class="nf">logged_in?</span>
+     <span class="n">current_user</span> <span class="o">!=</span> <span class="kp">nil</span>
+   <span class="k">end</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+<p>The answer depends on the Rails version.
+Rails &gt;= 3.1</p>
+
+<p>Change the include_all_helpers config to false in any environment where you want to apply the configuration. If you want the config to apply to all environments, change it in application.rb.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">action_controller</span><span class="p">.</span><span class="nf">include_all_helpers</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre></div></div>
+<p>When false, it will skip the inclusion.
+Rails &lt; 3.1</p>
+
+<p>Delete the following line from ApplicationController</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">helper</span> <span class="ss">:all</span>
+</code></pre></div></div>
+<p>In this way each controller will load its own helpers.</p>]]></content><author><name></name></author><category term="helper view" /><summary type="html"><![CDATA[guide]]></summary></entry><entry><title type="html">Rails integrate with Google analytics Api</title><link href="http://0.0.0.0:4000/rails/google/analytics/api/2013/02/10/rails-integrate-with-google-analytics-api.html" rel="alternate" type="text/html" title="Rails integrate with Google analytics Api" /><published>2013-02-10T08:54:00+00:00</published><updated>2013-02-10T08:54:00+00:00</updated><id>http://0.0.0.0:4000/rails/google/analytics/api/2013/02/10/rails-integrate-with-google-analytics-api</id><content type="html" xml:base="http://0.0.0.0:4000/rails/google/analytics/api/2013/02/10/rails-integrate-with-google-analytics-api.html"><![CDATA[<p>Here is serveral usefull source:</p>
+
+<p><a href="https://github.com/chrisle/gattica">gattica</a></p>
+
+<p><a href="https://github.com/robmckinnon/rugalytics">rugalytics</a></p>
+
+<p><a href="https://www.ruby-toolbox.com/categories/Web_Analytics">ruby toolbox</a></p>
+
+<p><a href="https://developers.google.com/analytics/devguides/reporting/core/v3/">Google api Doc</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Include the gem</span>
+<span class="nb">require</span> <span class="s1">'gattica'</span>
+
+<span class="c1"># Login</span>
+<span class="n">ga</span> <span class="o">=</span> <span class="no">Gattica</span><span class="p">.</span><span class="nf">new</span><span class="p">({</span> 
+    <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s1">'email@gmail.com'</span><span class="p">,</span> 
+    <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s1">'password'</span>
+<span class="p">})</span>
+
+<span class="c1"># Get a list of accounts</span>
+<span class="n">accounts</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">accounts</span>
+
+<span class="c1"># Choose the first account</span>
+<span class="n">ga</span><span class="p">.</span><span class="nf">profile_id</span> <span class="o">=</span> <span class="n">accounts</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">profile_id</span>
+
+<span class="c1"># Get the data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span> 
+    <span class="ss">:start_date</span>   <span class="o">=&gt;</span> <span class="s1">'2011-01-01'</span><span class="p">,</span>
+    <span class="ss">:end_date</span>     <span class="o">=&gt;</span> <span class="s1">'2011-04-01'</span><span class="p">,</span>
+    <span class="ss">:dimensions</span>   <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'month'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">],</span>
+    <span class="ss">:metrics</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits'</span><span class="p">,</span> <span class="s1">'bounces'</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="c1"># Show the data</span>
+<span class="nb">puts</span> <span class="n">data</span><span class="p">.</span><span class="nf">inspect</span>
+
+
+<span class="c1"># Sorting by number of visits in descending order (most visits at the top)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span> 
+    <span class="ss">:start_date</span>   <span class="o">=&gt;</span> <span class="s1">'2011-01-01'</span><span class="p">,</span>
+    <span class="ss">:end_date</span>     <span class="o">=&gt;</span> <span class="s1">'2011-04-01'</span><span class="p">,</span>
+    <span class="ss">:dimensions</span>   <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'month'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">],</span>
+    <span class="ss">:metrics</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits'</span><span class="p">],</span>
+    <span class="ss">:sort</span>         <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'-visits'</span><span class="p">]</span>
+<span class="p">})</span>
+
+
+<span class="c1"># Return visits and bounces for mobile traffic </span>
+<span class="c1"># (Google's default user segment gaid::-11)</span>
+
+<span class="n">mobile_traffic</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span> 
+  <span class="ss">:start_date</span>   <span class="o">=&gt;</span> <span class="s1">'2011-01-01'</span><span class="p">,</span> 
+  <span class="ss">:end_date</span>     <span class="o">=&gt;</span> <span class="s1">'2011-02-01'</span><span class="p">,</span> 
+  <span class="ss">:dimensions</span>   <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'month'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">],</span>
+  <span class="ss">:metrics</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits'</span><span class="p">,</span> <span class="s1">'bounces'</span><span class="p">],</span>
+  <span class="ss">:segment</span>      <span class="o">=&gt;</span> <span class="s1">'gaid::-11'</span>
+<span class="p">})</span>
+
+
+<span class="c1"># Filter by Firefox users</span>
+<span class="n">firefox_users</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span>
+  <span class="ss">:start_date</span>   <span class="o">=&gt;</span> <span class="s1">'2010-01-01'</span><span class="p">,</span> 
+  <span class="ss">:end_date</span>     <span class="o">=&gt;</span> <span class="s1">'2011-01-01'</span><span class="p">,</span>
+  <span class="ss">:dimensions</span>   <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'month'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">],</span>
+  <span class="ss">:metrics</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits'</span><span class="p">,</span> <span class="s1">'bounces'</span><span class="p">],</span>
+  <span class="ss">:filters</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'browser == Firefox'</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Filter where visits is &gt;= 10000</span>
+<span class="n">lots_of_visits</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span>
+  <span class="ss">:start_date</span>   <span class="o">=&gt;</span> <span class="s1">'2010-01-01'</span><span class="p">,</span> 
+  <span class="ss">:end_date</span>     <span class="o">=&gt;</span> <span class="s1">'2011-02-01'</span><span class="p">,</span>
+  <span class="ss">:dimensions</span>   <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'month'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">],</span>
+  <span class="ss">:metrics</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits'</span><span class="p">,</span> <span class="s1">'bounces'</span><span class="p">],</span>
+  <span class="ss">:filters</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits &gt;= 10000'</span><span class="p">]</span>
+<span class="p">})</span>
+
+
+<span class="c1"># Get the top 25 keywords that drove traffic</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ga</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span> 
+  <span class="ss">:start_date</span> <span class="o">=&gt;</span> <span class="s1">'2011-01-01'</span><span class="p">,</span>
+  <span class="ss">:end_date</span> <span class="o">=&gt;</span> <span class="s1">'2011-04-01'</span><span class="p">,</span>
+  <span class="ss">:dimensions</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'keyword'</span><span class="p">],</span>
+  <span class="ss">:metrics</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'visits'</span><span class="p">],</span>
+  <span class="ss">:sort</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'-visits'</span><span class="p">],</span>
+  <span class="ss">:max_results</span> <span class="o">=&gt;</span> <span class="mi">25</span> 
+<span class="p">})</span>
+
+<span class="c1"># Output our results</span>
+<span class="n">data</span><span class="p">.</span><span class="nf">points</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">data_point</span><span class="o">|</span>
+  <span class="n">kw</span> <span class="o">=</span> <span class="n">data_point</span><span class="p">.</span><span class="nf">dimensions</span><span class="p">.</span><span class="nf">detect</span> <span class="p">{</span> <span class="o">|</span><span class="n">dim</span><span class="o">|</span> <span class="n">dim</span><span class="p">.</span><span class="nf">key</span> <span class="o">==</span> <span class="ss">:keyword</span> <span class="p">}.</span><span class="nf">value</span>
+  <span class="n">visits</span> <span class="o">=</span> <span class="n">data_point</span><span class="p">.</span><span class="nf">metrics</span><span class="p">.</span><span class="nf">detect</span> <span class="p">{</span> <span class="o">|</span><span class="n">metric</span><span class="o">|</span> <span class="n">metric</span><span class="p">.</span><span class="nf">key</span> <span class="o">==</span> <span class="ss">:visits</span> <span class="p">}.</span><span class="nf">value</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">visits</span><span class="si">}</span><span class="s2"> visits =&gt; '</span><span class="si">#{</span><span class="n">kw</span><span class="si">}</span><span class="s2">'"</span>
+<span class="k">end</span>
+
+<span class="c1"># =&gt;</span>
+<span class="c1">#   19667 visits =&gt; '(not set)'</span>
+<span class="c1">#   1677 visits =&gt; 'keyword 1'</span>
+<span class="c1">#   178 visits =&gt; 'keyword 2'</span>
+<span class="c1">#   165 visits =&gt; 'keyword 3'</span>
+<span class="c1">#   161 visits =&gt; 'keyword 4'</span>
+<span class="c1">#   112 visits =&gt; 'keyword 5'</span>
+<span class="c1">#   105 visits =&gt; 'seo company reviews'</span>
+<span class="c1">#   ...</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="rails" /><category term="google" /><category term="analytics" /><category term="api" /><summary type="html"><![CDATA[Here is serveral usefull source:]]></summary></entry><entry><title type="html">Using nano as a editor</title><link href="http://0.0.0.0:4000/2013/01/14/using-nano-as-a-editor.html" rel="alternate" type="text/html" title="Using nano as a editor" /><published>2013-01-14T10:57:00+00:00</published><updated>2013-01-14T10:57:00+00:00</updated><id>http://0.0.0.0:4000/2013/01/14/using-nano-as-a-editor</id><content type="html" xml:base="http://0.0.0.0:4000/2013/01/14/using-nano-as-a-editor.html"><![CDATA[<p><strong>Installing(if not available) nano for mac/ubuntu</strong></p>
+
+<h2 id="for-mac">For Mac:</h2>
+
+<p><a href="http://www.nano-editor.org/download.php">Download Page</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure
+make
+<span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="for-ubuntu">For Ubuntu:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aptitude install nano
+</code></pre></div></div>
+
+<p><strong>Basic commands</strong></p>
+
+<p>To create or edit a file, use the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano tmp.html
+</code></pre></div></div>
+
+<p>At the bottom of the screen you should see a bunch of commands.
+The caret ^ signifies holding down the control key and typing the letter.</p>
+
+<p>All the list of commands are higlighted as we press ctrl key.</p>
+
+<p>To quit nano, which was the biggest question I had, just use ctrl + X
+It prompts to save if you changed the file. press y or n and we’re done.</p>
+
+<p>Here’s more from the <a href="http://www.nano-editor.org/docs.php">nano editor org</a></p>]]></content><author><name></name></author><summary type="html"><![CDATA[Installing(if not available) nano for mac/ubuntu]]></summary></entry><entry><title type="html">Javascript Vs Ruby methods</title><link href="http://0.0.0.0:4000/2013/01/04/javascript-vs-ruby-methods.html" rel="alternate" type="text/html" title="Javascript Vs Ruby methods" /><published>2013-01-04T12:23:00+00:00</published><updated>2013-01-04T12:23:00+00:00</updated><id>http://0.0.0.0:4000/2013/01/04/javascript-vs-ruby-methods</id><content type="html" xml:base="http://0.0.0.0:4000/2013/01/04/javascript-vs-ruby-methods.html"><![CDATA[<p><a href="http://agentcooper.github.com/js-ruby-comparison/">source</a></p>
+
+<p>&lt;table width=100% border=”1px” valign=’top’&gt;</p>
+<tr><th colspan="2">ARRAYS</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+<tr>
+<td valign="top">
+
+```ruby
+a = ["1", "2"]
+
+a.push("3")
+```
+
+```ruby
+a.map!(&amp;:to_i) # [1, 2, 3]
+```
+
+```ruby
+a.delete_at(1)
+a # [1, 3]
+```
+
+```ruby
+a.reverse # [3, 1]
+```
+
+```ruby
+a.unshift(777) 
+
+
+
+
+# [777, 3, 1]
+```
+</td>
+<td valign="top">
+
+```javascript
+var a = ["1", "2"];
+
+a.push("3");
+```
+
+```javascript
+a = a.map(function(n) { return parseInt(n, 10); });
+```
+
+```javascript
+a.splice(1, 1 /* how much */);
+a; // [1, 3]
+```
+
+```javascript
+a.reverse() // [3, 1]
+```
+
+```javascript
+a.unshift(777); // 777
+a; // [777, 3, 1]
+
+/* or in place: */ 
+var b = [3, 1];
+[777].concat(b); // [777, 3, 1]
+```
+</td>
+
+</tr>
+<tr>
+<td valign="top">
+```ruby
+a = [1, 2, 3]
+
+a.index(2) # 1 
+```
+
+```ruby
+a.all?{|n| n &gt; 4} # false
+```
+
+```ruby
+a.any?{|n| n &gt; 2} # true
+```
+
+```ruby
+a.keep_if{|n| n &gt; 1} # [2, 3]
+```
+
+</td>
+<td valign="top">
+```javascript
+var a = [1, 2, 3];
+
+a.indexOf(2); // 1
+```
+
+```javascript
+a.every(function(n) { return n &gt; 4; }); // false
+```
+
+```javascript
+a.some(function(n) { return n &gt; 2; });  // true
+```
+
+```javascript
+a.filter(function(n) { return n &gt; 1;}); // [2, 3]
+```
+</td>
+</tr>
+<tr>
+<td valign="top">
+```ruby
+a = ["aaa  ", "  bbb", "  ccc  "]
+
+a.map(&amp;:strip) 
+# ["aaa", "bbb", "ccc"]
+```
+</td>
+<td valign="top">
+```javascript
+var a = ["aaa  ", "  bbb", "  ccc  "]
+
+a.map(function(x) { return x.trim(); });               // ['aaa', 'bbb', 'ccc']
+a.map(Function.prototype.call, String.prototype.trim); // ['aaa', 'bbb', 'ccc']
+```
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+a = [1, 2, 3, 4, 5]
+
+a.slice(1..-2)  # [2, 3, 4]
+a[1..-2]        # [2, 3, 4]
+```
+
+</td>
+<td valign="top">
+
+```javascript
+var a = [1, 2, 3, 4, 5];
+
+
+a.slice(1, -1); // [2, 3, 4]
+```
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+a = [1, 2, 3]
+
+a.each {|n| puts n}
+
+a.each do |n|
+    puts n
+end
+```
+
+```ruby
+for i in 0..(a.length - 1) do
+  puts a[i]
+end
+```
+
+</td>
+<td valign="top">
+
+```javascript
+var a = [1, 2, 3];
+
+
+
+
+
+a.forEach(function(n) { console.log(n); })
+```
+
+```javascript
+for (var i = 0; i &lt; a.length; i++) {
+  console.log(a[i]);
+}
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">STRINGS</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+'hello'.index('e')    # 1
+```
+
+```ruby
+'hello'.rindex('l')   # 3
+```
+
+```ruby
+if 'hello'.include? 'lo' then puts 'found' end
+```
+
+```ruby
+'hello' * 3           # 'hellohellohello'
+```
+
+```ruby
+'a/b/c'.split('/')    # ['a', 'b', 'c']
+```
+
+</td>
+<td valign="top">
+
+```javascript
+'hello'.indexOf('e')             // 1
+```
+
+```javascript
+'hello'.lastIndexOf('l')         // 3
+```
+
+```javascript
+if (~'hello'.indexOf('lo')) { console.log('found'); }
+```
+
+```javascript
+(new Array(3 + 1)).join('hello') // 'hellohellohello'
+```
+
+```javascript
+'a/b/c'.split('/')               // ['a', 'b', 'c']
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">HASH</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+h = {}
+h['a'] = 1
+h['b'] = 2
+
+h.each {|key, value| puts "#{key} #{value}" }
+```
+
+```ruby
+h.keys # ['a', 'b']
+```
+
+```ruby
+h.has_key?('c') # false
+```
+
+```ruby
+h.length # 2
+```
+
+```ruby
+h.delete("b")
+```
+
+</td>
+<td valign="top">
+
+```javascript
+var h = {};
+h['a'] = 1;
+h['b'] = 2;
+
+for (key in h) { console.log(key, h[key]); }
+```
+
+```javascript
+Object.keys(h); // ['a', 'b']
+```
+
+```javascript
+h.hasOwnProperty('c') // false
+```
+
+```javascript
+Object.keys(h).length // 2
+```
+
+```javascript
+delete h.b
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">FUNCTIONS</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+def plus_5(num = 0) num + 5 end
+
+plus_5     # 5
+plus_5(10) # 15
+
+[5, 10, 15].map { |k| plus_5(k) } # [10, 15, 20]
+```
+
+```ruby
+def f(*args)
+
+  puts args
+end
+```
+</td>
+<td valign="top">
+
+```javascript
+function plus_5(num) { return (num || 0) + 5; }
+
+plus_5();   // 5
+plus_5(10); // 15
+
+[5, 10, 15].map(plus_5); // [10, 15, 20]
+```
+
+```javascript
+function f() {
+  var args = Array.prototype.slice.call(arguments);
+  console.log(args);
+}
+```
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">CLASSES</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+class Person
+  attr_accessor :firstName, :lastName
+
+  def initialize(firstName, lastName)
+    @firstName = firstName
+    @lastName = lastName
+  end
+  
+  def fullName
+    @firstName + " " + @lastName
+  end
+end
+
+john = Person.new("John", "Malkovic")
+john.fullName # "John Malkovic"
+```
+
+</td>
+<td valign="top">
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+
+
+
+Person.prototype.fullName = function() {
+  return this.firstName + " " + this.lastName;
+}
+
+
+var john = new Person("John", "Malkovic");
+john.fullName(); // "John Malkovic"
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">MATH</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+[-5, -1, -8].max            # -1
+```
+
+```ruby
+[-5, 15, 20].reduce(0, &amp;:+) # 30
+```
+
+</td>
+<td valign="top">
+
+```javascript
+Math.max.apply(null, [-5, -1, -8]) // -1
+```
+
+```javascript
+[-5, 15, 20].reduce(function(sum, value) { return sum + value; }, 0) // 30
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">MISC..</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+prng = Random.new()
+prng.rand(5..9) # one of [5, 6, 7, 8, 9]
+```
+
+```ruby
+a, b = b, a # switch a and b
+```
+
+</td>
+<td valign="top">
+
+```javascript
+function rand(a, b) { return Math.floor(Math.random() * (b - a + 1) + a); }
+rand(5, 9); // one of [5, 6, 7, 8, 9]
+```
+
+```javascript
+a = [b, b = a][0]
+```
+
+</td>
+</tr>
+
+<p>&lt;/table&gt;</p>]]></content><author><name></name></author><summary type="html"><![CDATA[source]]></summary></entry><entry><title type="html">4 ways to call a ruby method</title><link href="http://0.0.0.0:4000/ruby/metaprogramming/dynamic/method/2012/12/21/4-ways-to-call-a-ruby-method.html" rel="alternate" type="text/html" title="4 ways to call a ruby method" /><published>2012-12-21T11:43:00+00:00</published><updated>2012-12-21T11:43:00+00:00</updated><id>http://0.0.0.0:4000/ruby/metaprogramming/dynamic/method/2012/12/21/4-ways-to-call-a-ruby-method</id><content type="html" xml:base="http://0.0.0.0:4000/ruby/metaprogramming/dynamic/method/2012/12/21/4-ways-to-call-a-ruby-method.html"><![CDATA[<p>There is 4 ways to excute ruby method. Two of them can excute private method out of self class.</p>
+
+<p>I’m pretty sure that you have heard lots about ruby, specially as being a dynamic language, you can create methods on the fly, add instance variables, define constants and invoke existing methods dynamically , and that’s what this post is all about :</p>
+
+<p>As you know in ruby you can call a public instance method directly ,ex :</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span><span class="o">=</span> <span class="s2">"hi man"</span>
+<span class="nb">p</span> <span class="n">s</span><span class="p">.</span><span class="nf">length</span> <span class="c1">#=&gt; 6</span>
+<span class="nb">p</span> <span class="n">s</span><span class="p">.</span><span class="nf">include?</span> <span class="s2">"hi"</span> <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<p>One way to invoke a method dynamically in ruby is to send a message to the object :</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">s</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span> <span class="c1">#=&gt; 6</span>
+<span class="nb">p</span> <span class="n">s</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:include?</span><span class="p">,</span><span class="s2">"hi"</span><span class="p">)</span> <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+<p>A second way is instantiate a method object and then call it:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">method_object</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span> 
+<span class="nb">p</span> <span class="n">method_object</span><span class="p">.</span><span class="nf">call</span> <span class="c1">#=&gt; 6</span>
+<span class="n">method_object</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:include?</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">method_object</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">)</span>  <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+<p>And the third way is to use the eval method:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span> <span class="s2">"s.length"</span> <span class="c1">#=&gt; 6</span>
+<span class="nb">eval</span> <span class="s2">"s.include? 'hi'"</span> <span class="c1">#=&gt;true</span>
+</code></pre></div></div>
+<p>Well, when to use what?</p>
+
+<p>look at this script, it will be used to benchmark the 3 ways of calling :</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"benchmark"</span> 
+<span class="nb">test</span> <span class="o">=</span> <span class="s2">"hi man"</span> 
+<span class="n">m</span> <span class="o">=</span> <span class="nb">test</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span> 
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span> 
+<span class="no">Benchmark</span><span class="p">.</span><span class="nf">bmbm</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> 
+  <span class="n">x</span><span class="p">.</span><span class="nf">report</span><span class="p">(</span><span class="s2">"call"</span><span class="p">)</span> <span class="p">{</span> <span class="n">n</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="n">m</span><span class="p">.</span><span class="nf">call</span> <span class="p">}</span> <span class="p">}</span> 
+  <span class="n">x</span><span class="p">.</span><span class="nf">report</span><span class="p">(</span><span class="s2">"send"</span><span class="p">)</span> <span class="p">{</span> <span class="n">n</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="nb">test</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:length</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span> 
+  <span class="n">x</span><span class="p">.</span><span class="nf">report</span><span class="p">(</span><span class="s2">"eval"</span><span class="p">)</span> <span class="p">{</span> <span class="n">n</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="nb">eval</span> <span class="s2">"test.length"</span> <span class="p">}</span> <span class="p">}</span> 
+<span class="p">}</span> 
+<span class="c1">#######################################</span>
+<span class="c1">#####   The results</span>
+<span class="c1">#######################################</span>
+<span class="c1">#Rehearsal ----------------------------------------</span>
+<span class="c1">#call   0.050000   0.020000   0.070000 (  0.077915)</span>
+<span class="c1">#send   0.080000   0.000000   0.080000 (  0.086071)</span>
+<span class="c1">#eval   0.360000   0.040000   0.400000 (  0.405647)</span>
+<span class="c1">#------------------------------- total: 0.550000sec</span>
+ 
+<span class="c1">#          user     system      total        real</span>
+<span class="c1">#call   0.050000   0.020000   0.070000 (  0.072041)</span>
+<span class="c1">#send   0.070000   0.000000   0.070000 (  0.077674)</span>
+<span class="c1">#eval   0.370000   0.020000   0.390000 (  0.399442)</span>
+</code></pre></div></div>
+<p>Well as you can see, instantiating a method object is the fastest dynamic way in calling a method, also notice how slow using eval is.</p>
+
+<p>Also when sending a message to an object , or when instantiating a method object , u can call private methods of that object <a href="http://khelll.com/blog/ruby/ruby-dynamic-method-calling/">:</a></p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="kp">private</span>  
+  <span class="k">def</span> <span class="nf">hi</span> 
+    <span class="nb">puts</span> <span class="s2">"hi man"</span> 
+  <span class="k">end</span> 
+<span class="k">end</span>
+ 
+<span class="c1"># Normal method calling</span>
+<span class="n">f</span> <span class="o">=</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">new</span>  <span class="c1">#=&gt; &lt;Foo:0x10a0d51&gt;</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">hi</span>  <span class="c1">#=&gt;NoMethodError: private method `hi' called for #&lt;Foo:0x10a0d51&gt; </span>
+ 
+<span class="c1"># Sending a message</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">send</span> <span class="ss">:hi</span> <span class="c1">#  hi man</span>
+ 
+<span class="c1"># Instantiating a method object</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:hi</span><span class="p">).</span><span class="nf">call</span>  <span class="c1"># hi man</span>
+ 
+<span class="c1"># Using eval</span>
+<span class="nb">eval</span> <span class="s2">"f.hi"</span>  <span class="c1">#=&gt;NoMethodError: private method `hi' called for #&lt;Foo:0x10a0d51&gt; </span>
+ 
+<span class="c1"># Using instance_eval</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">instance_eval</span> <span class="p">{</span><span class="n">hi</span><span class="p">}</span>  <span class="c1"># hi man</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="ruby" /><category term="metaprogramming" /><category term="dynamic" /><category term="method" /><summary type="html"><![CDATA[There is 4 ways to excute ruby method. Two of them can excute private method out of self class.]]></summary></entry><entry><title type="html">ruby timeout</title><link href="http://0.0.0.0:4000/ruby/rescue/timeout/exception/2012/12/09/ruby-timeout.html" rel="alternate" type="text/html" title="ruby timeout" /><published>2012-12-09T06:56:00+00:00</published><updated>2012-12-09T06:56:00+00:00</updated><id>http://0.0.0.0:4000/ruby/rescue/timeout/exception/2012/12/09/ruby-timeout</id><content type="html" xml:base="http://0.0.0.0:4000/ruby/rescue/timeout/exception/2012/12/09/ruby-timeout.html"><![CDATA[<h2 id="standard-timeout">standard timeout</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'timeout'</span>
+<span class="k">begin</span>
+  <span class="n">complete_results</span> <span class="o">=</span> <span class="no">Timeout</span><span class="p">.</span><span class="nf">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">do</span>      
+   <span class="nb">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">rescue</span> <span class="no">Timeout</span><span class="o">::</span><span class="no">Error</span>
+  <span class="nb">puts</span> <span class="s1">'Print me something please'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>sometime, the code inner with begin will catch exception
+such as:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'timeout'</span>
+ 
+<span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="s2">: Starting"</span>
+<span class="k">begin</span>
+  <span class="no">Timeout</span><span class="p">.</span><span class="nf">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">do</span>
+    <span class="k">begin</span>
+      <span class="nb">sleep</span> <span class="mi">10</span>
+    <span class="k">rescue</span> <span class="no">Exception</span> <span class="o">=&gt;</span> <span class="n">e</span>
+      <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="s2">: Caught an exception: </span><span class="si">#{</span><span class="n">e</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">end</span>
+    <span class="nb">sleep</span> <span class="mi">10</span>
+  <span class="k">end</span>
+<span class="k">rescue</span> <span class="no">Timeout</span><span class="o">::</span><span class="no">Error</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="s2">: Timeout: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="s2">: Never timed out."</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>so new a thread, as ruby 1.9 thread is native</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">begin</span>
+  <span class="n">complete_results</span> <span class="o">=</span> <span class="no">Timeout</span><span class="p">.</span><span class="nf">timeout</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">do</span>
+    <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span><span class="p">{</span> <span class="n">results</span> <span class="o">=</span> <span class="n">platform</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">)</span> <span class="p">}.</span><span class="nf">value</span>
+  <span class="k">end</span>
+<span class="k">rescue</span> <span class="no">Timeout</span><span class="o">::</span><span class="no">Error</span>
+  <span class="nb">puts</span> <span class="s1">'Print me something please'</span>
+<span class="k">end</span> 
+</code></pre></div></div>
+
+<p>##implementation</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># From lib/timeout.rb</span>
+
+<span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="no">Error</span><span class="p">)</span>
+  <span class="k">return</span> <span class="k">yield</span> <span class="k">if</span> <span class="n">sec</span> <span class="o">==</span> <span class="kp">nil</span> <span class="n">or</span> <span class="n">sec</span><span class="p">.</span><span class="nf">zero?</span>
+  <span class="k">raise</span> <span class="no">ThreadError</span><span class="p">,</span> <span class="s2">"timeout within critical session"</span> <span class="k">if</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">critical</span>
+  <span class="k">begin</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">current</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">start</span> <span class="p">{</span>
+      <span class="nb">sleep</span> <span class="n">sec</span>
+      <span class="n">x</span><span class="p">.</span><span class="nf">raise</span> <span class="n">exception</span><span class="p">,</span> <span class="s2">"execution expired"</span> <span class="k">if</span> <span class="n">x</span><span class="p">.</span><span class="nf">alive?</span>
+    <span class="p">}</span>
+    <span class="k">yield</span> <span class="n">sec</span>
+    <span class="c1">#    return true</span>
+  <span class="k">ensure</span>
+    <span class="n">y</span><span class="p">.</span><span class="nf">kill</span> <span class="k">if</span> <span class="n">y</span> <span class="n">and</span> <span class="n">y</span><span class="p">.</span><span class="nf">alive?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>system timer only for 1.8<a href="http://ph7spot.com/musings/system-timer">.</a></p>]]></content><author><name></name></author><category term="ruby" /><category term="rescue" /><category term="timeout" /><category term="exception" /><summary type="html"><![CDATA[standard timeout require 'timeout' begin complete_results = Timeout.timeout(1) do sleep(2) end rescue Timeout::Error puts 'Print me something please' end]]></summary></entry><entry><title type="html">rspec test failed after changing to capybara-webkit</title><link href="http://0.0.0.0:4000/rspec/capybara-webkit/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit.html" rel="alternate" type="text/html" title="rspec test failed after changing to capybara-webkit" /><published>2012-12-09T06:03:00+00:00</published><updated>2012-12-09T06:03:00+00:00</updated><id>http://0.0.0.0:4000/rspec/capybara-webkit/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit</id><content type="html" xml:base="http://0.0.0.0:4000/rspec/capybara-webkit/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit.html"><![CDATA[<h2 id="problem-as">problem as</h2>
+<p>written some RSpec test for my rails 3.2 application and because I was annyoed by the Browser popping up ich tried to change from firefox to capybara-webkit. After this all tests still run, except one. The line that is failing is:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expect</span> <span class="p">{</span> <span class="n">click_button</span> <span class="s2">"Create"</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span><span class="p">(</span><span class="no">Answer</span><span class="p">,</span> <span class="ss">:count</span><span class="p">).</span><span class="nf">by</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>solution is easy, The simplest way to resolve this is to wait before checking:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expect</span> <span class="p">{</span> <span class="n">click_button</span> <span class="s2">"Create"</span><span class="p">;</span> <span class="nb">sleep</span> <span class="mi">2</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span><span class="p">(</span><span class="no">Answer</span><span class="p">,</span> <span class="ss">:count</span><span class="p">).</span><span class="nf">by</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</code></pre></div></div>
+<p>There is a race condition here between Capybara sending the click action to the server and your test checking the database.</p>]]></content><author><name></name></author><category term="rspec" /><category term="capybara-webkit" /><summary type="html"><![CDATA[problem as written some RSpec test for my rails 3.2 application and because I was annyoed by the Browser popping up ich tried to change from firefox to capybara-webkit. After this all tests still run, except one. The line that is failing is: expect { click_button "Create" }.to change(Answer, :count).by(count)]]></summary></entry></feed>

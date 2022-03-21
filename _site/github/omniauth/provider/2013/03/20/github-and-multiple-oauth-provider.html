@@ -1,0 +1,398 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>github and multiple oauth provider - Yankist</title>
+<meta name="description" content="Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="github and multiple oauth provider">
+<meta property="og:url" content="http://0.0.0.0:4000/github/omniauth/provider/2013/03/20/github-and-multiple-oauth-provider.html">
+
+
+  <meta property="og:description" content="Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2013-03-20T08:01:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/github/omniauth/provider/2013/03/20/github-and-multiple-oauth-provider.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="github and multiple oauth provider">
+    <meta itemprop="description" content="Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?">
+    <meta itemprop="datePublished" content="2013-03-20T08:01:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">github and multiple oauth provider
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?</p>
+
+<p>Typically authentication systems have a User model which handles most of the authentication logic but having multiple logins forces you to correctly separate the concepts of an Identity and a User. An Identity is a particular authentication method which a user has used to identify themselves with your site whilst a User manages data which is directly related to your site itself.</p>
+
+<p>So to start you will want to create both User and Identity models. We will also add some convenience methods for creating identities and users when the OmniAuth callback is invoked:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/models/user.rb</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:identities</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="n">create</span><span class="p">(</span><span class="ss">name: </span><span class="n">info</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+   
+<span class="c1"># app/models/identity.rb</span>
+<span class="k">class</span> <span class="nc">Identity</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:user</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="n">find_by_provider_and_uid</span><span class="p">(</span><span class="n">auth</span><span class="p">[</span><span class="s1">'provider'</span><span class="p">],</span> <span class="n">auth</span><span class="p">[</span><span class="s1">'uid'</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="n">create</span><span class="p">(</span><span class="ss">uid: </span><span class="n">auth</span><span class="p">[</span><span class="s1">'uid'</span><span class="p">],</span> <span class="ss">provider: </span><span class="n">auth</span><span class="p">[</span><span class="s1">'provider'</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>So a user can have multiple identities and each identity belongs to a single user.</p>
+
+<p>Next we need to handle logging in and logging out. This is managing session data since a logged in user is simply a person who has some session data confirming that they have been logged in. The OmniAuth callback which a provider will redirect to upon authenticating a user is /auth/:provider/callback so lets setup a route and a controller to handle this. We should also setup some helper methods on our Application Controller for handling the current user:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/routes.rb</span>
+<span class="no">YourAppName</span><span class="o">::</span><span class="no">Application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">match</span> <span class="s1">'/auth/:provider/callback'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'sessions#create'</span>
+  <span class="n">match</span> <span class="s1">'/logout'</span><span class="p">,</span> <span class="ss">to: </span><span class="s1">'sessions#destroy'</span>
+<span class="k">end</span>
+
+<span class="c1">#app/controllers/sessions_controller.rb</span>
+<span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="c1"># Login the User here</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="c1"># Logout the User here</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1">#app/controllers/application_controller.rb</span>
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">protect_from_forgery</span>
+
+  <span class="kp">protected</span>
+
+  <span class="k">def</span> <span class="nf">current_user</span>
+    <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">signed_in?</span>
+    <span class="o">!!</span><span class="n">current_user</span>
+  <span class="k">end</span>
+  <span class="n">helper_method</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:signed_in?</span>
+
+  <span class="k">def</span> <span class="nf">current_user</span><span class="o">=</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">user</span>
+    <span class="n">session</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="nf">nil?</span> <span class="p">?</span> <span class="n">user</span> <span class="p">:</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>Now to login, all a user needs to do is go to /auth/provider and they will get redirected to Sessions Controller create method after authenticating. So there are a number of possibilities when they hit this action:</p>
+
+<p>A user has never used your site before. They have no User model and no Identities either.
+A user is logged out but they have logged into your site with a provider previously. They are now signing in with the same one again.
+Just as above but they are now signing in with a different provider.
+A user is logged in with a provider but they try to login with the same provider again.
+A user is logged in but they try to login with a different provider.
+The first two cases are just like a normal sign in process. The final 3 cases occur because we are allowing multiple providers and they can be tricky to handle.</p>
+
+<p>Firstly, we need to grab authentication data given to us by the provider which is stored in request.env[omniauth.auth]. Then we need to check whether we have an identity which matches this data or create a new one.</p>
+
+<p>How we proceed for here depends on whether the user is already logged in. If they aren’t logged in then either they are a brand new user (so we treat their request like a registration) or they already have an account (so we treat this like a login request).</p>
+
+<p>If they are logged in then we treat their request like they are trying to link an identity with their account. Either they are trying to link an identity which they have already linked (in which case we should display an error message telling them that) or it is a brand new identity so we go ahead and link it.</p>
+
+<p>So at this point our skeleton create method looks like this:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create</span>
+  <span class="n">auth</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s1">'omniauth.auth'</span><span class="p">]</span>
+  <span class="c1"># Find an identity here</span>
+  <span class="vi">@identity</span> <span class="o">=</span> <span class="no">Identity</span><span class="p">.</span><span class="nf">find_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">nil?</span>
+    <span class="c1"># If no identity was found, create a brand new one here</span>
+    <span class="vi">@identity</span> <span class="o">=</span> <span class="no">Identity</span><span class="p">.</span><span class="nf">create_with_omniauth</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">if</span> <span class="n">signed_in?</span>
+    <span class="k">if</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span> <span class="o">==</span> <span class="n">current_user</span>
+      <span class="c1"># User is signed in so they are trying to link an identity with their</span>
+      <span class="c1"># account. But we found the identity and the user associated with it </span>
+      <span class="c1"># is the current user. So the identity is already associated with </span>
+      <span class="c1"># this user. So let's display an error message.</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Already linked that account!"</span>
+    <span class="k">else</span>
+      <span class="c1"># The identity is not associated with the current_user so lets </span>
+      <span class="c1"># associate the identity</span>
+      <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span> <span class="o">=</span> <span class="n">current_user</span>
+      <span class="vi">@identity</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Successfully linked that account!"</span>
+    <span class="k">end</span>
+  <span class="k">else</span>
+    <span class="k">if</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">present?</span>
+      <span class="c1"># The identity we found had a user associated with it so let's </span>
+      <span class="c1"># just log them in here</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">current_user</span> <span class="o">=</span> <span class="vi">@identity</span><span class="p">.</span><span class="nf">user</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Signed in!"</span>
+    <span class="k">else</span>
+      <span class="c1"># No user associated with the identity so we need to create a new one</span>
+      <span class="n">redirect_to</span> <span class="n">new_user_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Please finish registering"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>So at this point, there are a couple of further considerations. Firstly on the signed in/identity not associated with user branch, there are two reasons why an identity might not be associated with a user. It could be that the identity is brand new, having never been used to sign in before. However, it could be that it has been used and so is already associated with a different user, although not necessarily a different person. Given that this user knew the login credentials for that identity, I think it is probably sufficiently prudent to assume that they are, in fact, the same person who also created the previous user. However, by simply reassigning the user to which the identity is associated with to the current one, you not only leave a user model potentially dangling with no identities to sign in with but also prevent the user from merging their data from their previous account in with this one. Resolving this will be dependent entirely on how much data, and the nature of that data, you have stored for each user but for sufficiently simple applications, you could at this point check to see if the old user has any identities left and, if not, delete that user. If the person using your site is likely to lose any data from this process then you would either need to make this sufficiently clear to them before proceeding or provide them with a way to migrate that data over (or handle it automatically, if possible).</p>
+
+<p>Secondly, on the not signed in/no user model branch, you may need more registration data from your user than can be provided by your authentication providers. At this point, as I have assumed above, you can redirect them to a new user form and redirect them to this point if they try to access any other part of the app without completing it. Then create the user and log them in again when they have. Otherwise, if no further data is necessary or mandatory, you can go ahead and create a blank user model in the create method and log them straight in.</p>
+
+<p>Finally, a few lose ends. Here is the destroy method for logging users out:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">destroy</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">notice: </span><span class="s2">"Signed out!"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>You’ll also find that the OmniAuth callback url does not correctly verify the rails authenticity token and so will destroy any session data upon returning, thereby logging your current user out. This will prevent them from associating a new identity with their current account. You can get around this by adding skip_before_filter :verify_authenticity_token, only: :create to your sessions controller but I am unsure of the security implications of this.</p>
+
+<p>You’ll also need some migrations:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CreateUsers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:users</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">CreateIdentities</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:identities</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:uid</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:provider</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:user</span>
+    <span class="k">end</span>
+
+    <span class="n">add_index</span> <span class="ss">:identities</span><span class="p">,</span> <span class="ss">:user_id</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2013-03-20T08:01:00+00:00">March 20, 2013</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/helper%20view/2013/03/07/use-view-helper-at-controller.html" class="pagination--pager" title="Use view helper at controller
+">Previous</a>
+    
+    
+      <a href="/rails/2013/07/10/entering-rails-4.html" class="pagination--pager" title="Entering Rails 4
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

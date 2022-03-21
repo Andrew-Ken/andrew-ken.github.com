@@ -1,0 +1,313 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>some ruby on rails interview questions - Yankist</title>
+<meta name="description" content="what’s N+1 problem, how to solve the problem ```ruby clients = Client.limit(10)  clients.each do |client|   puts client.address.postcode end">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="some ruby on rails interview questions">
+<meta property="og:url" content="http://0.0.0.0:4000/ruby/rails/rails3/questions/interview/2012/08/04/some-ruby-on-rails-interview-questions.html">
+
+
+  <meta property="og:description" content="what’s N+1 problem, how to solve the problem ```ruby clients = Client.limit(10)  clients.each do |client|   puts client.address.postcode end">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2012-08-04T18:22:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/ruby/rails/rails3/questions/interview/2012/08/04/some-ruby-on-rails-interview-questions.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="some ruby on rails interview questions">
+    <meta itemprop="description" content="what’s N+1 problem, how to solve the problem```rubyclients = Client.limit(10)clients.each do |client|  puts client.address.postcodeend">
+    <meta itemprop="datePublished" content="2012-08-04T18:22:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">some ruby on rails interview questions
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><strong>what’s N+1 problem, how to solve the problem</strong></p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">clients</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+ 
+<span class="n">clients</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">client</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">client</span><span class="p">.</span><span class="nf">address</span><span class="p">.</span><span class="nf">postcode</span>
+<span class="k">end</span>
+
+<span class="n">clients</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="ss">:address</span><span class="p">).</span><span class="nf">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+ 
+<span class="n">clients</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">client</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">client</span><span class="p">.</span><span class="nf">address</span><span class="p">.</span><span class="nf">postcode</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+<p><strong>what’s the different with joins and includes</strong></p>
+
+<p><strong>explain eager loading and lazy loading</strong></p>
+
+<p><strong>how to get the top 10 average rating product name:</strong></p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Product</span><span class="p">:</span> <span class="nb">name</span><span class="ss">:string</span><span class="p">,</span> <span class="nb">id</span><span class="ss">:integer</span><span class="p">,</span>
+<span class="no">Review</span><span class="p">:</span> <span class="nb">id</span><span class="ss">:integer</span><span class="p">,</span> <span class="n">rating</span><span class="ss">:integer</span><span class="p">,</span> <span class="ss">product_id: </span><span class="n">integer</span>
+<span class="c1">#solution</span>
+<span class="nb">select</span> <span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="n">from</span> <span class="n">products</span> <span class="n">as</span> <span class="nb">p</span> <span class="n">inner</span> <span class="n">join</span> <span class="n">review</span> <span class="n">as</span> <span class="n">r</span> <span class="n">group</span> <span class="n">by</span> <span class="n">r</span><span class="p">.</span><span class="nf">prouct_id</span> <span class="n">order</span> <span class="n">avg</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="nf">rating</span><span class="p">)</span> <span class="n">limit</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<p><strong>using map and reduce to sum up 5 to 26 which is squareable</strong></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">SQ</span>
+  <span class="k">def</span> <span class="nf">square</span> <span class="n">num</span>
+    <span class="n">num</span><span class="p">.</span><span class="nf">times</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+      <span class="k">return</span> <span class="kp">true</span> <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">==</span> <span class="n">num</span>
+    <span class="k">end</span>
+    <span class="kp">false</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="mi">5</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="mi">26</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">){</span><span class="o">|</span><span class="n">sum</span><span class="p">,</span><span class="n">x</span><span class="o">|</span><span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">x</span> <span class="k">if</span> <span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="n">sum</span> <span class="p">}</span>
+<span class="mi">5</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="mi">26</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">){</span><span class="o">|</span><span class="n">sum</span><span class="p">,</span><span class="n">x</span><span class="o">|</span><span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">?</span> <span class="n">x</span> <span class="p">:</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>dynamic load</strong></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">A</span>
+  <span class="k">def</span> <span class="nf">check_credit</span>
+    <span class="nb">puts</span> <span class="s2">"A"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">module</span> <span class="nn">B</span>
+  <span class="k">def</span> <span class="nf">check_credit</span>
+    <span class="nb">puts</span> <span class="s2">"B"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">P</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:type</span>
+  <span class="k">def</span> <span class="nf">process</span>
+    <span class="c1">#class_eval</span>
+    <span class="c1">#self &lt;&lt; class</span>
+      <span class="c1">#include eval(type)</span>
+    <span class="c1">#end</span>
+    <span class="n">type</span><span class="p">.</span><span class="nf">constantize</span><span class="p">.</span><span class="nf">check_credit</span>
+
+    <span class="n">check_credit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-08-04T18:22:00+00:00">August 4, 2012</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/octopress/syntax/2012/04/20/octopress-no-lexer-error.html" class="pagination--pager" title="octopress no lexer error
+">Previous</a>
+    
+    
+      <a href="/mac/bash/ipfw/2012/11/09/how-to-proxy-a-domain-as-local.html" class="pagination--pager" title="How to proxy a domain to localhost
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

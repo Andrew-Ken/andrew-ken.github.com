@@ -1,0 +1,337 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>create ruby dynamic class - Yankist</title>
+<meta name="description" content="```ruby dynamic_name = “TestEval2”">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="create ruby dynamic class">
+<meta property="og:url" content="http://0.0.0.0:4000/ruby/class/dynamic/metaprogramming/2011/02/02/create-ruby-dynamic-class.html">
+
+
+  <meta property="og:description" content="```ruby dynamic_name = “TestEval2”">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2011-02-02T18:24:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/ruby/class/dynamic/metaprogramming/2011/02/02/create-ruby-dynamic-class.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="create ruby dynamic class">
+    <meta itemprop="description" content="```rubydynamic_name = “TestEval2”">
+    <meta itemprop="datePublished" content="2011-02-02T18:24:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">create ruby dynamic class
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dynamic_name</span> <span class="o">=</span> <span class="s2">"TestEval2"</span>
+
+<span class="no">Object</span><span class="p">.</span><span class="nf">const_set</span><span class="p">(</span><span class="n">dynamic_name</span><span class="p">,</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+<span class="n">dummy2</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">dynamic_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="s2">"dummy2: </span><span class="si">#{</span><span class="n">dummy2</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dynamic_name</span> <span class="o">=</span> <span class="s2">"ClassName"</span>
+<span class="no">Object</span><span class="p">.</span><span class="nf">const_set</span><span class="p">(</span><span class="n">dynamic_name</span><span class="p">,</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="k">def</span> <span class="nf">method1</span><span class="p">()</span> <span class="mi">42</span> <span class="k">end</span> <span class="p">})</span>
+<span class="no">ClassName</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">method1</span> <span class="c1">#=&gt; 42</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">class_name</span> <span class="o">=</span> <span class="s1">'foo'</span><span class="p">.</span><span class="nf">capitalize</span>
+<span class="n">klass</span> <span class="o">=</span> <span class="no">Object</span><span class="p">.</span><span class="nf">const_set</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span><span class="no">Class</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'instance1'</span><span class="p">,</span> <span class="s1">'instance2'</span><span class="p">]</span> <span class="c1"># Array of instance vars</span>
+
+<span class="n">klass</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+  <span class="nb">attr_accessor</span> <span class="o">*</span><span class="n">names</span>
+
+  <span class="n">define_method</span><span class="p">(</span><span class="ss">:initialize</span><span class="p">)</span> <span class="k">do</span> <span class="o">|*</span><span class="n">values</span><span class="o">|</span>
+    <span class="n">names</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span><span class="n">i</span><span class="o">|</span>
+      <span class="nb">instance_variable_set</span><span class="p">(</span><span class="s2">"@"</span><span class="o">+</span><span class="nb">name</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="c1"># more...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>class_eval and const_set are used.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a_new_class</span> <span class="o">=</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Object</span><span class="p">)</span> <span class="k">do</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:x</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="c1">#{self.class} initialized with #{x}"</span>
+    <span class="vi">@x</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">SomeModule</span><span class="p">.</span><span class="nf">const_set</span><span class="p">(</span><span class="s2">"ClassName"</span><span class="p">,</span> <span class="n">a_new_class</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">ClassName</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>without class_eval and const_set
+You don’t really need to use const_set. The return value of Class.new can be assigned to a constant and the block of Class.new is class_eval.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ass</span> <span class="no">Ancestor</span><span class="p">;</span> <span class="k">end</span>
+<span class="no">SomeClass</span> <span class="o">=</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Ancestor</span><span class="p">)</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+     <span class="nb">print</span> <span class="s2">"</span><span class="si">#{</span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="si">}</span><span class="s2"> initialized with </span><span class="si">#{</span><span class="n">var</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="o">=&gt;</span> <span class="no">SomeClass</span>
+<span class="no">SomeClass</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span>
+<span class="c1"># SomeClass initialized with foo=&gt; #&lt;SomeClass:0x668b68&gt;</span>
+</code></pre></div></div>
+
+<p>The following code uses a class factory to create a new class along with getter and setters for the fields passed into it:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClassFactory</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_class</span><span class="p">(</span><span class="n">new_class</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span>
+      <span class="n">fields</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">field</span><span class="o">|</span>
+        <span class="n">define_method</span> <span class="n">field</span><span class="p">.</span><span class="nf">intern</span> <span class="k">do</span>
+          <span class="nb">instance_variable_get</span><span class="p">(</span><span class="s2">"@</span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="n">define_method</span> <span class="s2">"</span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2">="</span><span class="p">.</span><span class="nf">intern</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg</span><span class="o">|</span>
+          <span class="nb">instance_variable_set</span><span class="p">(</span><span class="s2">"@</span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="no">Kernel</span><span class="p">.</span><span class="nf">const_set</span> <span class="n">new_class</span><span class="p">,</span> <span class="n">c</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">ClassFactory</span><span class="p">.</span><span class="nf">create_class</span> <span class="s2">"Car"</span><span class="p">,</span> <span class="s2">"make"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="s2">"year"</span>
+
+<span class="n">new_class</span> <span class="o">=</span> <span class="no">Car</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">new_class</span><span class="p">.</span><span class="nf">make</span> <span class="o">=</span> <span class="s2">"Nissan"</span>
+<span class="nb">puts</span> <span class="n">new_class</span><span class="p">.</span><span class="nf">make</span> <span class="c1"># =&gt; "Nissan"</span>
+<span class="n">new_class</span><span class="p">.</span><span class="nf">model</span> <span class="o">=</span> <span class="s2">"Maxima"</span>
+<span class="nb">puts</span> <span class="n">new_class</span><span class="p">.</span><span class="nf">model</span> <span class="c1"># =&gt; "Maxima"</span>
+<span class="n">new_class</span><span class="p">.</span><span class="nf">year</span> <span class="o">=</span> <span class="s2">"2001"</span>
+<span class="nb">puts</span> <span class="n">new_class</span><span class="p">.</span><span class="nf">year</span> <span class="c1"># =&gt; "2001"</span>
+</code></pre></div></div>
+<p>In Ruby, classes are simply objects like any other, which are then assigned to a constant.  Hence, to create a new class dynamically we instantiate the class Class with Class.new, and then assign it to a constant via const_set (we invoke it on Kernel so that it is a top-level constant like any other class).  We then add the code that makes up the class in a do-end block.</p>
+
+<p>In that do-end block, for each field we invoke define_method twice, first for the getter method and then the setter method with get_instance_variable and set_instance_variable, respectively.  For each field, we create the instance variables (e.g., for make, we use @make).  Note how we make use of passing the argument in for the setter.</p>
+
+<p>Additionally, if I wanted to make the class a sub-class, I could have used Class.new(parent_class)</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2011-02-02T18:24:00+00:00">February 2, 2011</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ruby/metaprogramming/class_eval/instance_eval/2010/07/20/basic-metaprogramming-ruby-class-eval-and-instance-eval.html" class="pagination--pager" title="basic metaprogramming ruby class_eval and instance_eval
+">Previous</a>
+    
+    
+      <a href="/selenium-webdriver/rspec/2011/10/26/ruby-selenium-webdriver-watir-webdriver.html" class="pagination--pager" title="ruby selenium-webdriver watir-webdriver
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

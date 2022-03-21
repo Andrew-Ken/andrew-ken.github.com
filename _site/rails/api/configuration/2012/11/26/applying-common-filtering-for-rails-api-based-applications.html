@@ -1,0 +1,329 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Applying Common Filtering for Rails Api Based Applications - Yankist</title>
+<meta name="description" content="Sometimes there are common sets of fields and id’s that we would like the api to filter before sending the details to the client. It would be great if we can place them in a common place so that they can be changed anytime.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="Applying Common Filtering for Rails Api Based Applications">
+<meta property="og:url" content="http://0.0.0.0:4000/rails/api/configuration/2012/11/26/applying-common-filtering-for-rails-api-based-applications.html">
+
+
+  <meta property="og:description" content="Sometimes there are common sets of fields and id’s that we would like the api to filter before sending the details to the client. It would be great if we can place them in a common place so that they can be changed anytime.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2012-11-26T22:50:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/rails/api/configuration/2012/11/26/applying-common-filtering-for-rails-api-based-applications.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Applying Common Filtering for Rails Api Based Applications">
+    <meta itemprop="description" content="Sometimes there are common sets of fields and id’s that we would like the apito filter before sending the details to the client. It would be great if we canplace them in a common place so that they can be changed anytime.">
+    <meta itemprop="datePublished" content="2012-11-26T22:50:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Applying Common Filtering for Rails Api Based Applications
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Sometimes there are common sets of fields and id’s that we would like the api
+to filter before sending the details to the client. It would be great if we can
+place them in a common place so that they can be changed anytime.</p>
+
+<p>File: lib/api_config.rb</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Filters out the specified list of fields from the API calls</span>
+<span class="no">APIFILTERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'id'</span><span class="p">,</span><span class="s1">'password'</span><span class="p">,</span><span class="s1">'secret__internal_id'</span><span class="p">,</span><span class="s1">'updated_at'</span><span class="p">,</span><span class="s1">'created_at'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>File: config/initializers/json_config.rb</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Requiring the api configuration file</span>
+<span class="nb">require</span> <span class="s1">'api_config'</span>
+
+<span class="k">class</span> <span class="nc">ActiveRecord::Base</span>
+  <span class="k">def</span> <span class="nf">as_json_with_filter</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+    <span class="n">options</span><span class="p">[</span><span class="ss">:except</span><span class="p">]</span> <span class="o">=</span> <span class="no">APIFILTERS</span>
+    <span class="n">as_json_without_filter</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="n">alias_method_chain</span> <span class="ss">:as_json</span><span class="p">,</span> <span class="ss">:filter</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+<p>the alias_method_chain does two things here:</p>
+
+<ul>
+  <li>
+    <p>firstly it creates an alias method called as_json_without_filter to as_json</p>
+  </li>
+  <li>
+    <p>secondly it looks for as_json_with_filter and makes that as the new as_json
+method</p>
+  </li>
+</ul>
+
+<p>The as_json method is one that gets called when the to_json method is called on a
+model object or a collection of model objects in rails</p>
+
+<p>example: users controller file</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="n">respond_to</span> <span class="ss">:json</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="n">respond_with</span> <span class="vi">@user</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>the above would call the as_json method of the user model, we have just
+overridden the super class to filter out a few fields</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+
+<span class="k">def</span> <span class="nf">as_json</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+  <span class="k">super</span><span class="p">(</span><span class="ss">:include</span> <span class="o">=&gt;</span> <span class="ss">:parents</span><span class="p">)</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>for xml, this is slightly Different</p>
+
+<p>File: config/initializers/xml_config.rb</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Requiring the api configuration file</span>
+<span class="nb">require</span> <span class="s1">'api_config'</span>
+
+<span class="k">class</span> <span class="nc">ActiveRecord::Base</span>
+  <span class="kp">alias_method</span> <span class="ss">:to_xml</span><span class="p">,</span> <span class="ss">:old_to_xml</span>
+  <span class="k">def</span> <span class="nf">to_xml</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+    <span class="n">options</span><span class="p">[</span><span class="ss">:except</span><span class="p">]</span> <span class="o">=</span> <span class="no">APIFILTERS</span>
+    <span class="n">old_to_xml</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>Any questions, please feel free to ask. We’re here to help…</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-11-26T22:50:00+00:00">November 26, 2012</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/rails/yml/configuration/environments/2012/11/26/initializing-custom-yml-configuration-variables-for-environments-in-rails.html" class="pagination--pager" title="Initializing Custom YML Configuration Variables for Different Environments in Rails
+">Previous</a>
+    
+    
+      <a href="/ruby/md5/hmac%20sha1/2012/11/28/working-on-digests-and-signatures.html" class="pagination--pager" title="Working with Digests and Signatures
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+Andrew Paliyan:
+  name        : "Andrew Paliyan"
+  bio         : "Director - Platform Architecture <br/> I Love To Build And Automate Software."
+  avatar      : "https://andrewpaliyan.info/andrew.jpg"
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.andrewpaliyan.info"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://www.linkedin.com/in/andrewpaliyan"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/andrewsheelan"
+
+Ken Lu:
+  name        : "Ken Lu"
+  bio         : " Co-Founder/CTO at FeedMob <br /> Intensive experience in web development"
+  avatar      : "https://d2e8t60lgytj81.cloudfront.net/img/KenLu.jpg"
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://twitter.com/ken_lv"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://www.linkedin.com/in/kenlv/"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/orgs/Andrew-Ken/people/hlee"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "email:ken@seeice.com"

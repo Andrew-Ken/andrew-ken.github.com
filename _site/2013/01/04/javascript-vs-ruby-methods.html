@@ -1,0 +1,711 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Javascript Vs Ruby methods - Yankist</title>
+<meta name="description" content="source">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="Javascript Vs Ruby methods">
+<meta property="og:url" content="http://0.0.0.0:4000/2013/01/04/javascript-vs-ruby-methods.html">
+
+
+  <meta property="og:description" content="source">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2013-01-04T12:23:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/2013/01/04/javascript-vs-ruby-methods.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Javascript Vs Ruby methods">
+    <meta itemprop="description" content="source">
+    <meta itemprop="datePublished" content="2013-01-04T12:23:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Javascript Vs Ruby methods
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><a href="http://agentcooper.github.com/js-ruby-comparison/">source</a></p>
+
+<p>&lt;table width=100% border=”1px” valign=’top’&gt;</p>
+<tr><th colspan="2">ARRAYS</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+<tr>
+<td valign="top">
+
+```ruby
+a = ["1", "2"]
+
+a.push("3")
+```
+
+```ruby
+a.map!(&amp;:to_i) # [1, 2, 3]
+```
+
+```ruby
+a.delete_at(1)
+a # [1, 3]
+```
+
+```ruby
+a.reverse # [3, 1]
+```
+
+```ruby
+a.unshift(777) 
+
+
+
+
+# [777, 3, 1]
+```
+</td>
+<td valign="top">
+
+```javascript
+var a = ["1", "2"];
+
+a.push("3");
+```
+
+```javascript
+a = a.map(function(n) { return parseInt(n, 10); });
+```
+
+```javascript
+a.splice(1, 1 /* how much */);
+a; // [1, 3]
+```
+
+```javascript
+a.reverse() // [3, 1]
+```
+
+```javascript
+a.unshift(777); // 777
+a; // [777, 3, 1]
+
+/* or in place: */ 
+var b = [3, 1];
+[777].concat(b); // [777, 3, 1]
+```
+</td>
+
+</tr>
+<tr>
+<td valign="top">
+```ruby
+a = [1, 2, 3]
+
+a.index(2) # 1 
+```
+
+```ruby
+a.all?{|n| n &gt; 4} # false
+```
+
+```ruby
+a.any?{|n| n &gt; 2} # true
+```
+
+```ruby
+a.keep_if{|n| n &gt; 1} # [2, 3]
+```
+
+</td>
+<td valign="top">
+```javascript
+var a = [1, 2, 3];
+
+a.indexOf(2); // 1
+```
+
+```javascript
+a.every(function(n) { return n &gt; 4; }); // false
+```
+
+```javascript
+a.some(function(n) { return n &gt; 2; });  // true
+```
+
+```javascript
+a.filter(function(n) { return n &gt; 1;}); // [2, 3]
+```
+</td>
+</tr>
+<tr>
+<td valign="top">
+```ruby
+a = ["aaa  ", "  bbb", "  ccc  "]
+
+a.map(&amp;:strip) 
+# ["aaa", "bbb", "ccc"]
+```
+</td>
+<td valign="top">
+```javascript
+var a = ["aaa  ", "  bbb", "  ccc  "]
+
+a.map(function(x) { return x.trim(); });               // ['aaa', 'bbb', 'ccc']
+a.map(Function.prototype.call, String.prototype.trim); // ['aaa', 'bbb', 'ccc']
+```
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+a = [1, 2, 3, 4, 5]
+
+a.slice(1..-2)  # [2, 3, 4]
+a[1..-2]        # [2, 3, 4]
+```
+
+</td>
+<td valign="top">
+
+```javascript
+var a = [1, 2, 3, 4, 5];
+
+
+a.slice(1, -1); // [2, 3, 4]
+```
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+a = [1, 2, 3]
+
+a.each {|n| puts n}
+
+a.each do |n|
+    puts n
+end
+```
+
+```ruby
+for i in 0..(a.length - 1) do
+  puts a[i]
+end
+```
+
+</td>
+<td valign="top">
+
+```javascript
+var a = [1, 2, 3];
+
+
+
+
+
+a.forEach(function(n) { console.log(n); })
+```
+
+```javascript
+for (var i = 0; i &lt; a.length; i++) {
+  console.log(a[i]);
+}
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">STRINGS</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+'hello'.index('e')    # 1
+```
+
+```ruby
+'hello'.rindex('l')   # 3
+```
+
+```ruby
+if 'hello'.include? 'lo' then puts 'found' end
+```
+
+```ruby
+'hello' * 3           # 'hellohellohello'
+```
+
+```ruby
+'a/b/c'.split('/')    # ['a', 'b', 'c']
+```
+
+</td>
+<td valign="top">
+
+```javascript
+'hello'.indexOf('e')             // 1
+```
+
+```javascript
+'hello'.lastIndexOf('l')         // 3
+```
+
+```javascript
+if (~'hello'.indexOf('lo')) { console.log('found'); }
+```
+
+```javascript
+(new Array(3 + 1)).join('hello') // 'hellohellohello'
+```
+
+```javascript
+'a/b/c'.split('/')               // ['a', 'b', 'c']
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">HASH</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+h = {}
+h['a'] = 1
+h['b'] = 2
+
+h.each {|key, value| puts "#{key} #{value}" }
+```
+
+```ruby
+h.keys # ['a', 'b']
+```
+
+```ruby
+h.has_key?('c') # false
+```
+
+```ruby
+h.length # 2
+```
+
+```ruby
+h.delete("b")
+```
+
+</td>
+<td valign="top">
+
+```javascript
+var h = {};
+h['a'] = 1;
+h['b'] = 2;
+
+for (key in h) { console.log(key, h[key]); }
+```
+
+```javascript
+Object.keys(h); // ['a', 'b']
+```
+
+```javascript
+h.hasOwnProperty('c') // false
+```
+
+```javascript
+Object.keys(h).length // 2
+```
+
+```javascript
+delete h.b
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">FUNCTIONS</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+def plus_5(num = 0) num + 5 end
+
+plus_5     # 5
+plus_5(10) # 15
+
+[5, 10, 15].map { |k| plus_5(k) } # [10, 15, 20]
+```
+
+```ruby
+def f(*args)
+
+  puts args
+end
+```
+</td>
+<td valign="top">
+
+```javascript
+function plus_5(num) { return (num || 0) + 5; }
+
+plus_5();   // 5
+plus_5(10); // 15
+
+[5, 10, 15].map(plus_5); // [10, 15, 20]
+```
+
+```javascript
+function f() {
+  var args = Array.prototype.slice.call(arguments);
+  console.log(args);
+}
+```
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">CLASSES</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+class Person
+  attr_accessor :firstName, :lastName
+
+  def initialize(firstName, lastName)
+    @firstName = firstName
+    @lastName = lastName
+  end
+  
+  def fullName
+    @firstName + " " + @lastName
+  end
+end
+
+john = Person.new("John", "Malkovic")
+john.fullName # "John Malkovic"
+```
+
+</td>
+<td valign="top">
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+
+
+
+Person.prototype.fullName = function() {
+  return this.firstName + " " + this.lastName;
+}
+
+
+var john = new Person("John", "Malkovic");
+john.fullName(); // "John Malkovic"
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">MATH</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+[-5, -1, -8].max            # -1
+```
+
+```ruby
+[-5, 15, 20].reduce(0, &amp;:+) # 30
+```
+
+</td>
+<td valign="top">
+
+```javascript
+Math.max.apply(null, [-5, -1, -8]) // -1
+```
+
+```javascript
+[-5, 15, 20].reduce(function(sum, value) { return sum + value; }, 0) // 30
+```
+
+</td>
+</tr>
+
+<tr><td colspan="2" style="border-left: 0px;border-right: 0px; background: #EEE"><br /><br /></td></tr>
+
+<tr><th colspan="2">MISC..</th></tr>
+<tr><th>Ruby</th><th>Javascript</th></tr>
+
+<tr>
+<td valign="top">
+
+```ruby
+prng = Random.new()
+prng.rand(5..9) # one of [5, 6, 7, 8, 9]
+```
+
+```ruby
+a, b = b, a # switch a and b
+```
+
+</td>
+<td valign="top">
+
+```javascript
+function rand(a, b) { return Math.floor(Math.random() * (b - a + 1) + a); }
+rand(5, 9); // one of [5, 6, 7, 8, 9]
+```
+
+```javascript
+a = [b, b = a][0]
+```
+
+</td>
+</tr>
+
+<p>&lt;/table&gt;</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2013-01-04T12:23:00+00:00">January 4, 2013</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ruby/metaprogramming/dynamic/method/2012/12/21/4-ways-to-call-a-ruby-method.html" class="pagination--pager" title="4 ways to call a ruby method
+">Previous</a>
+    
+    
+      <a href="/2013/01/14/using-nano-as-a-editor.html" class="pagination--pager" title="Using nano as a editor
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

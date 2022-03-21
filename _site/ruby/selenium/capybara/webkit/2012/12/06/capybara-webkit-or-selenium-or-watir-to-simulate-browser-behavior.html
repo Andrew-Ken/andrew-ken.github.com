@@ -1,0 +1,402 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>capybara webkit or selenium or watir to simulate browser behavior - Yankist</title>
+<meta name="description" content="Sometimes we want to simulate browser behavior. The situation can be test or automation script.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="capybara webkit or selenium or watir to simulate browser behavior">
+<meta property="og:url" content="http://0.0.0.0:4000/ruby/selenium/capybara/webkit/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior.html">
+
+
+  <meta property="og:description" content="Sometimes we want to simulate browser behavior. The situation can be test or automation script.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2012-12-06T15:29:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/ruby/selenium/capybara/webkit/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="capybara webkit or selenium or watir to simulate browser behavior">
+    <meta itemprop="description" content="Sometimes we want to simulate browser behavior. The situation can be test or automation script.">
+    <meta itemprop="datePublished" content="2012-12-06T15:29:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">capybara webkit or selenium or watir to simulate browser behavior
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Sometimes we want to simulate browser behavior. The situation can be test or automation script.</p>
+
+<p>##install capybara-webkit</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#capybara-webkit need qt</span>
+<span class="c1">#ubuntu</span>
+<span class="n">sudo</span> <span class="n">aptitude</span> <span class="n">install</span> <span class="n">libqt4</span><span class="o">-</span><span class="n">dev</span>
+</code></pre></div></div>
+<p>##using capybara dsl</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'capybara'</span>
+<span class="nb">require</span> <span class="s1">'capybara/dsl'</span>
+
+<span class="no">Capybara</span><span class="p">.</span><span class="nf">default_driver</span> <span class="o">=</span> <span class="ss">:webkit</span>
+
+<span class="k">module</span> <span class="nn">MyModule</span>
+  <span class="kp">include</span> <span class="no">Capybara</span><span class="o">::</span><span class="no">DSL</span>
+
+  <span class="k">def</span> <span class="nf">login!</span>
+    <span class="n">within</span><span class="p">(</span><span class="s2">"//form[@id='session']"</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">fill_in</span> <span class="s1">'Login'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'user@example.com'</span>
+      <span class="n">fill_in</span> <span class="s1">'Password'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'password'</span>
+      <span class="n">fill_in</span><span class="p">(</span><span class="s1">'First Name'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'John'</span><span class="p">)</span>
+      <span class="n">fill_in</span><span class="p">(</span><span class="s1">'Password'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'Seekrit'</span><span class="p">)</span>
+      <span class="n">fill_in</span><span class="p">(</span><span class="s1">'Description'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'Really Long Text...'</span><span class="p">)</span>
+      <span class="n">choose</span><span class="p">(</span><span class="s1">'A Radio Button'</span><span class="p">)</span>
+      <span class="n">check</span><span class="p">(</span><span class="s1">'A Checkbox'</span><span class="p">)</span>
+      <span class="n">uncheck</span><span class="p">(</span><span class="s1">'A Checkbox'</span><span class="p">)</span>
+      <span class="n">attach_file</span><span class="p">(</span><span class="s1">'Image'</span><span class="p">,</span> <span class="s1">'/path/to/image.jpg'</span><span class="p">)</span>
+      <span class="nb">select</span><span class="p">(</span><span class="s1">'Option'</span><span class="p">,</span> <span class="ss">:from</span> <span class="o">=&gt;</span> <span class="s1">'Select Box'</span><span class="p">)</span>
+      <span class="k">end</span>
+      <span class="n">click_link</span> <span class="s1">'Sign in'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<h2 id="debugging">Debugging</h2>
+
+<p>It can be useful to take a snapshot of the page as it currently is and take a
+look at it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">save_and_open_page</span>
+</code></pre></div></div>
+
+<p>You can also retrieve the current state of the DOM as a string using
+<tt><a href="http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#html-instance_method">page.html</a></tt>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">print</span> <span class="n">page</span><span class="p">.</span><span class="nf">html</span>
+</code></pre></div></div>
+
+<p>This is mostly useful for debugging. You should avoid testing against the
+contents of <code class="language-plaintext highlighter-rouge">page.html</code> and use the more expressive finder methods instead.</p>
+
+<p>Finally, in drivers that support it, you can save a screenshot:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">page</span><span class="p">.</span><span class="nf">save_screenshot</span><span class="p">(</span><span class="s1">'screenshot.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="calling-remote-servers">Calling remote servers</h2>
+
+<p>Normally Capybara expects to be testing an in-process Rack application, but you
+can also use it to talk to a web server running anywhere on the internets, by
+setting app_host:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Capybara</span><span class="p">.</span><span class="nf">current_driver</span> <span class="o">=</span> <span class="ss">:selenium</span>
+<span class="no">Capybara</span><span class="p">.</span><span class="nf">app_host</span> <span class="o">=</span> <span class="s1">'http://www.google.com'</span>
+<span class="o">...</span>
+<span class="n">visit</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Note</strong>: the default driver (<code class="language-plaintext highlighter-rouge">:rack_test</code>) does not support running
+against a remote server. With drivers that support it, you can also visit any
+URL directly:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">visit</span><span class="p">(</span><span class="s1">'http://www.google.com'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>By default Capybara will try to boot a rack application automatically. You
+might want to switch off Capybara’s rack server if you are running against a
+remote application:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Capybara</span><span class="p">.</span><span class="nf">run_server</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre></div></div>
+
+<h2 id="using-the-sessions-manually">Using the sessions manually</h2>
+
+<p>For ultimate control, you can instantiate and use a
+<a href="http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session">Session</a>
+manually.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'capybara'</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="no">Capybara</span><span class="o">::</span><span class="no">Session</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:webkit</span><span class="p">,</span> <span class="n">my_rack_app</span><span class="p">)</span>
+<span class="n">session</span><span class="p">.</span><span class="nf">within</span><span class="p">(</span><span class="s2">"//form[@id='session']"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">session</span><span class="p">.</span><span class="nf">fill_in</span> <span class="s1">'Login'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'user@example.com'</span>
+  <span class="n">session</span><span class="p">.</span><span class="nf">fill_in</span> <span class="s1">'Password'</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">'password'</span>
+<span class="k">end</span>
+<span class="n">session</span><span class="p">.</span><span class="nf">click_link</span> <span class="s1">'Sign in'</span>
+</code></pre></div></div>
+
+<h2 id="xpath-css-and-selectors">XPath, CSS and selectors</h2>
+
+<p>Capybara does not try to guess what kind of selector you are going to give it,
+and will always use CSS by default.  If you want to use XPath, you’ll need to
+do:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">within</span><span class="p">(</span><span class="ss">:xpath</span><span class="p">,</span> <span class="s1">'//ul/li'</span><span class="p">)</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="n">find</span><span class="p">(</span><span class="ss">:xpath</span><span class="p">,</span> <span class="s1">'//ul/li'</span><span class="p">).</span><span class="nf">text</span>
+<span class="n">find</span><span class="p">(</span><span class="ss">:xpath</span><span class="p">,</span> <span class="s1">'//li[contains(.//a[@href = "#"]/text(), "foo")]'</span><span class="p">).</span><span class="nf">value</span>
+</code></pre></div></div>
+
+<p>Alternatively you can set the default selector to XPath:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Capybara</span><span class="p">.</span><span class="nf">default_selector</span> <span class="o">=</span> <span class="ss">:xpath</span>
+<span class="n">find</span><span class="p">(</span><span class="s1">'//ul/li'</span><span class="p">).</span><span class="nf">text</span>
+</code></pre></div></div>
+
+<p>Capybara allows you to add custom selectors, which can be very useful if you
+find yourself using the same kinds of selectors very often:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Capybara</span><span class="p">.</span><span class="nf">add_selector</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">xpath</span> <span class="p">{</span> <span class="o">|</span><span class="nb">id</span><span class="o">|</span> <span class="no">XPath</span><span class="p">.</span><span class="nf">descendant</span><span class="p">[</span><span class="no">XPath</span><span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">.</span><span class="nf">to_s</span><span class="p">]</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">Capybara</span><span class="p">.</span><span class="nf">add_selector</span><span class="p">(</span><span class="ss">:row</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">xpath</span> <span class="p">{</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span> <span class="s2">".//tbody/tr[</span><span class="si">#{</span><span class="n">num</span><span class="si">}</span><span class="s2">]"</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">Capybara</span><span class="p">.</span><span class="nf">add_selector</span><span class="p">(</span><span class="ss">:flash_type</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">css</span> <span class="p">{</span> <span class="o">|</span><span class="n">type</span><span class="o">|</span> <span class="s2">"#flash.</span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The block given to xpath must always return an XPath expression as a String, or
+an XPath expression generated through the XPath gem. You can now use these
+selectors like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">find</span><span class="p">(</span><span class="ss">:id</span><span class="p">,</span> <span class="s1">'post_123'</span><span class="p">)</span>
+<span class="n">find</span><span class="p">(</span><span class="ss">:row</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">find</span><span class="p">(</span><span class="ss">:flash_type</span><span class="p">,</span> <span class="ss">:notice</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>You can specify an optional match option which will automatically use the
+selector if it matches the argument:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Capybara</span><span class="p">.</span><span class="nf">add_selector</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">xpath</span> <span class="p">{</span> <span class="o">|</span><span class="nb">id</span><span class="o">|</span> <span class="no">XPath</span><span class="p">.</span><span class="nf">descendant</span><span class="p">[</span><span class="no">XPath</span><span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">.</span><span class="nf">to_s</span><span class="p">]</span> <span class="p">}</span>
+  <span class="n">match</span> <span class="p">{</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span> <span class="n">value</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Symbol</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Now use it like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">find</span><span class="p">(</span><span class="ss">:post_123</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This :id selector is already built into Capybara by default, so you don’t
+need to add it yourself<a href="https://github.com/jnicklas/capybara">.</a></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-12-06T15:29:00+00:00">December 6, 2012</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/rails3/heroku/deploy/pg/ssh/git/2012/12/02/heroku-deploy-procedure.html" class="pagination--pager" title="heroku deploy procedure
+">Previous</a>
+    
+    
+      <a href="/rspec/capybara-webkit/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit.html" class="pagination--pager" title="rspec test failed after changing to capybara-webkit
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

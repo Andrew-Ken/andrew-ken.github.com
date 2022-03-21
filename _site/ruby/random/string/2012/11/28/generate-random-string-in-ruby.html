@@ -1,0 +1,455 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>generate random string in ruby - Yankist</title>
+<meta name="description" content="Sometimes we need to generate a ‘n’ character random string.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yankist">
+<meta property="og:title" content="generate random string in ruby">
+<meta property="og:url" content="http://0.0.0.0:4000/ruby/random/string/2012/11/28/generate-random-string-in-ruby.html">
+
+
+  <meta property="og:description" content="Sometimes we need to generate a ‘n’ character random string.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2012-11-28T22:39:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/ruby/random/string/2012/11/28/generate-random-string-in-ruby.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://0.0.0.0:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yankist Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yankist
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/docs/quick-start-guide/">Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/page-archive/">Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://google.com">External Link</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="generate random string in ruby">
+    <meta itemprop="description" content="Sometimes we need to generate a ‘n’ character random string.">
+    <meta itemprop="datePublished" content="2012-11-28T22:39:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">generate random string in ruby
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Sometimes we need to generate a ‘n’ character random string.</p>
+
+<p>Here are a few:</p>
+
+<ul>
+  <li><strong>Only upper case alphabets [A-Z]</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> 
+<span class="mi">8</span><span class="p">.</span><span class="nf">times</span><span class="p">{</span><span class="n">value</span>  <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">)).</span><span class="nf">chr</span><span class="p">}</span> <span class="o">&gt;&gt;</span><span class="p">}</span>
+<span class="c1">#or</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="mi">8</span><span class="p">).</span><span class="nf">map</span><span class="p">{</span><span class="mi">65</span><span class="p">.</span><span class="nf">+</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">26</span><span class="p">)).</span><span class="nf">chr</span><span class="p">}.</span><span class="nf">join</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="mi">8</span><span class="p">).</span><span class="nf">map</span><span class="p">{</span> <span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">).</span><span class="nf">to_a</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="mi">26</span><span class="p">)]</span>  <span class="p">}.</span><span class="nf">join</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Lower case and upper case [a-zA-Z]</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">value</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> 
+<span class="mi">8</span><span class="p">.</span><span class="nf">times</span><span class="p">{</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">?</span><span class="mi">65</span><span class="p">:</span><span class="mi">97</span><span class="p">)</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">)).</span><span class="nf">chr</span><span class="p">}</span> <span class="o">&gt;&gt;</span><span class="p">}</span>
+<span class="c1">#or</span>
+<span class="n">o</span> <span class="o">=</span>  <span class="p">[(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">),(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">)].</span><span class="nf">map</span><span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span><span class="p">.</span><span class="nf">to_a</span><span class="p">}.</span><span class="nf">flatten</span>
+<span class="n">string</span>  <span class="o">=</span>  <span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="mi">50</span><span class="p">).</span><span class="nf">map</span><span class="p">{</span> <span class="n">o</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="nf">length</span><span class="p">)]</span>  <span class="p">}.</span><span class="nf">join</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Using SecureRandom provided by ActiveSupport</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'active_support/secure_random'</span>
+<span class="n">random_string</span> <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">SecureRandom</span><span class="p">.</span><span class="nf">hex</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># outputs: 5b5cd0da3121fc53b4bc84d0c8af2e81</span>
+</code></pre></div></div>
+
+<ul>
+  <li>SecureRandom also has methods for:</li>
+</ul>
+
+<p>base64</p>
+
+<ol>
+  <li>hex</li>
+  <li>random_bytes</li>
+  <li>random_number</li>
+</ol>
+
+<p><a href="http://api.rubyonrails.org/v3.0.9/classes/ActiveSupport/SecureRandom.html">see:</a></p>
+
+<ul>
+  <li><strong>It is also important to avoid Ambiguity</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generates a random string from a set of easily readable characters</span>
+<span class="k">def</span> <span class="nf">generate_activation_code</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+  <span class="n">charset</span> <span class="o">=</span> <span class="sx">%w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}</span>
+  <span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">size</span><span class="p">).</span><span class="nf">map</span><span class="p">{</span> <span class="n">charset</span><span class="p">.</span><span class="nf">to_a</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">charset</span><span class="p">.</span><span class="nf">size</span><span class="p">)]</span> <span class="p">}.</span><span class="nf">join</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Random URL Friendly Strings</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rand</span><span class="p">(</span><span class="mi">36</span><span class="o">**</span><span class="n">length</span><span class="p">).</span><span class="nf">to_s</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>One more example with SecureRandom</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'securerandom'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">SecureRandom</span><span class="p">.</span><span class="nf">urlsafe_base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Creating a Random string with arguments</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+  <span class="n">chars</span> <span class="o">=</span> <span class="s1">'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789'</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="n">length</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="n">password</span> <span class="o">&lt;&lt;</span> <span class="n">chars</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">chars</span><span class="p">.</span><span class="nf">size</span><span class="p">)]</span> <span class="p">}</span>
+  <span class="n">password</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>This example works Only in ruby 1.9</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="o">*</span><span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">)].</span><span class="nf">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="nf">join</span>
+<span class="c1">#Generate a random 8 letter string (e.g. NVAYXHGR)</span>
+
+<span class="p">([</span><span class="o">*</span><span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="s1">'0'</span><span class="o">..</span><span class="s1">'9'</span><span class="p">)]</span><span class="o">-</span><span class="sx">%w(0 1 I O)</span><span class="p">).</span><span class="nf">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="nf">join</span>
+<span class="c1">#Generate a random 8 character string (e.g. 3PH4SWF2), excludes 0/1/I/O. Ruby 1.9</span>
+<span class="no">ALPHABET</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span>
+<span class="mi">10</span><span class="p">.</span><span class="nf">times</span><span class="p">.</span><span class="nf">map</span><span class="p">{</span> <span class="no">ALPHABET</span><span class="p">.</span><span class="nf">sample</span> <span class="p">}.</span><span class="nf">join</span>
+<span class="mi">10</span><span class="p">.</span><span class="nf">times</span><span class="p">.</span><span class="nf">inject</span><span class="p">(</span><span class="s1">''</span><span class="p">){</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="no">ALPHABET</span><span class="p">.</span><span class="nf">sample</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Here’s one using digest sha1</strong></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'sha1'</span>
+<span class="nb">srand</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="s2">"--</span><span class="si">#{</span><span class="nb">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="si">}</span><span class="s2">--</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="s2">--"</span>
+<span class="no">Digest</span><span class="o">::</span><span class="no">SHA1</span><span class="p">.</span><span class="nf">hexdigest</span><span class="p">(</span><span class="n">seed</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>Here are more examples to help</strong></p>
+  </li>
+  <li>
+    <p>Example 1</p>
+  </li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">256</span><span class="p">).</span><span class="nf">to_s</span><span class="p">(</span><span class="mi">36</span><span class="p">)[</span><span class="mi">0</span><span class="o">..</span><span class="mi">7</span><span class="p">]</span>
+<span class="c1">#Add ljust if you are really paranoid about the correct string length:</span>
+<span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">256</span><span class="p">).</span><span class="nf">to_s</span><span class="p">(</span><span class="mi">36</span><span class="p">).</span><span class="nf">ljust</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="o">..</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">).</span><span class="nf">to_a</span>
+<span class="c1"># Prior to 1.9, use .choice, not .sample</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">8</span><span class="p">).</span><span class="nf">map</span><span class="p">{</span><span class="n">characters</span><span class="p">.</span><span class="nf">sample</span><span class="p">}.</span><span class="nf">join</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="mi">8</span><span class="p">).</span><span class="nf">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">value</span>  <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">)).</span><span class="nf">chr</span> <span class="p">}.</span><span class="nf">join</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Example 2</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">generate_random_string</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+  <span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
+  <span class="n">chars</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"A"</span><span class="o">..</span><span class="s2">"Z"</span><span class="p">).</span><span class="nf">to_a</span>
+  <span class="n">length</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+    <span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">chars</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">chars</span><span class="p">.</span><span class="nf">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+  <span class="k">end</span>
+  <span class="n">string</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Example 3
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">chars</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="s1">'0'</span><span class="o">..</span><span class="s1">'9'</span><span class="p">)].</span><span class="nf">flatten</span>
+<span class="c1">#Single expression, can be passed as an argument, allows duplicate characters:</span>
+<span class="no">Array</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">len</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">chars</span><span class="p">.</span><span class="nf">sample</span><span class="p">}.</span><span class="nf">join</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Example 4</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">token</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+  <span class="n">chars</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">9</span><span class="p">)]</span>
+  <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">length</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span><span class="n">chars</span><span class="p">.</span><span class="nf">sample</span><span class="p">}.</span><span class="nf">join</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Example 5
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">''</span><span class="p">.</span><span class="nf">tap</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="mi">4</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span><span class="p">.</span><span class="nf">sample</span><span class="p">}</span> <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Example 6
+```ruby
+class String</p>
+
+    <p>def self.random(length=10)
+  (‘a’..’z’).sort_by {rand}[0,length].join
+end</p>
+  </li>
+</ul>
+
+<p>end</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- Example 7
+```ruby
+(('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a).sample(8).join
+
+([(48..57),(65..90),(97..122)]).sample(8).collect{|x|x.chr}""
+</code></pre></div></div>
+
+<ul>
+  <li>Example 8
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">secure_random_string</span><span class="p">(</span><span class="n">length</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">non_ambiguous</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">).</span><span class="nf">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">).</span><span class="nf">to_a</span> <span class="o">+</span> <span class="p">(</span><span class="s1">'0'</span><span class="o">..</span><span class="s1">'9'</span><span class="p">).</span><span class="nf">to_a</span>
+
+<span class="sx">%w{I O l 0 1}</span><span class="p">.</span><span class="nf">each</span><span class="p">{</span> <span class="o">|</span><span class="n">ambiguous_character</span><span class="o">|</span> 
+  <span class="n">characters</span><span class="p">.</span><span class="nf">delete</span> <span class="n">ambiguous_character</span> 
+<span class="p">}</span> <span class="k">if</span> <span class="n">non_ambiguous</span>
+
+<span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">length</span><span class="p">).</span><span class="nf">map</span><span class="p">{</span>
+  <span class="n">characters</span><span class="p">[</span><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">SecureRandom</span><span class="p">.</span><span class="nf">random_number</span><span class="p">(</span><span class="n">characters</span><span class="p">.</span><span class="nf">size</span><span class="p">)]</span>
+<span class="p">}.</span><span class="nf">join</span>
+<span class="k">end</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Example 9
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">SecureRandom</span><span class="p">.</span><span class="nf">base64</span><span class="p">(</span><span class="mi">15</span><span class="p">).</span><span class="nf">tr</span><span class="p">(</span><span class="s1">'+/=lIO0'</span><span class="p">,</span> <span class="s1">'pqrsxyz'</span><span class="p">)</span>
+<span class="c1"># ruby 1.8 and unix</span>
+<span class="n">random_string</span> <span class="o">=</span> <span class="sb">`openssl rand -base64 24`</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><a href="http://stackoverflow.com/questions/88311/how-best-to-generate-a-random-string-in-ruby">.</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-11-28T22:39:00+00:00">November 28, 2012</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ruby/random/numbers/2012/11/28/generate-random-number-in-ruby.html" class="pagination--pager" title="generate random number in ruby
+">Previous</a>
+    
+    
+      <a href="/rvm/sudo/rvmsudo/2012/12/02/sudo-vs-rvmsudo.html" class="pagination--pager" title="Sudo vs RVMSudo
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <div class="page__footer-copyright"><a href="https://www.linkedin.com/in/kenlv">Ken Lu</a>. <a href="https://www.linkedin.com/in/andrewpaliyan">Andrew Paliyan</a>.</div>
+  
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yankist. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
