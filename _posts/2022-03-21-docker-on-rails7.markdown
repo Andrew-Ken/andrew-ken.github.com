@@ -11,18 +11,18 @@ comments: true
 share: true
 related: true
 author: Andrew Paliyan
-categories: [jekyll update]
+categories: [rails]
 ---
-# docker-bootstrap-rails
-[Source](https://github.com/andrewsheelan/docker-bootstrap-rails)
-Simple dev bootstrap rails with docker-compose. You'll be up and running as quickly as 1..2...3!
+- Simple dev bootstrap rails with docker-compose. You'll be up and running as quickly as 1..2...3!
+
+[Source Code](https://github.com/andrewsheelan/docker-bootstrap-rails)
 
 # Requirements:
 - docker
 - docker-compose
 - Mac (kidding.. tested on a mac, let me know if it doesnt work for you)
 
-# Clone repo and run using command:
+# Download repo and run using command:
 ```
 wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip && 
    unzip -d . /tmp/z.$$ &&

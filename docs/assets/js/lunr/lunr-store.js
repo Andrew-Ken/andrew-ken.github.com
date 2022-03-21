@@ -329,15 +329,15 @@ var store = [{
         "url": "/github/omniauth/provider/2013/03/20/github-and-multiple-oauth-provider.html",
         "teaser": null
       },{
-        "title": "Entering Rails 4",
-        "excerpt":"Installing Rails using RVM:   rvm get stable &amp;&amp; rvm install ruby-2.0.0  rvm --default use 2.0.0  gem install rails --version 4.0.0.rc1    ","categories": ["rails"],
+        "title": "Dockerize your own blog using jekyll",
+        "excerpt":"Bootstrap your own jekyll blog with docker-compose Source Code Requirements: docker docker-compose Mac (kidding.. tested on a mac, let me know if it doesnt work for you) Clone repo and run using command: wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-jekyll/archive/refs/heads/master.zip &amp;&amp; unzip -d . /tmp/z.$$ &amp;&amp; rm /tmp/z.$$ cd docker-bootstrap-jekyll-master ./bootstrap Goto http://localhost:4000...","categories": ["jekyll"],
         "tags": [],
-        "url": "/rails/2013/07/10/entering-rails-4.html",
+        "url": "/jekyll/2022/03/21/docker-for-jekyll.html",
         "teaser": null
       },{
         "title": "Docker on Rails 7",
-        "excerpt":"docker-bootstrap-rails Source Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3! Requirements: docker docker-compose Mac (kidding.. tested on a mac, let me know if it doesnt work for you) Clone repo and run using command: wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; unzip -d . /tmp/z.$$...","categories": ["jekyll update"],
+        "excerpt":"Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3! Source Code Requirements: docker docker-compose Mac (kidding.. tested on a mac, let me know if it doesnt work for you) Download repo and run using command: wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; unzip -d . /tmp/z.$$...","categories": ["rails"],
         "tags": [],
-        "url": "/jekyll%20update/2022/03/21/docker-on-rails7.html",
+        "url": "/rails/2022/03/21/docker-on-rails7.html",
         "teaser": null
       }]

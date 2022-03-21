@@ -4,6 +4,7 @@ title: "github and multiple oauth provider"
 date: 2013-03-20 08:01
 comments: true
 categories: [github, omniauth, provider]
+author: Ken Lu
 ---
 
 Allowing users to login with multiple authentication providers brings great benefits but also results in some annoying edge cases. For example, what happens when they login with one provider, logout and then login with another? What happens when they try to login with one having already logged in with another?
