@@ -335,9 +335,9 @@ var store = [{
         "url": "/rails/2013/07/10/entering-rails-4.html",
         "teaser": null
       },{
-        "title": "Welcome to Jekyll!",
-        "excerpt":"You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when...","categories": ["jekyll update"],
+        "title": "Docker on Rails 7",
+        "excerpt":"docker-bootstrap-rails https://github.com/andrewsheelan/docker-bootstrap-rails Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3! Requirements: docker docker-compose Mac (kidding.. tested on a mac, let me know if it doesnt work for you) Clone repo and run using command: wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; unzip -d . /tmp/z.$$...","categories": ["jekyll update"],
         "tags": [],
-        "url": "/jekyll%20update/2022/03/21/welcome-to-jekyll.html",
+        "url": "/jekyll%20update/2022/03/21/docker-on-rails7.html",
         "teaser": null
       }]

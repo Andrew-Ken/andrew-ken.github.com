@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Welcome to Jekyll! - Yankist</title>
-<meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.">
+<!-- begin _includes/seo.html --><title>Docker on Rails 7 - Yankist</title>
+<meta name="description" content="docker-bootstrap-rails https://github.com/andrewsheelan/docker-bootstrap-rails Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!">
 
 
   <meta name="author" content="Andrew Paliyan">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Yankist">
-<meta property="og:title" content="Welcome to Jekyll!">
-<meta property="og:url" content="http://0.0.0.0:4000/jekyll%20update/2022/03/21/welcome-to-jekyll.html">
+<meta property="og:title" content="Docker on Rails 7">
+<meta property="og:url" content="http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7.html">
 
 
-  <meta property="og:description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.">
+  <meta property="og:description" content="docker-bootstrap-rails https://github.com/andrewsheelan/docker-bootstrap-rails Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://0.0.0.0:4000/jekyll%20update/2022/03/21/welcome-to-jekyll.html">
+<link rel="canonical" href="http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7.html">
 
 
 
@@ -263,26 +263,131 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Welcome to Jekyll!</h1>
+      <h1 id="page-title" class="page__title">Docker on Rails 7</h1>
     
-    <p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <h1 id="docker-bootstrap-rails">docker-bootstrap-rails</h1>
+<p>https://github.com/andrewsheelan/docker-bootstrap-rails
+Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!</p>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+<h1 id="requirements">Requirements:</h1>
+<ul>
+  <li>docker</li>
+  <li>docker-compose</li>
+  <li>Mac (kidding.. tested on a mac, let me know if it doesnt work for you)</li>
+</ul>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<h1 id="clone-repo-and-run-using-command">Clone repo and run using command:</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; 
+   unzip -d . /tmp/z.$$ &amp;&amp;
+   rm /tmp/z.$$
+cd docker-bootstrap-rails-master
+./bootstrap
+</code></pre></div></div>
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>Goto http://localhost:3000</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>docker-compose.yml</td>
+      <td>List all services - postgres db, web</td>
+    </tr>
+    <tr>
+      <td>Dockerfile</td>
+      <td>Basic ruby build file for docker context</td>
+    </tr>
+    <tr>
+      <td>Gemfile</td>
+      <td>Minimal gems required for Gemfile to create a rails 7 application</td>
+    </tr>
+    <tr>
+      <td>boostrap</td>
+      <td>Run once file to boot a basic rails application</td>
+    </tr>
+    <tr>
+      <td>.dockerignore</td>
+      <td>Ignore tmp</td>
+    </tr>
+  </tbody>
+</table>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<h2 id="file-docker-composeyml">File: docker-compose.yml</h2>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.9"</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./tmp/db:/var/lib/postgresql/data</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">POSTGRES_USER</span><span class="pi">:</span> <span class="s">dev</span>
+      <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">password</span>
+      <span class="na">POSTGRES_HOST_AUTH_METHOD</span><span class="pi">:</span> <span class="s">trust</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">.:/app</span>
+      <span class="pi">-</span> <span class="s">./tmp/bundle:/bundle</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">bash -c "rm -f tmp/pids/server.pid &amp;&amp; bin/rails tailwindcss:watch &amp;&amp; rails server -b '0.0.0.0'"</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">DATABASE_URL</span><span class="pi">:</span> <span class="s">postgres://dev:password@db</span>
+      <span class="na">BUNDLE_PATH</span><span class="pi">:</span>  <span class="s">/bundle</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">db</span>
+</code></pre></div></div>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<h2 id="file-dockerfile">File: Dockerfile</h2>
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> ruby:3.1.1</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
 
+<span class="k">RUN </span>apt-get update <span class="nt">-qq</span> <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> nodejs postgresql-client
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="k">RUN </span>gem <span class="nb">install </span>bundler
+<span class="k">RUN </span>bundle <span class="nb">install</span>
+
+<span class="k">EXPOSE</span><span class="s"> 3000</span>
+<span class="k">CMD</span><span class="s"> ["rails", "server", "-b", "0.0.0.0"]</span>
+</code></pre></div></div>
+
+<h2 id="file-gemfile">File: Gemfile</h2>
+<pre><code class="language-Gemfile">source "https://rubygems.org"
+
+ruby "3.1.1"
+
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~&gt; 7.0.2", "&gt;= 7.0.2.3"
+</code></pre>
+
+<h2 id="file-bootstrap">File: bootstrap</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># Force a build</span>
+<span class="nb">touch </span>Gemfile.lock <span class="o">&amp;&amp;</span> docker-compose build
+
+<span class="c"># Install rails and create database</span>
+docker-compose run <span class="nt">--no-deps</span> web bundle <span class="nb">install
+</span>docker-compose run <span class="nt">--no-deps</span> web rails new <span class="nb">.</span> <span class="nt">--force</span> <span class="nt">--database</span><span class="o">=</span>postgresql <span class="nt">--css</span> tailwind
+docker-compose run web bin/rails db:create
+
+<span class="c"># Remove this file</span>
+<span class="nb">rm </span>bootstrap
+
+<span class="c"># Start the application</span>
+docker-compose up
+</code></pre></div></div>
+
+<h2 id="file-dockerignore">File: .dockerignore</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ignore tmp
+/tmp/*
+</code></pre></div></div>
 
 
 <h3 class="archive__subtitle">Recent Posts</h3>
@@ -301,7 +406,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/jekyll%20update/2022/03/21/welcome-to-jekyll.html" rel="permalink">Welcome to Jekyll!
+        <a href="/jekyll%20update/2022/03/21/docker-on-rails7.html" rel="permalink">Docker on Rails 7
 </a>
       
     </h2>
@@ -319,14 +424,16 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          1 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...</p>
+    <p class="archive__item-excerpt" itemprop="description">docker-bootstrap-rails
+https://github.com/andrewsheelan/docker-bootstrap-rails
+Simple dev bootstrap rails with docker-compose. You’ll be up and running as qu...</p>
   </article>
 </div>
 

@@ -14,6 +14,7 @@ author: Andrew Paliyan
 categories: [jekyll update]
 ---
 # docker-bootstrap-rails
+https://github.com/andrewsheelan/docker-bootstrap-rails
 Simple dev bootstrap rails with docker-compose. You'll be up and running as quickly as 1..2...3!
 
 # Requirements:
