@@ -4,7 +4,7 @@ classes:
   - landing
   - dark-theme
 title:  "Docker on Rails 7"
-date:   2022-03-21 14:27:36 +0000
+date:   2022-03-21 18:27:36 +0000
 author_profile: true
 read_time: true
 comments: true
@@ -14,7 +14,7 @@ author: Andrew Paliyan
 categories: [jekyll update]
 ---
 # docker-bootstrap-rails
-https://github.com/andrewsheelan/docker-bootstrap-rails
+[Source](https://github.com/andrewsheelan/docker-bootstrap-rails)
 Simple dev bootstrap rails with docker-compose. You'll be up and running as quickly as 1..2...3!
 
 # Requirements:
@@ -31,7 +31,7 @@ cd docker-bootstrap-rails-master
 ./bootstrap
 ```
 
-Goto http://localhost:3000
+Goto [http://localhost:3000](http://localhost:3000)
 
 | File | Description |
 | --- | --- |

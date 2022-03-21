@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-21T23:11:14+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Docker on Rails 7</title><link href="http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7.html" rel="alternate" type="text/html" title="Docker on Rails 7" /><published>2022-03-21T14:27:36+00:00</published><updated>2022-03-21T14:27:36+00:00</updated><id>http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7</id><content type="html" xml:base="http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7.html"><![CDATA[<h1 id="docker-bootstrap-rails">docker-bootstrap-rails</h1>
-<p>https://github.com/andrewsheelan/docker-bootstrap-rails
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-21T23:15:07+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Docker on Rails 7</title><link href="http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7.html" rel="alternate" type="text/html" title="Docker on Rails 7" /><published>2022-03-21T18:27:36+00:00</published><updated>2022-03-21T18:27:36+00:00</updated><id>http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7</id><content type="html" xml:base="http://0.0.0.0:4000/jekyll%20update/2022/03/21/docker-on-rails7.html"><![CDATA[<h1 id="docker-bootstrap-rails">docker-bootstrap-rails</h1>
+<p><a href="https://github.com/andrewsheelan/docker-bootstrap-rails">Source</a>
 Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!</p>
 
 <h1 id="requirements">Requirements:</h1>
@@ -17,7 +17,7 @@ cd docker-bootstrap-rails-master
 ./bootstrap
 </code></pre></div></div>
 
-<p>Goto http://localhost:3000</p>
+<p>Goto <a href="http://localhost:3000">http://localhost:3000</a></p>
 
 <table>
   <thead>
@@ -120,7 +120,7 @@ docker-compose up
 <h2 id="file-dockerignore">File: .dockerignore</h2>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ignore tmp
 /tmp/*
-</code></pre></div></div>]]></content><author><name>Andrew Paliyan</name></author><category term="jekyll update" /><summary type="html"><![CDATA[docker-bootstrap-rails https://github.com/andrewsheelan/docker-bootstrap-rails Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!]]></summary></entry><entry><title type="html">Entering Rails 4</title><link href="http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4.html" rel="alternate" type="text/html" title="Entering Rails 4" /><published>2013-07-10T12:03:00+00:00</published><updated>2013-07-10T12:03:00+00:00</updated><id>http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4.html"><![CDATA[<h2 id="installing-rails-using-rvm">Installing Rails using RVM:</h2>
+</code></pre></div></div>]]></content><author><name>Andrew Paliyan</name></author><category term="jekyll update" /><summary type="html"><![CDATA[docker-bootstrap-rails Source Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!]]></summary></entry><entry><title type="html">Entering Rails 4</title><link href="http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4.html" rel="alternate" type="text/html" title="Entering Rails 4" /><published>2013-07-10T12:03:00+00:00</published><updated>2013-07-10T12:03:00+00:00</updated><id>http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2013/07/10/entering-rails-4.html"><![CDATA[<h2 id="installing-rails-using-rvm">Installing Rails using RVM:</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm get stable &amp;&amp; rvm install ruby-2.0.0
 
