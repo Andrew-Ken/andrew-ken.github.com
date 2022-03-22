@@ -51,6 +51,7 @@ cd docker-bootstrap-rails-master
 docker-compose run --no-deps web bundle install
 docker-compose run --no-deps web rails new . --force --database=postgresql --css tailwind
 docker-compose run web bin/rails db:create
+docker-compose run web bin/rails tailwindcss:install
 docker-compose up
 ```
 
@@ -122,6 +123,10 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 ```bash
 #!/bin/bash
 
+# clone the repo and run:
+# ./boostrap
+# This is a one time only run file
+
 # Force a build
 touch Gemfile.lock && docker-compose build
 
@@ -129,6 +134,9 @@ touch Gemfile.lock && docker-compose build
 docker-compose run --no-deps web bundle install
 docker-compose run --no-deps web rails new . --force --database=postgresql --css tailwind
 docker-compose run web bin/rails db:create
+
+# Install tailwind (skip if needed) More Info: https://tailwindcss.com/docs/guides/ruby-on-rails
+docker-compose run web bin/rails tailwindcss:install
 
 # Remove this file
 rm bootstrap

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-22T11:32:38+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Docker on Rails 7</title><link href="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html" rel="alternate" type="text/html" title="Docker on Rails 7" /><published>2022-03-21T18:27:36+00:00</published><updated>2022-03-21T18:27:36+00:00</updated><id>http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-22T13:07:31+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Docker on Rails 7</title><link href="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html" rel="alternate" type="text/html" title="Docker on Rails 7" /><published>2022-03-21T18:27:36+00:00</published><updated>2022-03-21T18:27:36+00:00</updated><id>http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html"><![CDATA[<ul>
   <li>Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!</li>
 </ul>
 
@@ -34,6 +34,7 @@ cd docker-bootstrap-rails-master
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run --no-deps web bundle install
 docker-compose run --no-deps web rails new . --force --database=postgresql --css tailwind
 docker-compose run web bin/rails db:create
+docker-compose run web bin/rails tailwindcss:install
 docker-compose up
 </code></pre></div></div>
 
@@ -124,6 +125,10 @@ docker-compose up
 <h2 id="bootstrap">bootstrap</h2>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
+<span class="c"># clone the repo and run:</span>
+<span class="c"># ./boostrap</span>
+<span class="c"># This is a one time only run file</span>
+
 <span class="c"># Force a build</span>
 <span class="nb">touch </span>Gemfile.lock <span class="o">&amp;&amp;</span> docker-compose build
 
@@ -131,6 +136,9 @@ docker-compose up
 docker-compose run <span class="nt">--no-deps</span> web bundle <span class="nb">install
 </span>docker-compose run <span class="nt">--no-deps</span> web rails new <span class="nb">.</span> <span class="nt">--force</span> <span class="nt">--database</span><span class="o">=</span>postgresql <span class="nt">--css</span> tailwind
 docker-compose run web bin/rails db:create
+
+<span class="c"># Install tailwind (skip if needed) More Info: https://tailwindcss.com/docs/guides/ruby-on-rails</span>
+docker-compose run web bin/rails tailwindcss:install
 
 <span class="c"># Remove this file</span>
 <span class="nb">rm </span>bootstrap
