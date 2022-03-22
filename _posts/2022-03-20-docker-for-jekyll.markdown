@@ -12,7 +12,12 @@ share: true
 related: true
 author: Andrew Paliyan
 categories: [jekyll]
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
+toc_sticky: true
 ---
+
 - Bootstrap your own jekyll  blog with docker-compose
 
 [Source Code](https://github.com/andrewsheelan/docker-bootstrap-jekyll)

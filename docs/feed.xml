@@ -1,81 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-21T23:50:09+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Docker on Rails 7</title><link href="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html" rel="alternate" type="text/html" title="Docker on Rails 7" /><published>2022-03-21T18:27:36+00:00</published><updated>2022-03-21T18:27:36+00:00</updated><id>http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html"><![CDATA[<ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-22T11:25:24+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yankist</title><subtitle>Yank it - Just use it.</subtitle><entry><title type="html">Docker on Rails 7</title><link href="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html" rel="alternate" type="text/html" title="Docker on Rails 7" /><published>2022-03-21T18:27:36+00:00</published><updated>2022-03-21T18:27:36+00:00</updated><id>http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7</id><content type="html" xml:base="http://0.0.0.0:4000/rails/2022/03/21/docker-on-rails7.html"><![CDATA[<ul>
   <li>Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!</li>
 </ul>
 
 <p><a href="https://github.com/andrewsheelan/docker-bootstrap-rails">Source Code</a></p>
 
-<h1 id="requirements">Requirements:</h1>
+<h1 id="requirements">Requirements</h1>
 <ul>
   <li>docker</li>
   <li>docker-compose</li>
   <li>Mac (kidding.. tested on a mac, let me know if it doesnt work for you)</li>
 </ul>
 
-<h1 id="download-repo-and-run-using-command">Download repo and run using command:</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; 
-   unzip -d . /tmp/z.$$ &amp;&amp;
-   rm /tmp/z.$$
-cd docker-bootstrap-rails-master
-./bootstrap
+<h1 id="get-started">Get started</h1>
+
+<ul>
+  <li>On unix/Mac
+```
+wget -O /tmp/z.\(https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; 
+ unzip -d . /tmp/z.\) &amp;&amp;
+ rm /tmp/z.$$</li>
+</ul>
+
+<h1 id="rename-this-folder-if-needed">Rename this folder if needed</h1>
+<p>cd docker-bootstrap-rails-master</p>
+
+<p>./bootstrap</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- On a windows, clone the repository and run the following using powershell from inside the folder:
+
 </code></pre></div></div>
+<p>docker-compose run –no-deps web bundle install
+docker-compose run –no-deps web rails new . –force –database=postgresql –css tailwind
+docker-compose run web bin/rails db:create
+docker-compose up</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Goto [http://localhost:3000](http://localhost:3000)
 
-<p>Goto <a href="http://localhost:3000">http://localhost:3000</a></p>
+| File | Description |
+| --- | --- |
+| docker-compose.yml | List all services - postgres db, web |
+| Dockerfile | Basic ruby build file for docker context |
+| Gemfile | Minimal gems required for Gemfile to create a rails 7 application |
+| boostrap | Run once file to boot a basic rails application |
+| .dockerignore | Ignore tmp |
 
-<table>
-  <thead>
-    <tr>
-      <th>File</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>docker-compose.yml</td>
-      <td>List all services - postgres db, web</td>
-    </tr>
-    <tr>
-      <td>Dockerfile</td>
-      <td>Basic ruby build file for docker context</td>
-    </tr>
-    <tr>
-      <td>Gemfile</td>
-      <td>Minimal gems required for Gemfile to create a rails 7 application</td>
-    </tr>
-    <tr>
-      <td>boostrap</td>
-      <td>Run once file to boot a basic rails application</td>
-    </tr>
-    <tr>
-      <td>.dockerignore</td>
-      <td>Ignore tmp</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="file-docker-composeyml">File: docker-compose.yml</h2>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.9"</span>
-<span class="na">services</span><span class="pi">:</span>
-  <span class="na">db</span><span class="pi">:</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./tmp/db:/var/lib/postgresql/data</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="na">POSTGRES_USER</span><span class="pi">:</span> <span class="s">dev</span>
-      <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">password</span>
-      <span class="na">POSTGRES_HOST_AUTH_METHOD</span><span class="pi">:</span> <span class="s">trust</span>
-  <span class="na">web</span><span class="pi">:</span>
-    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">.:/app</span>
-      <span class="pi">-</span> <span class="s">./tmp/bundle:/bundle</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="s">bash -c "rm -f tmp/pids/server.pid &amp;&amp; bin/rails tailwindcss:watch &amp;&amp; rails server -b '0.0.0.0'"</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="na">DATABASE_URL</span><span class="pi">:</span> <span class="s">postgres://dev:password@db</span>
-      <span class="na">BUNDLE_PATH</span><span class="pi">:</span>  <span class="s">/bundle</span>
-    <span class="na">depends_on</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">db</span>
+# Files
+## File: docker-compose.yml
+```yaml
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - ./tmp/bundle:/bundle
+    command: bash -c "rm -f tmp/pids/server.pid &amp;&amp; bin/rails tailwindcss:watch &amp;&amp; rails server -b '0.0.0.0'"
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://dev:password@db
+      BUNDLE_PATH:  /bundle
+    depends_on:
+      - db
 </code></pre></div></div>
 
 <h2 id="file-dockerfile">File: Dockerfile</h2>
@@ -93,13 +87,13 @@ cd docker-bootstrap-rails-master
 </code></pre></div></div>
 
 <h2 id="file-gemfile">File: Gemfile</h2>
-<pre><code class="language-Gemfile">source "https://rubygems.org"
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">source</span> <span class="s2">"https://rubygems.org"</span>
 
-ruby "3.1.1"
+<span class="n">ruby</span> <span class="s2">"3.1.1"</span>
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~&gt; 7.0.2", "&gt;= 7.0.2.3"
-</code></pre>
+<span class="c1"># Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"</span>
+<span class="n">gem</span> <span class="s2">"rails"</span><span class="p">,</span> <span class="s2">"~&gt; 7.0.2"</span><span class="p">,</span> <span class="s2">"&gt;= 7.0.2.3"</span>
+</code></pre></div></div>
 
 <h2 id="file-bootstrap">File: bootstrap</h2>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>

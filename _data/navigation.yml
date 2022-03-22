@@ -3,13 +3,13 @@ main:
     url: /rails/2022/03/21/docker-on-rails7.html
   - title: "Posts"
     url: /
-  - title: "Tags"
-    url: /tags/
-  - title: "Pages"
-    url: /page-archive/
-  - title: "Collections"
-    url: /collection-archive/
-  - title: "Feed"
-    url: /feed.xml
+  # - title: "Tags"
+  #   url: /tags/
+  # - title: "Pages"
+  #   url: /page-archive/
+  # - title: "Collections"
+  #   url: /collection-archive/
+  # - title: "Feed"
+  #   url: /feed.xml
   # - title: "External Link"
   #   url: https://google.com

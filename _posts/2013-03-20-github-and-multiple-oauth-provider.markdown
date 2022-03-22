@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: posts
 title: "github and multiple oauth provider"
 date: 2013-03-20 08:01
 comments: true

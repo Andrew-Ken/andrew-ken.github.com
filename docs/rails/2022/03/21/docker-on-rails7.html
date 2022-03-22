@@ -92,7 +92,7 @@
 
   </head>
 
-  <body class="layout--home landing dark-theme">
+  <body class="layout--single landing dark-theme">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -120,14 +120,6 @@
               <a href="/rails/2022/03/21/docker-on-rails7.html">Quick-Start Rails 7</a>
             </li><li class="masthead__menu-item">
               <a href="/">Posts</a>
-            </li><li class="masthead__menu-item">
-              <a href="/tags/">Tags</a>
-            </li><li class="masthead__menu-item">
-              <a href="/page-archive/">Pages</a>
-            </li><li class="masthead__menu-item">
-              <a href="/collection-archive/">Collections</a>
-            </li><li class="masthead__menu-item">
-              <a href="/feed.xml">Feed</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -259,88 +251,123 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Docker on Rails 7">
+    <meta itemprop="description" content="  Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!">
+    <meta itemprop="datePublished" content="2022-03-21T18:27:36+00:00">
     
-      <h1 id="page-title" class="page__title">Docker on Rails 7</h1>
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Docker on Rails 7
+</h1>
+          
+
+  <p class="page__meta">
     
-    <ul>
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-cog"></i> Contents</h4></header>
+              <ul class="toc__menu"><li><a href="#requirements">Requirements</a></li><li><a href="#get-started">Get started</a></li><li><a href="#rename-this-folder-if-needed">Rename this folder if needed</a><ul><li><a href="#file-dockerfile">File: Dockerfile</a></li><li><a href="#file-gemfile">File: Gemfile</a></li><li><a href="#file-bootstrap">File: bootstrap</a></li><li><a href="#file-dockerignore">File: .dockerignore</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <ul>
   <li>Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!</li>
 </ul>
 
 <p><a href="https://github.com/andrewsheelan/docker-bootstrap-rails">Source Code</a></p>
 
-<h1 id="requirements">Requirements:</h1>
+<h1 id="requirements">Requirements</h1>
 <ul>
   <li>docker</li>
   <li>docker-compose</li>
   <li>Mac (kidding.. tested on a mac, let me know if it doesnt work for you)</li>
 </ul>
 
-<h1 id="download-repo-and-run-using-command">Download repo and run using command:</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; 
-   unzip -d . /tmp/z.$$ &amp;&amp;
-   rm /tmp/z.$$
-cd docker-bootstrap-rails-master
-./bootstrap
+<h1 id="get-started">Get started</h1>
+
+<ul>
+  <li>On unix/Mac
+```
+wget -O /tmp/z.\(https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; 
+ unzip -d . /tmp/z.\) &amp;&amp;
+ rm /tmp/z.$$</li>
+</ul>
+
+<h1 id="rename-this-folder-if-needed">Rename this folder if needed</h1>
+<p>cd docker-bootstrap-rails-master</p>
+
+<p>./bootstrap</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- On a windows, clone the repository and run the following using powershell from inside the folder:
+
 </code></pre></div></div>
+<p>docker-compose run –no-deps web bundle install
+docker-compose run –no-deps web rails new . –force –database=postgresql –css tailwind
+docker-compose run web bin/rails db:create
+docker-compose up</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Goto [http://localhost:3000](http://localhost:3000)
 
-<p>Goto <a href="http://localhost:3000">http://localhost:3000</a></p>
+| File | Description |
+| --- | --- |
+| docker-compose.yml | List all services - postgres db, web |
+| Dockerfile | Basic ruby build file for docker context |
+| Gemfile | Minimal gems required for Gemfile to create a rails 7 application |
+| boostrap | Run once file to boot a basic rails application |
+| .dockerignore | Ignore tmp |
 
-<table>
-  <thead>
-    <tr>
-      <th>File</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>docker-compose.yml</td>
-      <td>List all services - postgres db, web</td>
-    </tr>
-    <tr>
-      <td>Dockerfile</td>
-      <td>Basic ruby build file for docker context</td>
-    </tr>
-    <tr>
-      <td>Gemfile</td>
-      <td>Minimal gems required for Gemfile to create a rails 7 application</td>
-    </tr>
-    <tr>
-      <td>boostrap</td>
-      <td>Run once file to boot a basic rails application</td>
-    </tr>
-    <tr>
-      <td>.dockerignore</td>
-      <td>Ignore tmp</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="file-docker-composeyml">File: docker-compose.yml</h2>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.9"</span>
-<span class="na">services</span><span class="pi">:</span>
-  <span class="na">db</span><span class="pi">:</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">./tmp/db:/var/lib/postgresql/data</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="na">POSTGRES_USER</span><span class="pi">:</span> <span class="s">dev</span>
-      <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">password</span>
-      <span class="na">POSTGRES_HOST_AUTH_METHOD</span><span class="pi">:</span> <span class="s">trust</span>
-  <span class="na">web</span><span class="pi">:</span>
-    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">.:/app</span>
-      <span class="pi">-</span> <span class="s">./tmp/bundle:/bundle</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="s">bash -c "rm -f tmp/pids/server.pid &amp;&amp; bin/rails tailwindcss:watch &amp;&amp; rails server -b '0.0.0.0'"</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="na">DATABASE_URL</span><span class="pi">:</span> <span class="s">postgres://dev:password@db</span>
-      <span class="na">BUNDLE_PATH</span><span class="pi">:</span>  <span class="s">/bundle</span>
-    <span class="na">depends_on</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">db</span>
+# Files
+## File: docker-compose.yml
+```yaml
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - ./tmp/bundle:/bundle
+    command: bash -c "rm -f tmp/pids/server.pid &amp;&amp; bin/rails tailwindcss:watch &amp;&amp; rails server -b '0.0.0.0'"
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://dev:password@db
+      BUNDLE_PATH:  /bundle
+    depends_on:
+      - db
 </code></pre></div></div>
 
 <h2 id="file-dockerfile">File: Dockerfile</h2>
@@ -358,13 +385,13 @@ cd docker-bootstrap-rails-master
 </code></pre></div></div>
 
 <h2 id="file-gemfile">File: Gemfile</h2>
-<pre><code class="language-Gemfile">source "https://rubygems.org"
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">source</span> <span class="s2">"https://rubygems.org"</span>
 
-ruby "3.1.1"
+<span class="n">ruby</span> <span class="s2">"3.1.1"</span>
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~&gt; 7.0.2", "&gt;= 7.0.2.3"
-</code></pre>
+<span class="c1"># Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"</span>
+<span class="n">gem</span> <span class="s2">"rails"</span><span class="p">,</span> <span class="s2">"~&gt; 7.0.2"</span><span class="p">,</span> <span class="s2">"&gt;= 7.0.2.3"</span>
+</code></pre></div></div>
 
 <h2 id="file-bootstrap">File: bootstrap</h2>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
@@ -389,61 +416,74 @@ docker-compose up
 /tmp/*
 </code></pre></div></div>
 
+        
+      </section>
 
-<h3 class="archive__subtitle">Recent Posts</h3>
+      <footer class="page__meta">
+        
+        
 
 
-
-
-<div class="entries-list">
   
-    
 
 
+  
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails/2022/03/21/docker-on-rails7.html" rel="permalink">Docker on Rails 7
-</a>
-      
-    </h2>
+      <a href="/categories/rails" class="page__taxonomy-item" rel="tag">rails</a>
     
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
+    </span>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">
-  Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!
+        
 
-</p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-03-21T18:27:36+00:00">March 21, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Docker+on+Rails+7%20http%3A%2F%2F0.0.0.0%3A4000%2Frails%2F2022%2F03%2F21%2Fdocker-on-rails7.html" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F0.0.0.0%3A4000%2Frails%2F2022%2F03%2F21%2Fdocker-on-rails7.html" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2F0.0.0.0%3A4000%2Frails%2F2022%2F03%2F21%2Fdocker-on-rails7.html" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/jekyll/2022/03/21/docker-for-jekyll.html" class="pagination--pager" title="Dockerize your own blog using jekyll
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
   </article>
-</div>
 
   
-    
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -480,12 +520,12 @@ docker-compose up
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -501,12 +541,12 @@ docker-compose up
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -523,12 +563,12 @@ docker-compose up
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -545,1211 +585,13 @@ docker-compose up
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2013/01/14/using-nano-as-a-editor.html" rel="permalink">Using nano as a editor
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Installing(if not available) nano for mac/ubuntu
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2013/01/04/javascript-vs-ruby-methods.html" rel="permalink">Javascript Vs Ruby methods
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">source
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/metaprogramming/dynamic/method/2012/12/21/4-ways-to-call-a-ruby-method.html" rel="permalink">4 ways to call a ruby method
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">There is 4 ways to excute ruby method. Two of them can excute private method out of self class.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/rescue/timeout/exception/2012/12/09/ruby-timeout.html" rel="permalink">ruby timeout
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">standard timeout
-require 'timeout'
-begin
-  complete_results = Timeout.timeout(1) do      
-   sleep(2)
-  end
-rescue Timeout::Error
-  puts 'Print me something ...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rspec/capybara-webkit/2012/12/09/rspec-test-failed-after-changing-to-capybara-webkit.html" rel="permalink">rspec test failed after changing to capybara-webkit
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">problem as
-written some RSpec test for my rails 3.2 application and because I was annyoed by the Browser popping up ich tried to change from firefox to capyb...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/selenium/capybara/webkit/2012/12/06/capybara-webkit-or-selenium-or-watir-to-simulate-browser-behavior.html" rel="permalink">capybara webkit or selenium or watir to simulate browser behavior
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Sometimes we want to simulate browser behavior. The situation can be test or automation script.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails3/heroku/deploy/pg/ssh/git/2012/12/02/heroku-deploy-procedure.html" rel="permalink">heroku deploy procedure
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Just keep record of the procedure to deploy heroku
-install heroku
-heroku gem(deprecated) or toolbelt
-sudo aptitude install heroku-toolbelt
-#or for ubuntu
-wge...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rvm/sudo/rvmsudo/2012/12/02/sudo-vs-rvmsudo.html" rel="permalink">Sudo vs RVMSudo
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">RVM is a great command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. 
-Thi...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/random/string/2012/11/28/generate-random-string-in-ruby.html" rel="permalink">generate random string in ruby
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Sometimes we need to generate a ‘n’ character random string.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/random/numbers/2012/11/28/generate-random-number-in-ruby.html" rel="permalink">generate random number in ruby
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Sometimes we would also need to generate x random numbers from n to m
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rvm/gcc/lion/mac/xcode/2012/11/28/install-rvm-at-mac-with-gcc-problem.html" rel="permalink">Installing rvm on a Mac - Issues With gcc
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">While installing RVM on a mac, one of the major problems we face are due to missing Xcode. We usually get the error below:
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/rake/command%20line/2012/11/28/pass-command-line-arguments-to-a-rake-task.html" rel="permalink">Passing Command Line Arguments to Rake Tasks
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Sometimes, we need to rake tasks that inserts a paticular user entered value into multiple databases.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/net/2012/11/28/using-net-to-post.html" rel="permalink">Using NET to Post API Calls With or Without Secure Connections
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Using Net module is the best and the eaiest ways to post data or make api calls
-to urls. Here’s an example
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/timestamp/strftime/strptime/2012/11/28/timestamps-strftime-vs-strptime.html" rel="permalink">Timestamps strftime vs strptime
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">###strftime###
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/md5/hmac%20sha1/2012/11/28/working-on-digests-and-signatures.html" rel="permalink">Working with Digests and Signatures
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">###MD5 digests###
-MD5 is a one-way hashing algorithm for creating digest “signatures” or checksums of strings. MD5 digests are 128 bit (16 byte) signatures. ...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails/api/configuration/2012/11/26/applying-common-filtering-for-rails-api-based-applications.html" rel="permalink">Applying Common Filtering for Rails Api Based Applications
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Sometimes there are common sets of fields and id’s that we would like the api
-to filter before sending the details to the client. It would be great if we can...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails/yml/configuration/environments/2012/11/26/initializing-custom-yml-configuration-variables-for-environments-in-rails.html" rel="permalink">Initializing Custom YML Configuration Variables for Different Environments in Rails
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Another common problem that rails developers face while developing web
-applications that connect to multiple external systems and api’s is configuring
-the th...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/extend/include/2012/11/24/extend-vs-include-in-ruby-module.html" rel="permalink">Extend vs Include in Ruby Module
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Extend vs. Include
-Modules are used for mixins, ruby’s way of handling muliple inheritance without the complications. 
-There are two ways to mixin, either in...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/operators/triple%20equal/double%20equal/2012/11/24/ruby-comparison-operators.html" rel="permalink">Ruby Comparison Operators
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">There has been lots of questions on the comparison operators. So we yanked it for you..
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/unix/ps/aux/2012/11/24/working-with-processes-in-unix.html" rel="permalink">Working with Processes in Unix
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">There are two commands heavily used by developers for checking their pocesses
-in unix.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails/actionmailer/sendmail/gmail/2012/11/24/setting-up-a-development-mailer-for-rails-with-a-gmail-account.html" rel="permalink">Setting up a development mailer for Rails with a gmail account
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Setting up the rails mailer for development purposes is much easier. using the
-action mailer to configure the gmail services, is just a few commands and
-conf...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/unix/screen/nohup/2012/11/24/using-screen-to-keep-unix-sessions-active.html" rel="permalink">using screen to keep unix sessions active
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">In Unix, what is screen, and how do I use it?
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/unix/nohup/screen/2012/11/24/using-nohup-to-prevent-processes-stopping-on-disconnect.html" rel="permalink">Using nohup to prevent processes stopping on disconnect
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">nohup is an unix command which prevents “hangups on logout” which also means that if you decide you need to logoff the from the session with the server, the ...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/object/metaprogramming/2012/11/20/understand-ruby-object-model.html" rel="permalink">Understanding Ruby Object Model
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-  classes store methods
-
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/pry/rails%20console/irb/2012/11/20/binding-pry-to-rails-console.html" rel="permalink">binding pry to rails console
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Add the following lines to make the rails console to use pry. make sure that
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/syntax/switch%20case/operators/2012/11/20/cases-and-switches-in-ruby.html" rel="permalink">cases and switches in ruby
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">One of the common questions that we get about people coming from other
-programing languages is with the way switch cases work in ruby.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails/console/pry/2012/11/15/debugging-using-pry.html" rel="permalink">Debugging using pry
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Add the following gems to the Gemfile and bundle install
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/mac/hostname/2012/11/15/change-computer-slash-host-name-mac-osx.html" rel="permalink">Change Computer/Host Name Mac OsX
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">One of the most common problems that we come across is when the programmer tries to
-setup the Mac OS X - name/hostname for the computer, since it takes up mo...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/deployment/rails/2012/11/15/setting-up-heroku.html" rel="permalink">Setting up Heroku
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">##Here are the steps to push a rails project to Heroku##
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rvm/ruby/rails/2012/11/15/rvm-setup-and-environments.html" rel="permalink">RVM Setup and Environments
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">RVM is the Ruby environment manager. Here are some of the commonly used
-commands.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails/activerecord/deligate/2012/11/14/using-deligate-in-activerecord-to-avoid-dots.html" rel="permalink">Using Deligate in ActiveRecord to avoid dots
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">##Adding deligate method in the model##
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rspec/cucumber/rails/tableish/2012/11/14/setting-up-rspec-and-cucumber.html" rel="permalink">Setting up RSpec and Cucumber
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">##Including RSpec in your code:##
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/macvim/dotvim/2012/11/13/configuring-mac-vim-for-programming.html" rel="permalink">Configuring Mac Vim for Programming
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-  Download and install the latest mvim from
-
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/git/alias/2012/11/13/git-alias.html" rel="permalink">Git alias
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Following are some of the common git aliases, people use. Add them to ~/.bash_profile
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/mac/gcc/homebrew/ruby%20gems/2012/11/12/mountain-lion-and-homebrew.html" rel="permalink">Mountain Lion and Homebrew
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">SOURCE
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/mac/gcc/ruby%20gems/2012/11/12/gcc-command-line-tools.html" rel="permalink">GCC command line tools
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">When the bundling gems fail in Mac OS X, Download the latest GCC standalone file from the link below:
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/regular%20expressions/2012/11/12/learning-regular-expressions.html" rel="permalink">Learning regular expressions
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Learning Regular expressions require regular practice. Here are a few ways to practice:
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rails3/2012/11/12/how-to-use-observer-and-call-back.html" rel="permalink">how to use observer and call back
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-  Add configuration
-
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/mac/bash/ipfw/2012/11/09/how-to-proxy-a-domain-as-local.html" rel="permalink">How to proxy a domain to localhost
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-  STEP 1:
-
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/rails/rails3/questions/interview/2012/08/04/some-ruby-on-rails-interview-questions.html" rel="permalink">some ruby on rails interview questions
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">what’s N+1 problem, how to solve the problem
-```ruby
-clients = Client.limit(10)
-
-clients.each do |client|
-  puts client.address.postcode
-end
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/octopress/syntax/2012/04/20/octopress-no-lexer-error.html" rel="permalink">octopress no lexer error
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">just got error
-
-  /Users/ken/.rvm/gems/ruby-1.9.3-p327/gems/rubypython-0.5.3/lib/rubypython/rubypyproxy.rb:198:in `method_missing’: ClassNotFound: no lexer f...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/block/retry/rescue/2011/12/26/retry-and-retry-code-blocks.html" rel="permalink">retry and retry code blocks
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">simple way to rescue and retry several
-tries = 0
-begin
-  # some routine
-rescue
-  tries += 1
-  retry if tries &lt;= 3
-  puts "no dice!"
-end
-#or
-3.times do
-  b...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/rspec/headless/xserver/capybara-webkit/xvfb/2011/11/06/webkit-and-rspec-without-x-server.html" rel="permalink">webkit and rspec without x server
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">capybara-webkit
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/selenium-webdriver/rspec/2011/10/26/ruby-selenium-webdriver-watir-webdriver.html" rel="permalink">ruby selenium-webdriver watir-webdriver
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">There are many other Selenium gems out there, but this is the only official, maintained gem. If you’re looking for a slightly higher level API built on the s...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/class/dynamic/metaprogramming/2011/02/02/create-ruby-dynamic-class.html" rel="permalink">create ruby dynamic class
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">```ruby
-dynamic_name = “TestEval2”
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/metaprogramming/class_eval/instance_eval/2010/07/20/basic-metaprogramming-ruby-class-eval-and-instance-eval.html" rel="permalink">basic metaprogramming ruby class_eval and instance_eval
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">```ruby
-class A
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/git/revert/2010/05/22/how-to-revert-git-commit-remote.html" rel="permalink">how to revert git commit remote
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">First, There are serveral revert situation:
-Local:
-# this will detach your HEAD, i.e. leave you with no branch checked out.
-git checkout 0d1d7fc32
-git checko...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/algorithm/ruby/2010/04/11/happy-number-and-prime.html" rel="permalink">happy number and prime
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">A happy number is defined by the following process. Starting with any positive integer, replace the number by the sum of the squares of its digits, and repea...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/algorithm/ruby/2010/04/10/triangle-problem.html" rel="permalink">triangle problem
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ruby/extend/include/metaprogram/2010/03/25/learn-by-practice-extend-and-include.html" rel="permalink">learn by practice extend and include
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Here is some examples to help understand extend and include
-```ruby
-module M_A
-  def test
-    puts true
-  end
-end
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/cmd/shell/2010/02/18/some-command-line-tools.html" rel="permalink">some command line tools
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">Some frequently use:
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/git/submodule/2010/01/31/how-to-use-submodule-brief-instruction.html" rel="permalink">how to use submodule brief instruction
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">```ruby
-get the submodule initially
-git submodule add ssh://bla submodule_dir
-git submodule init
-</p>
-  </article>
-</div>
-
   
 </div>
 
-
-
-
-  </div>
-</div>
     </div>
 
     

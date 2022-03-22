@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 classes:
   - landing
   - dark-theme
@@ -12,23 +12,42 @@ share: true
 related: true
 author: Andrew Paliyan
 categories: [rails]
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
+toc_sticky: true
 ---
+
 - Simple dev bootstrap rails with docker-compose. You'll be up and running as quickly as 1..2...3!
 
 [Source Code](https://github.com/andrewsheelan/docker-bootstrap-rails)
 
-# Requirements:
+# Requirements
 - docker
 - docker-compose
 - Mac (kidding.. tested on a mac, let me know if it doesnt work for you)
 
-# Download repo and run using command:
+# Get started
+
+- On unix/Mac
 ```
 wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip && 
    unzip -d . /tmp/z.$$ &&
    rm /tmp/z.$$
+
+# Rename this folder if needed
 cd docker-bootstrap-rails-master
+
 ./bootstrap
+```
+
+- On a windows, clone the repository and run the following using powershell from inside the folder:
+
+```
+docker-compose run --no-deps web bundle install
+docker-compose run --no-deps web rails new . --force --database=postgresql --css tailwind
+docker-compose run web bin/rails db:create
+docker-compose up
 ```
 
 Goto [http://localhost:3000](http://localhost:3000)
@@ -41,7 +60,7 @@ Goto [http://localhost:3000](http://localhost:3000)
 | boostrap | Run once file to boot a basic rails application |
 | .dockerignore | Ignore tmp |
 
-
+# Files
 ## File: docker-compose.yml
 ```yaml
 version: "3.9"
@@ -85,7 +104,7 @@ CMD ["rails", "server", "-b", "0.0.0.0"]
 ```
 
 ## File: Gemfile
-```Gemfile
+```ruby
 source "https://rubygems.org"
 
 ruby "3.1.1"

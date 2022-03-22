@@ -336,7 +336,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Docker on Rails 7",
-        "excerpt":"Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3! Source Code Requirements: docker docker-compose Mac (kidding.. tested on a mac, let me know if it doesnt work for you) Download repo and run using command: wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; unzip -d . /tmp/z.$$...","categories": ["rails"],
+        "excerpt":"Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3! Source Code Requirements docker docker-compose Mac (kidding.. tested on a mac, let me know if it doesnt work for you) Get started On unix/Mac ``` wget -O /tmp/z.\\(https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip &amp;&amp; unzip -d . /tmp/z.\\) &amp;&amp; rm...","categories": ["rails"],
         "tags": [],
         "url": "/rails/2022/03/21/docker-on-rails7.html",
         "teaser": null
