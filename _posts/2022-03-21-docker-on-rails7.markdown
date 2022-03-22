@@ -29,7 +29,8 @@ toc_sticky: true
 
 # Get started
 
-- On unix/Mac
+## Unix/Mac
+
 ```
 wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-rails/archive/refs/heads/master.zip && 
    unzip -d . /tmp/z.$$ &&
@@ -41,7 +42,10 @@ cd docker-bootstrap-rails-master
 ./bootstrap
 ```
 
-- On a windows, clone the repository and run the following using powershell from inside the folder:
+
+## windows
+
+- clone the repository and run the following using powershell from inside the folder:
 
 ```
 docker-compose run --no-deps web bundle install
@@ -52,6 +56,8 @@ docker-compose up
 
 Goto [http://localhost:3000](http://localhost:3000)
 
+# Files
+
 | File | Description |
 | --- | --- |
 | docker-compose.yml | List all services - postgres db, web |
@@ -60,8 +66,7 @@ Goto [http://localhost:3000](http://localhost:3000)
 | boostrap | Run once file to boot a basic rails application |
 | .dockerignore | Ignore tmp |
 
-# Files
-## File: docker-compose.yml
+## docker-compose.yml
 ```yaml
 version: "3.9"
 services:
@@ -88,7 +93,7 @@ services:
       - db
 ```
 
-## File: Dockerfile
+## Dockerfile
 ```Dockerfile
 FROM ruby:3.1.1
 WORKDIR /app
@@ -103,7 +108,7 @@ EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
 ```
 
-## File: Gemfile
+## Gemfile
 ```ruby
 source "https://rubygems.org"
 
@@ -113,7 +118,7 @@ ruby "3.1.1"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 ```
 
-## File: bootstrap
+## bootstrap
 ```bash
 #!/bin/bash
 
@@ -132,7 +137,7 @@ rm bootstrap
 docker-compose up
 ```
 
-## File: .dockerignore
+## .dockerignore
 ```
 # Ignore tmp
 /tmp/*
