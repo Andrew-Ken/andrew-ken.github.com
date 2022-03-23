@@ -20,7 +20,7 @@ toc_sticky: true
 
 - Simple dev bootstrap rails with docker-compose. You'll be up and running as quickly as 1..2...3!
 
-[Source Code](https://github.com/andrewsheelan/docker-bootstrap-rails)
+[ [Source Code](https://github.com/andrewsheelan/docker-bootstrap-rails) ]
 
 # Requirements
 - docker
@@ -66,8 +66,11 @@ Goto [http://localhost:3000](http://localhost:3000)
 | Gemfile | Minimal gems required for Gemfile to create a rails 7 application |
 | boostrap | Run once file to boot a basic rails application |
 | .dockerignore | Ignore tmp |
+| bin/docker.dev | Loads Procfile.docker.dev instead of Procfile.dev (copy of dev but without altering the original file)|
+| Procfile.docker.dev | Allows 0.0.0.0 host and removes any previous pids on server start |
 
 ## docker-compose.yml
+
 ```yaml
 version: "3.9"
 services:
@@ -84,7 +87,7 @@ services:
     volumes:
       - .:/app
       - ./tmp/bundle:/bundle
-    command: bash -c "rm -f tmp/pids/server.pid && bin/rails tailwindcss:watch && rails server -b '0.0.0.0'"
+    command: bin/docker.dev
     ports:
       - "3000:3000"
     environment:
@@ -92,9 +95,12 @@ services:
       BUNDLE_PATH:  /bundle
     depends_on:
       - db
+    # tty: true
+    stdin_open: true
 ```
 
 ## Dockerfile
+
 ```Dockerfile
 FROM ruby:3.1.1
 WORKDIR /app
@@ -110,6 +116,7 @@ CMD ["rails", "server", "-b", "0.0.0.0"]
 ```
 
 ## Gemfile
+
 ```ruby
 source "https://rubygems.org"
 
@@ -120,6 +127,7 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 ```
 
 ## bootstrap
+
 ```bash
 #!/bin/bash
 
@@ -146,7 +154,29 @@ docker-compose up
 ```
 
 ## .dockerignore
+
 ```
 # Ignore tmp
 /tmp/*
+```
+
+## bin/docker.dev
+
+```
+#!/usr/bin/env bash
+
+if ! command -v foreman &> /dev/null
+then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+foreman start -f Procfile.docker.dev
+```
+
+## Procfile.docker.dev
+
+```
+web: bash -c "rm -f tmp/pids/server.pid && rails server -b '0.0.0.0' -p 3000"
+css: bin/rails tailwindcss:watch
 ```

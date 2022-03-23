@@ -276,7 +276,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -291,7 +291,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-cog"></i> Contents</h4></header>
-              <ul class="toc__menu"><li><a href="#requirements">Requirements</a></li><li><a href="#get-started">Get started</a><ul><li><a href="#unixmac">Unix/Mac</a></li><li><a href="#windows">windows</a></li></ul></li><li><a href="#files">Files</a><ul><li><a href="#docker-composeyml">docker-compose.yml</a></li><li><a href="#dockerfile">Dockerfile</a></li><li><a href="#gemfile">Gemfile</a></li><li><a href="#bootstrap">bootstrap</a></li><li><a href="#dockerignore">.dockerignore</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#requirements">Requirements</a></li><li><a href="#get-started">Get started</a><ul><li><a href="#unixmac">Unix/Mac</a></li><li><a href="#windows">windows</a></li></ul></li><li><a href="#files">Files</a><ul><li><a href="#docker-composeyml">docker-compose.yml</a></li><li><a href="#dockerfile">Dockerfile</a></li><li><a href="#gemfile">Gemfile</a></li><li><a href="#bootstrap">bootstrap</a></li><li><a href="#dockerignore">.dockerignore</a></li><li><a href="#bindockerdev">bin/docker.dev</a></li><li><a href="#procfiledockerdev">Procfile.docker.dev</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -300,7 +300,7 @@
   <li>Simple dev bootstrap rails with docker-compose. You’ll be up and running as quickly as 1..2…3!</li>
 </ul>
 
-<p><a href="https://github.com/andrewsheelan/docker-bootstrap-rails">Source Code</a></p>
+<p>[ <a href="https://github.com/andrewsheelan/docker-bootstrap-rails">Source Code</a> ]</p>
 
 <h1 id="requirements">Requirements</h1>
 <ul>
@@ -368,10 +368,19 @@ docker-compose up
       <td>.dockerignore</td>
       <td>Ignore tmp</td>
     </tr>
+    <tr>
+      <td>bin/docker.dev</td>
+      <td>Loads Procfile.docker.dev instead of Procfile.dev (copy of dev but without altering the original file)</td>
+    </tr>
+    <tr>
+      <td>Procfile.docker.dev</td>
+      <td>Allows 0.0.0.0 host and removes any previous pids on server start</td>
+    </tr>
   </tbody>
 </table>
 
 <h2 id="docker-composeyml">docker-compose.yml</h2>
+
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.9"</span>
 <span class="na">services</span><span class="pi">:</span>
   <span class="na">db</span><span class="pi">:</span>
@@ -387,7 +396,7 @@ docker-compose up
     <span class="na">volumes</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">.:/app</span>
       <span class="pi">-</span> <span class="s">./tmp/bundle:/bundle</span>
-    <span class="na">command</span><span class="pi">:</span> <span class="s">bash -c "rm -f tmp/pids/server.pid &amp;&amp; bin/rails tailwindcss:watch &amp;&amp; rails server -b '0.0.0.0'"</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">bin/docker.dev</span>
     <span class="na">ports</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
     <span class="na">environment</span><span class="pi">:</span>
@@ -395,9 +404,12 @@ docker-compose up
       <span class="na">BUNDLE_PATH</span><span class="pi">:</span>  <span class="s">/bundle</span>
     <span class="na">depends_on</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">db</span>
+    <span class="c1"># tty: true</span>
+    <span class="na">stdin_open</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre></div></div>
 
 <h2 id="dockerfile">Dockerfile</h2>
+
 <div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> ruby:3.1.1</span>
 <span class="k">WORKDIR</span><span class="s"> /app</span>
 
@@ -412,6 +424,7 @@ docker-compose up
 </code></pre></div></div>
 
 <h2 id="gemfile">Gemfile</h2>
+
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">source</span> <span class="s2">"https://rubygems.org"</span>
 
 <span class="n">ruby</span> <span class="s2">"3.1.1"</span>
@@ -421,6 +434,7 @@ docker-compose up
 </code></pre></div></div>
 
 <h2 id="bootstrap">bootstrap</h2>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
 <span class="c"># clone the repo and run:</span>
@@ -446,8 +460,28 @@ docker-compose up
 </code></pre></div></div>
 
 <h2 id="dockerignore">.dockerignore</h2>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ignore tmp
 /tmp/*
+</code></pre></div></div>
+
+<h2 id="bindockerdev">bin/docker.dev</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/bin/env bash
+
+if ! command -v foreman &amp;&gt; /dev/null
+then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+foreman start -f Procfile.docker.dev
+</code></pre></div></div>
+
+<h2 id="procfiledockerdev">Procfile.docker.dev</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>web: bash -c "rm -f tmp/pids/server.pid &amp;&amp; rails server -b '0.0.0.0' -p 3000"
+css: bin/rails tailwindcss:watch
 </code></pre></div></div>
 
         
